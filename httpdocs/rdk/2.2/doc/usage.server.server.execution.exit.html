@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+
+<HTML>
+<HEAD>
+    <meta http-equiv="Content-Language" content="de">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Roblet®-Development-Kit - Einsatz - Roblet®-Server - Server
+        - Ausführung - Rückgabewerte</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.html"  target=_top>Roblet®-Server</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.server.html"  target=_top>Server</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.server.server.execution.html"  target=_top>Ausführung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.server.server.execution.overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.server.server.execution.simple.html"  target=_top>Einfach</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.server.execution.modules.html"  target=_top>Module</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.server.execution.properties.html"  target=_top>Eigenschaften</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_5"><A  href="usage.server.server.execution.exit.html"  target=_top>Rückgabewerte</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Rückgabewerte
+</H1><DIV  id="content">
+
+<P>
+    Als Java™-Programm kann der Roblet®-Server Rückgabewerte passend zur
+    Situation zu seinem Ende erzeugen.&nbsp;
+    Normalerweise wird <TT>0</TT> zurückgeben, um zu signalisieren, daß bei
+    der Ausführung kein Fehler auftrat, der ihn Zwang, zu enden.
+</P>
+
+<P>
+    Läuft der Server jedoch in eine Sitation, die ihn dazu bringt, sich selbst
+    zu beenden, so gibt er das über Rückgabewerte ungleich <TT>0</TT>
+    bekannt.&nbsp;
+    Nachfolgend die Liste möglicher Fehlernummern:
+</P>
+
+<UL>
+    <LI><TT>0</TT> - kein Fehler.</LI>
+    <LI><TT>1</TT> - der Wert zu
+        <A href="usage.server.server.execution.properties.html#port"
+            ><TT>genRob.genControl.port</TT></A>
+        konnte nicht sinnvoll interpretiert werden.&nbsp;
+        Möglicherweise liegt ein Schreibfehler vor.
+    </LI>
+    <LI><TT>2</TT> - das in der Fehlermeldung angegebene Modul konnte nicht
+        geladen werden.&nbsp;
+        Möglicherweise liegt ein Schreibfehler vor oder benötigte Klassen
+        können nicht geladen werden.
+    </LI>
+    <LI><TT>3</TT> - das in der Fehlermeldung angegebene Modul konnte nicht
+        instanziiert werden.&nbsp;
+        Es könnte ein Implementierungsfehler vorliegen.
+    </LI>
+    <LI><TT>4</TT> - das in der Fehlermeldung angegebene Modul hat keinen
+        bekannten Typ.&nbsp;
+        Es werden nur Module vom Typ
+        <A href="mod/genRob/genControl/modules/Module.html"
+            >genRob.genControl.modules.Modul</A>
+        und
+        <A href="mod/genRob/genControl/modules/Module2.html"
+            >genRob.genControl.modules.Modul2</A>
+        verarbeitet.
+    </LI>
+    <LI><TT>10</TT> - am vermittels
+        <A href="usage.server.server.execution.properties.html#port"
+            ><TT>genRob.genControl.port</TT></A>
+        angegebenen Port konnte nicht gelauscht werden.&nbsp;
+        Möglicherweise ist das Port schon in Benutzung.
+    </LI>
+    <LI><TT>11</TT> - für den lokalen Rechner läßt sich keine IP-Adresse
+        ermitteln.&nbsp;
+        Der Host hat entweder keinen TCP/IP installiert oder die lokalen
+        Netzwerkkarten wurden gerade rekonfiguriert.
+    </LI>
+    <LI><TT>12</TT> - ein Modul meldet beim Initialisieren einen Fehler.</LI>
+    <LI><TT>13</TT> - der interne Roblet-Klient konnte nicht erfolgreich
+        initialisiert werden.</LI>
+</UL>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2015 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 30.12.2015 um 02:16:58.946 UTC mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+</HTML>

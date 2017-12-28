@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>roblet®.org - Technik - Übersicht - Einheiten</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="index.html"  target=_top><IMG  src="../home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>Home</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="technique.html"  target=_top>Technik</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="technique.abstract.html"  target=_top>Übersicht</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="technique.abstract.units.html"  target=_top>Einheiten</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="technique.abstract.directories.html"  target=_top>Verzeichnisse</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="technique.abstract.proxies.html"  target=_top>Vertreter</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="technique.abstract.future.html"  target=_top>Zukunft</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_5"><A  href="technique.abstract.faq.html"  target=_top>FAQ</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Einheiten
+</H1><DIV  id="content">
+
+<P>
+    Mit Hilfe von <B>Einheiten</B> werden im Rahmen der Roblet®-Technik alle
+    möglichen von einem Roblet®-Server verwalteten Ressourcen
+    dargestellt.&nbsp;
+    Auf der Ebene eines Roblets® wird nur mit Einheiten gearbeitet.&nbsp;
+    Der Roblet®-Server arbeitet hingegen prinzipiell mit Modulen und
+    vermittelt nur Roblet®-Zugriffe auf Einheiten hin zu den Modulen.&nbsp;
+    Die Module sind letztlich die eigentlichen Verwalter einer jeweiligen
+    Ressource.
+
+    <CENTER>
+        <IMG  src="technique.abstract.units.jpg"  border=1><BR>
+        <SMALL>
+            E-Def = Einheiten-Definition<BR>
+            E-Impl = Einheiten-Implementierung
+        </SMALL>
+    </CENTER>
+</P>
+
+<P>
+    <B>Ressourcen</B> sind dabei alles erdenkliche:&nbsp;
+    Dateien, ganze Dateisysteme, Kommunikationsverbindungen, Datenbanken,
+    SAP-Systeme, Motoren, Schalter, Audio-Geräte, Ultraschall-Sensoren,
+    GPS-Empfänger - alles, was man von einem normalen Computer(-Programm) aus
+    ansteuern oder abfragen kann.&nbsp;
+    Der Begriff <I>Ressource</I> wird auch verwendet, wenn es sich um eine
+    Funktionalität handelt, die auf grundlegenderen Ressourcen basiert und
+    die neue Ressource dann eigentlich Logik plus grundlegende Ressourcen
+    darstellt.&nbsp;
+    Auch können beide dieser Formen parallel über Einheiten bereitgestellt
+    werden.
+</P>
+
+<P>
+    Die Definition eines Ressourcen-Zugriffs, seine Implementierung und die
+    Zuordnung zur Laufzeit (eines Roblets®) geschehen vollständig mit
+    objektorientierten Mitteln.&nbsp;
+    Dabei wird eine Einheit <B>definiert</B>, indem einfach eine
+    Java™-Schnittstelle (<TT>interface</TT>-Klasse) bereitgestellt wird.&nbsp;
+    Die <TT>class</TT>-Dateien einer Einheiten-Definition werden meist in einem
+    Java™-Archiv (JAR-Datei) zusammengefaßt und zuzüglich einer Dokumentation,
+    meist per Javadoc, an die zukünftigen Nutzer herausgegeben.&nbsp;
+    Ein derartiges Java™-Archiv wird dann <I>Einheiten-Bibliothek</I>
+    genannt.&nbsp;
+    Nach Herausgabe bleibt eine solche Definition sinnvollerweise ungeändert -
+    kann jedoch erweitert werden.&nbsp;
+    Die Einheiten-Bibliothek wird von den Roblets® und von den implementierenden
+    Modulen (s.u.) verwendet.
+</P>
+
+<P>
+    Zur <B>Implementierung</B> einer Einheit implementiert (<TT>implements</TT>)
+    eine Java™-Klasse (<TT>class</TT>-Klasse) die jeweilige Definition.&nbsp;
+    Diese Klasse kann dann alle möglichen Mittel bemühen, um die jeweilige
+    Ressource tatsächlich zu verwalten.&nbsp;
+    Verwaltung bedeutet Zugriff, Synchronisation von Parallelitäten,
+    Bereitstellung von Exklusivitäten und anderes mehr.&nbsp;
+    Module und die innenliegenden Einheiten-Implementierungen haben dabei
+    freien Zugriff auf die Java™-Bibliotheken, die Erweiterungen und alles,
+    was auf dem Klassenpfad liegt.&nbsp;
+    Das ermöglicht z.B. Netzwerkzugriffe für eine Datenbankanbindung oder
+    die Nutzung von JNI (Java™ Native Interface) zur Anbindung von
+    C++-Bibliotheken.&nbsp;
+    In C++-Bibliotheken lassen sich bei Bedarf auch echtzeitkritische Arbeiten
+    durchführen, die in Java™ allein meist undenkbar wären.&nbsp;
+    Zur Einbettung in den Roblet®-Server wird diese Implementierung in ein
+    <B>Modul</B> verpackt.&nbsp;
+    Es können in einem Module mehrere verschiedene Einheiten implementiert
+    sein.&nbsp;
+    Ein <B>Roblet®-Server</B> kann mehrere Module verwalten.
+</P>
+
+<P>
+    Ein <B>Roblet®</B> bekommt Zugriff auf eine Ressource, indem es den
+    <B>Roblet®-Server</B> dazu auffordert.&nbsp;
+    Dafür muß die zugehörige Einheiten-<I>Definition</I> an den Server übergeben
+    werden, der damit seinerseits an die Module herantritt und diese auffordert,
+    die Instanz einer Einheiten-<I>Implementierung</I> zurückzugeben.&nbsp;
+    Die Einheiten-Definition wird in Form der <TT>interface</TT>-Klasse
+    übergeben, was eine Typ-Prüfung schon zur Zeit der Kompilation
+    ermöglicht.&nbsp;
+    So ist dann ganz sicher, was ein Roblet® will und was ein Modul zu liefern
+    hat.&nbsp;
+    Findet sich im Server kein Modul, welches eine passende
+    Einheiten-Implementierung hat, so gibt der Roblet®-Server
+    <TT>null</TT>, d.h. keine Instanz, an das Roblet® zurück.&nbsp;
+    Mit Hilfe dieser Mechanik kann ein Roblet® daher auch untersuchen, ob
+    ein Roblet®-Server (mit seinen Modulen) eine bestimmte Ressource verwaltet
+    oder nicht.&nbsp;
+    Davon ausgehend können beliebige weitere Entscheidungen im Roblet® getroffen
+    werden.&nbsp;
+    Der Untersuchungsmechanismus umfaßt implizit ein Versionierungssystem,
+    weil so auf einfachste Weise verschiedene Generationen von Roblets®
+    (bzw. sendenden Anwendungen) verschiedene Versionen von Einheiten
+    verwenden können.&nbsp;
+    Einheiten selbst werden nicht wirklich versioniert, sondern stattdessen
+    wird bei Bedarf jeweils eine neue definiert, die dann natürlich ähnlich
+    heißen kann (z.B. mit angehängter Nummer) und an die jeweilige Vorgängerin
+    inhaltlich angelehnt ist.
+</P>
+
+<A name="server"></A>
+<P>
+    Auch der <B>Roblet®-Server</B> stellt den Roblets® gewisse Ressourcen, wie
+    etwa das Logging, in Form von Einheiten zur Verfügung.&nbsp;
+    Ein Roblet® kommuniziert mit dem Server nur über Einheiten.&nbsp;
+    Die Einheiten-Definitionen der vom Server (ohne weitere Module)
+    bereitgestellten Ressourcen werden <I>Server-Einheiten</I> genannt und
+    sind inklusive Dokumentation im
+    <A href="../rdk/index.html">Roblet®-Development-Kit (RDK)</A> zu finden.
+</P>
+
+<P>
+    Definition und Implementierung einer Einheit müssen nicht immer aus einer
+    Hand kommen.&nbsp;
+    Es ist durchaus möglich, daß die Definition für eine Ressource z.B. in
+    einem Gremium erfolgt, dem mehrere Hersteller der Ressource und weitere
+    Personen und Organisationen angehören.&nbsp;
+    Jeder Hersteller erstellt dann für seine Variante der Ressource eine
+    eigene passende Implementierung und muß nur darauf achten, daß die
+    Definition eingehalten wird und braucht im Grunde auch keine weitere
+    Dokumentation liefern.&nbsp;
+    Dadurch entsteht für die Entwicklung von Roblet®-Anwendungen der
+    wünschenswerte Effekt der Unabhängigkeit vom Ressource-Hersteller.&nbsp;
+    Ein Hersteller kann natürlich für die jeweilige Ressource auch erweiternde
+    eigene Einheiten anbieten, aber die wären dann wieder Hersteller-abhängig
+    aus Sicht der Roblet®-Anwendung.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2015 roblet®.org, Hagen Stanek</DIV><DIV  id="footer_right"><A  href="contact.html">Kontakt</A></DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 15.05.2015 mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

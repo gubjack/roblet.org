@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>genRob®-genControl - Benutzung - Entwicklung</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://genRob.com"  target=_top><IMG  src="LogoTextSmall.jpeg"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>genControl</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Benutzung</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.development.html"  target=_top>Entwicklung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.development.architecture.html"  target=_top>Architektur</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.development.sample.html"  target=_top>Beispiel</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="modules/index.html"  target=_top>Javadoc</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+<H1>Entwicklung
+</H1><DIV  id="content">
+
+<P>
+    In diesem Kapitel wird die <B>Entwicklung von Modulen</B> unter Nutzung der
+    im <A href="overview.html">Überblick</A> aufgezeigten
+    <I>Modul-Schnittstelle</I> erläutert.&nbsp;
+    Auf die Entwicklung von <I>Roblets®</I> wird nur insoweit eingegangen, als
+    es für die Entwicklung von Modulen und ihres Verständnisses notwendig
+    ist.&nbsp;
+    Mehr zu letzterem Thema und eine Übersicht über die Roblet®-Technik ist
+    bei <A href="http://roblet.org">roblet®.org</A> zu finden.
+</P>
+
+<P>
+    Ein <I>Modul</I> ist aus Sicht des Roblet®-Servers eine Klasse, die eine
+    von ihm definierte Java™-Schnittstelle erfüllt.&nbsp;
+    Diese Schnittstelle erlaubt dem Server, daß Modul nach
+    Einheiten zu befragen bzw. von diesem Einheiten-Instanzen zu erhalten.&nbsp;
+    Ebenso teilt der Server über diese Schnittstelle einem Modul mit, wenn
+    ein Roblet® endete bzw. genauer, daß eine gewisse Einheiten-Instanz nicht
+    mehr weiter verwendet werden wird.&nbsp;
+    Auf diese Weise läßt sich für jede per Software bedienbare Ressource eine
+    Logik bereitstellen, die diese koordiniert.&nbsp;
+    Nicht direkt über die Java™-Bibliothek zugreifbare Ressourcen werden in
+    allen bekannten Fällen mit einer C/C++-Bibliothek ausgeliefert, die per
+    JNI (Java™ Native Interface) eingebunden werden kann.
+</P>
+
+<P>
+    Das Kapitel <A href="usage.development.architecture.html">Architektur</A>
+    erläutert, wie der Roblet®-Server Module verwendet sowie verbal deren
+    Konstruktion.&nbsp;
+    Das <A href="usage.development.sample.html">Beispiel</A> ermöglicht einen
+    schnellen Einstieg in die Entwicklung von Modulen.&nbsp;
+    Bei der Erstellung eines Moduls ist es empfehlenswert, mit diesem Beispiel
+    anzufangen und es passend abzuändern.
+</P>
+
+<P>
+    Die <A href="modules/index.html">Java™-Dokumentation</A> beschreibt die
+    Schnittstellen und Klassen, die bei der Entwicklung von Modulen benötigt
+    werden.&nbsp;
+    Sie ist die Referenz für Modul-Entwickler.
+</P>
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2010 genRob® GmbH, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:52.219 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.3</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+
+</HTML>

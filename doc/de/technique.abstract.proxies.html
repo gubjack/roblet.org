@@ -1,0 +1,64 @@
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>roblet®.org - Technik - Übersicht - Vertreter</TITLE>
+</HEAD>
+
+<BODY>
+
+
+<H1>Vertreter</H1>
+
+<P>
+    Vertreter können Roblet®-Server vertreten, die sich in einem fernen
+    Netz befinden.&nbsp;
+    Der Vertreter hat dabei letztlich die Aufgabe, den fernen Roblet®-Server
+    bei den lokalen
+    <A href="technique.abstract.directories.html">Verzeichnissen</A> anzumelden
+    und so den Roblet®-Anwendungen bekanntzumachen.
+
+    <CENTER>
+        <IMG  src="technique.abstract.proxies.jpg"  border=1><BR>
+        <SMALL>
+            RA = Roblet®-Anwendung<BR>
+            RS = Roblet®-Server<BR>
+            V = Vertreter<BR>
+        </SMALL>
+    </CENTER>
+</P>
+
+<P>
+    Ein Roblet®-Server ist in einem <I>fernen Netz</I>, wenn er in Bezug auf
+    andere Roblet®-Anwendungen oder -Server nicht über Verzeichnisse erreichbar
+    ist.&nbsp;
+    Das ist z.B. dann der Fall, wenn ein Roblet®-Server im "freien" Internet
+    ist.
+</P>
+
+<P>
+    Ein Vertreter ist prinzipiell eine separate Anwendung.&nbsp;
+    Er stellt sich als Roblet®-Server dar, vermittelt aber in
+    Wirklichkeit nur die Kommunikation zwischen der Roblet®-Anwendung und
+    dem fernen Roblet®-Server.&nbsp;
+    Spricht eine Roblet®-Anwendung den Vertreter an, so leitet der die Anfrage
+    einfach nur an den fernen Roblet®-Server weiter.&nbsp;
+    Dessen Antwort wird zurück an die Roblet®-Anwendung geschickt usf.&nbsp;
+    Die Roblet®-Anwendung weiß nicht, daß sie mit dem fernen Server über den
+    Vertreter spricht.
+</P>
+
+<P>
+    Es kann beliebig viele Vertreter geben.&nbsp;
+    Vertreter können auch für Server des lokalen Netzes z.B. zum Zwecke der
+    Tunnelung eingesetzt werden.&nbsp;
+    Pro Server kann es auch mehrere Vertreter geben.&nbsp;
+    Das <A href="../rdk/index.html">Roblet®-Development-Kit (RDK)</A>
+    stellt eine Vertreter-Anwendung zur Verfügung.
+</P>
+
+
+</BODY>
+
+</HTML>

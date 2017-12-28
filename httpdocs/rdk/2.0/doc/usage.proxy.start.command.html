@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+
+<HTML>
+<HEAD>
+	<META http-equiv="Content-Language" content="de">
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Roblet®-Development-Kit - Einsatz - Vertreter - Start
+        - Kommando</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.proxy.html"  target=_top>Vertreter</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.proxy.start.html"  target=_top>Start</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.proxy.start.files.html"  target=_top>Start-Dateien</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.proxy.start.command.html"  target=_top>Kommando</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.proxy.start.parameters.html"  target=_top>Parameter</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Kommando
+</H1><DIV  id="content">
+
+<P>
+    An dieser Stelle wird der Start ohne den Umweg über eine
+    <A href="usage.proxy.start.files.html">Start-Datei</A>
+    beschrieben.&nbsp;
+    Trotzdem sollten diese Dateien parallel zur Veranschaulichung des
+    folgenden benutzt werden.
+</P>
+
+<P>
+    Der Vertreter läuft als Modul unter Kontrolle des Roblet®-Servers.&nbsp;
+    Dazu muß beim Start des Servers
+    als <I>2. Argument</I> (nicht Java™-Eigenschaft!)
+    die Modul-Klasse <TT>genRob.genGate.ModuleImpl</TT> übergeben werden:
+</P>
+<PRE class="console">
+java  -classpath ...<B>org.roblet.jar</B>... ... <B>genRob.genGate.ModuleImpl</B>
+</PRE>
+
+<P>
+    Die obige Beschreibung ist nicht ausreichend.&nbsp;
+    Es kommen noch zwei notwendige Parameter für den Vertreterdienst
+    hinzu:&nbsp;
+    <A href="usage.proxy.start.parameters.html#port"
+        ><TT>genRob.genGate.port</TT></A>
+    und
+    <A href="usage.proxy.start.parameters.html#target"
+        ><TT>genRob.genGate.target</TT></A>.&nbsp;
+    Meist wird für den Roblet®-Server selbst noch mit Hilfe der
+    Java™-Eigenschaft <TT>genRob.genControl.port</TT> sein eigenes TCP-Port
+    angegeben.
+</P>
+
+<P>
+    Angenommen man möchte den Vertreterdienst des RDK, zu finden im Pfad
+    <TT>rdkpath</TT>, benutzen und an Server-TCP-Port <I>12000</I>
+    betreiben.&nbsp;
+    Dazu soll er eingehende Verbindungen auf TCP-Port <I>20000</I> erwarten
+    und diese zum Ziel-Server <I>server.dom:6000</I> weiterleiten.&nbsp;
+    Dafür ist folgendes zu schreiben
+    (hier für Windows™;&nbsp; in eine Zeile&nbsp;
+    der Klassenpfad ohne Leerzeichen):
+</P>
+
+<PRE class="console">
+java
+    -D<B>genRob.genControl.port</B>=<I>12000</I>
+    -D<B>genRob.genGate.port</B>=<I>20000</I>
+    -D<B>genRob.genGate.target</B>=<I>server.dom:6000</I>
+    -classpath <B>rdkpath\org.roblet.jar</B>
+    org.roblet.Main
+    server
+    <B>genRob.genGate.ModuleImpl</B>
+</PRE>
+
+<P>
+    Lesen Sie weitere Informationen zur
+    <A href="usage.proxy.start.parameters.html">Parametrisierung</A>
+    des Vertreter.&nbsp;
+    Mehr Informationen zu Server-bezogenen Parametern, wie die oben
+    erwähnte Server-Port-Angabe, sind in der Dokumentation des
+    <A href="usage.server.html">Roblet®-Servers</A> zu finden.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2011 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 08.01.2011 um 12:28:48.165 CET mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+</HTML>

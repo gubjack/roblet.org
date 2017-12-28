@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<HEAD>
+	<meta http-equiv="Content-Language" content="de">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>genRob®-genMediator 1.4 (17Apr10)</title>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://genRob.com"  target=_top><IMG  src="LogoTextSmall.jpeg"></A></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="index.html"  target=_top>genMediator</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="changes.html"  target=_top>Änderungen</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+<H1>genRob®-genMediator 1.4 (17Apr10)
+</H1><DIV  id="content">
+
+Willkommen!
+
+<p>
+Mit dem Paket <b>genRob®-genMediator</B> liegt
+ein Jini™-Dienstleistungs-Verzeichnisdienst vor, wie er vom
+genRob®-System benötigt wird.
+
+<p>
+So ermöglicht genRob®-genMediator, daß z.B. verschiedene Roblet®-Server
+des Typs genRob®-genControl von genRob®-genView erkannt
+und angesprochen werden können, ohne daß diese Information dem genView vorher
+bereitgestellt werden muß.
+
+<P>
+Ist Ihnen das Paket schon bekannt,
+so finden Sie unter <A href="changes.html">Änderungen</A>
+Informationen zu neuen oder angepassten Teilen.&nbsp;
+Möchten Sie nähere Informationen zu den Dateien dieses Paketes haben,
+so schauen Sie unter <A href="#content">Inhalt</A>.
+
+<p>
+Informationen zur Anwendung von
+genRob®-genMediator finden sich unter <A href="#usage">Benutzung</A>.
+
+
+<h2>Weitere Hilfe</h2>
+
+genRob®-genMediator ist nur eine Komponente des genRob®-Systems.&nbsp;
+Mehr Informationen und eine Motivation des genRob®-Systems
+sind auf der Website des <A href="http://genRob.com">genRob®-Projektes</A>
+zu finden.&nbsp;
+Weitere Komponenten lassen sich von den Seiten des
+<a href="http://genRob.com/system">genRob®-Systems</a>
+herunterladen.
+
+<p>
+Fragen und Hinweise sind sehr willkommen und können per e-Mail an
+<a href="mailto:genMediator@genRob.com">genMediator@genRob.com</a>
+geschickt werden.
+
+
+<H2>Und noch einen Dank an ...</H2>
+
+... alle Mitwirkenden - sei es durch Mitarbeit, Kritik
+oder auf andere Art.&nbsp;
+Besonders seien erwähnt Daniel Westhoff und Tim Baier.
+
+
+<hr>
+
+
+<a name="content"><h2>Inhalt</h2></a>
+
+<p>
+Das Paket umfasst folgende Teile:
+
+<ol>
+  <li>Die Komponente <a href="#genMediator">genRob®-genMediator</a>,
+  <li><a href="#jini">Sun-Jini™-Reggie, -Tools und -Browser</a>
+  		- ohne Dokumentation.
+</ol>
+
+<P>
+<small>
+Der erste Teil ist eine Komponente des genRob®-Systems.&nbsp;
+Mehr Informationen, eine Motivation der Roblet®-Architektur
+und des genRob®-Systems sind auf der Website des
+<A href="http://genRob.com">genRob®-Projektes</A> zu finden.
+</small>
+
+<p>
+<a href="#genMediator">genRob®-genMediator</a> ist der
+Verzeichnisdienst.&nbsp;
+Alle anderen Seiten dieser Dokumentation beziehen sich auf ihn.
+
+<P>
+Der zweite Teil entstammt der
+<a href="#jini">Jini™-Bibliothek</a> der Firma
+<i>Sun Microsystems</i>.&nbsp;
+Mit Hilfe dieser Bibliothek ist es möglich,
+daß z.B. genRob®-genControl-Instanzen im Netzwerk ohne vorherige Kenntnis
+ihrer Orte (<i>Host:Port</i>) gefunden werden können.
+
+
+<a name="genMediator"><h3>genRob®-genMediator</h3></a>
+
+Dies ist ein selbständiges Java™-Programm.&nbsp;
+Es bietet einen Jini™-Dienstleistungs-Verzeichnisdienst bei dem
+u.a. Roblet®-Server, wie genRob®-genControl, ihren Dienst feilbieten können.
+
+<p>
+genMediator besteht momentan aus der JAR-Datei:
+<ul>
+  <li><tt>genRob.genMediator.jar</tt>.
+</ul>
+
+<p>
+Diese JAR-Datei enthält das Java™-Programm und notwendige
+Abhängigkeiten (<tt>tools.jar</tt>, <tt>reggie.jar</tt> - s.u.).
+
+<p>Dazu kommen dann noch vier weitere Dateien:
+<ul>
+  <li><tt>genMediator.bat</tt> - eine Start-Batch-Datei
+    für Microsoft-Windows™ für genMediator,
+  <li><tt>genMediator.sh</tt> - eine Start-Script-Datei
+    für Unix/Linux-sh für genMediator,
+  <li><tt>rmid.policy</tt> - eine Sicherheits-Richtlinien-Datei
+    für den Lauf des Sun-RMID.
+  <li><tt>reggie.policy</tt> - eine Sicherheits-Richtlinien-Datei
+    für den Lauf des Sun-Reggie (Jini™-Lookup).
+</ul>
+
+<p>
+Um die Entwicklung des genRob®-Systems im Jini™-Umfeld zu
+unterstützen, wurde ein einfacher Browser beigegeben.&nbsp;
+Seine Dateien sind wie folgt:
+<ul>
+	<li><tt>browser.bat</tt> - eine Start-Batch-Datei
+		für Microsoft-Windows™,
+	<li><tt>browser.sh</tt> - eine Start-Script-Datei
+		für Unix/Linux-sh und
+	<li><tt>browser.policy</tt> - eine Sicherheits-Richtlinien-Datei
+		für den Lauf des Browsers.
+</ul>
+
+<P>
+Die <B>Dokumentation</B> besteht aus der Einstiegsdatei <TT>index.html</TT>
+im Hauptverzeichnis und allen Dateien im Unterverzeichnis <TT>docs</TT>.&nbsp;
+Die Einstiegsdatei kann mit Hilfe eines beliebigen Browsers geöffnet
+werden.&nbsp;
+Damit erschließen sich dann alle Teile der Dokumentation.&nbsp;
+Der vorliegende Text gehört dazu.
+
+
+<a name="jini"><h3>Sun-Jini™-Reggie, -Tools und -Browser</h3></a>
+
+Diese Bibliotheken werden benutzt, damit genRob®-genMediator
+einen Jini™-Verzeichnisdienst bereitstellen kann.
+
+<p>
+Folgende Dateien gehören dazu:
+<ul>
+  <li><tt>reggie.jar</tt>,
+  <li><tt>reggie-dl.jar</tt> und
+  <li><tt>tools.jar</tt>.
+</ul>
+
+<p>
+Die Dateien für den Browser sind:
+<ul>
+  <li><tt>jini-core.jar</tt>,
+  <li><tt>jini-examples-dl.jar</tt>,
+  <li><tt>jini-examples.jar</tt> und
+  <li><tt>jini-ext.jar</tt>.
+</ul>
+
+<p>
+Beigefügt wurde die Version &quot;1.2.1_001&quot; vom August 2002
+- u.U. können jedoch auch ältere oder neuere Versionen für den Betrieb
+von genRob®-genMediator benutzt werden.
+
+
+<hr>
+
+
+<a name="usage"><h2>Benutzung</h2></a>
+
+<h3>Voraussetzungen</h3>
+
+genRob®-genMediator wurde unter
+<em>&quot;Java™ 2 Platform - Standard Edition&quot;</em>
+(wie von der <a href="http://www.sun.com">Sun Microsystems, Inc., USA</a>
+spezifiziert) in der <b>Version 1.4.2</b> getestet.&nbsp;
+Eine aktuelle Version kann für verschiedene Betriebssysteme von
+<a href="http://java.sun.com/j2se/">Sun's Java™-Website</a>
+geholt werden.&nbsp;
+Für Computer der Firma Apple sind nähere Informationen
+dazu <A href="http://developer.apple.com/java">hier</A> zu finden.
+
+<p>
+Die hier erwähnten Batch- bzw. Script-Dateien erwarten, daß
+sich das <tt>bin</tt>-Verzeichnis der Java™-Installation im
+Suchpfad für Programme befindet.
+
+<h3>Ausführung</h3>
+
+genRob®-genMediator wird mit der Datei <tt>genMediator.bat</tt>
+(unter Windows) bzw. <tt>genMediator.sh</tt>
+(unter Unix/Linux-sh) gestartet.&nbsp;
+Gegebenenfalls sind noch Anpassungen notwendig.
+
+<p>
+Das Programm kann <b>auf jedem Host</b> (Rechner) <b>höchstens einmal</b>
+laufen - nicht mehrere Instanzen auf dem gleichen Host.&nbsp;
+Mehrere Instanzen innerhalb eines lokalen Netzwerkes sind jedoch möglich
+und erhöhen durch die entstehende Redundanz in manchen Fällen
+die Zuverlässigkeit des genRob®-Systems.
+
+<p>
+In der Praxis ist es empfehlenswert, das Programm auf einem Host
+zum Laufen zu bringen, der von allen anderen Hosts
+(insbesondere den Roblet®-Servern und Roblet®-Anwendungen)
+ständig erreichbar ist.&nbsp;
+Ein Dauerbetrieb 24h/Tag, 7d/Woche ist durchaus möglich.&nbsp;
+Dabei ist jedoch zu beachten, daß sich die IP-Adresse des unterliegenden
+Rechners (Hosts) während des Laufes nicht ändern darf.
+
+<p>
+genRob®-genMediator erzeugt <b>temporäre Verzeichnisse und Dateien</b>
+in dem Verzeichnis, das durch die im Normalfall bereits gesetzte
+Standard-Java™-Eigenschaft
+<tt>java.io.tmpdir</tt> festgelegt wird.&nbsp;
+Dadurch kann man genRob®-genMediator aus möglicherweise schreibgeschützten,
+netzwerkgestützten Programmverzeichnissen auf verschiedenen Hosts starten.&nbsp;
+
+<p>
+Erzeugt werden zwei Verzeichnisse:&nbsp;
+<tt>genRob.genMediator.rmid-<i>Nutzer</i></tt> und
+<tt>genRob.genMediator.reggie-<i>Nutzer</i></tt>, wobei
+der <i>Nutzer</i> der Login-Name des Benutzers ist und
+über die Java™-Eigenschaft <tt>user.name</tt> bestimmt wird.&nbsp;
+Sind diese Verzeichnisse vorhanden, obwohl genRob®-genMediator nicht läuft,
+so können sie bedenkenlos entfernt werden.
+
+<p>
+Mit der Tastenkombination <b>e</b> und nachfolgend <b>Eingabetaste</b>
+läßt sich genRob®-genMediator sauber beenden.&nbsp;
+Temporäre Dateien werden wieder entfernt.
+
+<p>
+Der <b>Browser</b> läßt sich mit dem beigegebenen Script (oder Batch)
+nur auf dem Rechner ausführen, auf dem genRob®-genMediator gerade läuft.&nbsp;
+Um das zu ändern, muss die Start-Datei angepasst werden - <em>localhost</em>
+muss durch den Host ersetzt werden, auf dem genMediator gerade läuft.
+
+
+<P>&nbsp;
+<hr>
+<P>
+<small>
+<b>Java</b> und <b>Jini</b> sind Handelsmarken
+	der <i>Sun Microsystems, Inc., USA</i><BR>
+<b>Roblet</b> und <b>genRob</b> sind eingetragene Marken
+	von <i>Hagen Stanek, Deutschland</i><BR>
+<b>Unix</b> ist eine eingetragene Handelsmarke
+	von <i>The SCO Group, Inc., USA</i><BR>
+<b>Windows</b> ist eine Handelsmarke
+	der <i>Microsoft, Inc., USA</i><BR>
+</small>
+</P>
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2010 genRob® GmbH, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:55.518 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.3</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<META http-equiv="Content-Language" content="de">
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>genRob®-genMediator - Änderungen</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://genRob.com"  target=_top><IMG  src="LogoTextSmall.jpeg"></A></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="index.html"  target=_top>genMediator</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="changes.html"  target=_top>Änderungen</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+<H1>Änderungen
+</H1><DIV  id="content">
+
+Auf dieser Seite sind die Anpassungen, Erweiterungen und Änderungen
+aufgelistet, die für die vorliegende Version gemacht wurden.&nbsp;
+Zuerst kommen die jüngsten (neuesten) Einträge.
+
+<P>
+Folgende Eintragsklassen gibt es:
+<UL>
+    <LI class="new">Neue Dinge,
+    <LI class="change">geänderte Sachen und
+    <LI class="correct">Fehlerkorrekturen.
+</UL>
+
+
+<H2>Für Version 1.4</H2>
+<UL>
+	<LI><FONT color="orange">Ä</FONT>
+		Anpassungen für Quellverwaltung per SVN
+    <LI class="change">
+        Umstellung auf genRob®-genSite 3.3 für die Generierung der
+        Dokumentation
+    <LI class="change">
+        Leicht mehr Ausgaben beim Start des Jini™-Reggie.
+    </LI>
+    <LI class="change">
+        Wird der Eingabestrom geschlossen oder ein <TT>null</TT>-Gerät
+        übergeben, so kommt keine Fehlermeldung mehr.
+    </LI>
+</UL>
+
+<H2>Für Version 1.3</H2>
+<UL>
+	<LI><FONT color="green">N</FONT>
+		Neue Java™-Eigenschaft <TT>genRob.genMediator.httpd.port</TT>
+		zur Angabe einer TCP-Port-Nummer für den eingebauten HTTP-Server
+		(ohne Angabe bleibt es bei 8080)
+</UL>
+
+<H2>Für Version 1.2</H2>
+<ul>
+  	<li>Umstellung der Quellen auf UTF-8
+  	<li>Umstellung des Baus auf aktuelle Ant-Scripte
+  	<li>Umstellung auf genSite 2.1.1
+</ul>
+
+<H2>Für Version 1.1</H2>
+<ul>
+  	<li>Die Verzeichnisse zur Ablage temporärer Verzeichnisse und Dateien
+  		sind im Namen angepaßt worden.&nbsp;
+  		Den Namen für die von genMediator angelegten Verzeichnissen wird
+  		nun der Nutzer angefügt.
+  		<p>
+  		Dadurch muß ein für einen anderen Nutzer angelegtes Verzeichnis nicht
+  		mehr gelöscht werden, was z.B. unter Unix/Linus zu Komplikationen
+  		führte, da die passenden Schreibrechte i.d.R. nicht vorlagen.
+</ul>
+
+<H2>Für Version 1.0</H2>
+<ul>
+	<li>(1.0.1)
+		<ul>
+			<li>Einfügung unter <a href="index.html#usage">Benutzung</a>,
+				wie man genMediator per Taste <b>e</b> beendet
+		</ul>
+  	<li>Überarbeitete Dokumentation.
+  	<li>Start-Batch-Datei für den Browser hinzugefügt.
+  	<li>genRob®-genMediator benutzt jetzt die Eigenschaft
+  		<tt>java.io.tmpdir</tt>, um ein Verzeichnis zur Ablage
+  		temporärer Verzeichnisse und Dateien zu haben.&nbsp;
+  		Damit können nun verschiedene Instanzen von verschiedenen Rechnern
+  		aus gestartet werden, auch wenn alle die gleichen
+  		(möglicherweise schreibgeschützten) Programmdateien benutzen.
+</ul>
+
+<H2>Für Version 0.3</H2>
+<ul>
+  	<li>Hinzufügung des Dienstverzeichnis-Browsers (entlehnt aus den
+  		Jini™-Beispielen).
+  	<li>Umstellung der Ant-Datei auf die Nutzung von <tt>../common.xml</tt>
+</ul>
+
+<H2>Für Version 0.2</H2>
+<ul>
+  <li>Der Jini™-Lookups gibt nun an Klienten die IP-Adresse als
+	  	Host-Namen mit.<br>
+	  	Damit sollte ein Auffinden des Lookups auch möglich sein, wenn
+	  	der Host-Name des Lookups dem Klienten nicht bekannt ist.
+</ul>
+
+<H2>Für Version 0.1</H2>
+<ul>
+  <li>Einführung von Ant
+  <li>Starten der Komponenten nun per Java (<tt>genRob.genMediator.jar</tt>)
+  <li>Dokumentation
+  <li>Publikation bei genRob.com
+</ul>
+
+<H2>Für Version 0.0</H2>
+<ul>
+  <li>Initiale Version
+  <li>Starten von RMID, HTTPD und Jini-Reggie per Batch/Script
+</ul>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2010 genRob® GmbH, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:55.524 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.3</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+</HTML>

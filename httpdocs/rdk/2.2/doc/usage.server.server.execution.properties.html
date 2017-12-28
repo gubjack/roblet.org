@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+
+<HTML>
+<HEAD>
+    <meta http-equiv="Content-Language" content="de">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Roblet®-Development-Kit - Einsatz - Roblet®-Server - Server
+        - Ausführung - Eigenschaften</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.html"  target=_top>Roblet®-Server</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.server.html"  target=_top>Server</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.server.server.execution.html"  target=_top>Ausführung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.server.server.execution.overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.server.server.execution.simple.html"  target=_top>Einfach</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.server.execution.modules.html"  target=_top>Module</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.server.execution.properties.html"  target=_top>Eigenschaften</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_5"><A  href="usage.server.server.execution.exit.html"  target=_top>Rückgabewerte</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Eigenschaften
+</H1><DIV  id="content">
+
+<P>
+    Die Konfiguration eines Servers erfolgt über Java™-Eigenschaften.&nbsp;
+    Ein Server kann weitestgehend ohne besondere Konfiguration betrieben
+    werden.&nbsp;
+    Nur die Angabe des TCP-<A HREF="#port">Ports</A> ist obligatorisch.
+</P>
+
+<P>
+    Folgende Teile lassen sich konfigurieren:
+</P>
+
+<UL>
+    <LI><A HREF="#port">Port</A></LI>
+    <LI><A href="#logging">Logbuch</A>
+        <UL>
+            <LI><A href="#log">Server-eigene Einträge
+                    und Ausgabe auf Standard-Ausgabestrom</A></LI>
+            <LI><A href="#file">Loggen in eine Datei</A></LI>
+            <LI><A href="#client">Einträge des internen Roblet®-Klienten</A></LI>
+        </UL>
+    </LI>
+    <LI><A href="#quiet">Rechte- und Versionsausgaben</A></LI>
+</UL>
+
+
+<A NAME="port"></A>
+<H2>Port</H2>
+
+<P>
+    Der Server erhält seine Roblets® über das Netzwerk.&nbsp;
+    Zu diesem Zweck lauscht er an einem TCP-Port auf eingehende
+    Verbindungsanfragen und geht auf Anfrage nach Möglichkeit Verbindungen
+    ein.
+</P>
+
+<P>
+    Mit Hilfe der Java™-Eigenschaft <TT>genRob.genControl.port</TT>
+    wird dem Server die Port-Nummer mitgeteilt.&nbsp;
+    Wird die Angabe einer Port-Nummer weggelassen, so wird als Standardwert
+    <EM>2001</EM> angenommen.
+</P>
+
+<PRE class="console">
+java  -D<B>genRob.genControl.port</B>=2001  -jar org.roblet.jar server
+</PRE>
+
+<P>
+Letzteres ist demnach gleichbedeutend mit:
+</P>
+
+<PRE class="console">
+java  -jar org.roblet.jar  server
+</PRE>
+
+<P>
+    Bei Angabe von <EM>0</EM> als Port-Nummer verwendet der Server
+    die nächste freie Portnummer, die das Betriebssystem zurückgibt.&nbsp;
+</P>
+
+<PRE class="console">
+java  -D<B>genRob.genControl.port</B>=0  -jar org.roblet.jar server
+</PRE>
+
+
+<A name="logging"></A>
+<H2>Logbuch</H2>
+
+<P>
+    Ein Server führt ein zentrales Logbuch.&nbsp;
+    Dieses Logbuch ist eine Liste, die in der JVM gehalten wird.&nbsp;
+    In das Logbuch werden Einträge von drei Quellen gemacht:&nbsp;
+    Vom Server selbst, von den Modulen und von den Roblets.&nbsp;
+    Die Server-eigenen Aufzeichnungen sind standardmäßig abgeschaltet, können
+    jedoch <A href='#log'>angeschaltet</A> werden.&nbsp;
+    Logbuch-Einträge von Modulen und Roblets® werden immer aufgezeichnet.
+</P>
+<P>
+    Wird ein Logbuch-Eintrag erzeugt, so wird er zunächst ins Logbuch
+    eingetragen.&nbsp;
+    Je nach Konfiguration des Servers wird er dann noch auf den
+    <A href='#log'>Standard-Ausgabestrom</A> ausgegeben
+    und/oder in eine <A href='#file'>Datei</A> geschrieben.
+</P>
+<P>
+    Logbuch-Einträge lassen sich jederzeit
+    <A href="app/genRob/genControl/unit/log/package-summary.html">per Roblet</A>
+    verarbeiten, also auch abholen.&nbsp;
+    Das <A href="usage.server.tool.remote.html">Werkzeug</A> nutzt das,
+    um ein Hilfsmittel für die Kommando-Zeile des Betriebssystems bereitzustellen.
+</P>
+
+<A name="log"></A>
+<H3>Server-eigene Einträge und Ausgabe auf Standard-Ausgabestrom</H3>
+
+<P>
+    Ein Server kann viele Informationen über seine Aktivitäten in Form von
+    Logbuch-Einträgen aufzeichnen.&nbsp;
+    Die Server-eigenen Aufzeichnungen sind standardmäßig abgeschaltet.
+</P>
+
+<P>
+    Um Aktivitäten aufzeichnen zu lassen, muß die Java™-Eigenschaft
+    <I>genRob.genControl.log</I> bestimmte Schlüsselworte enthalten.&nbsp;
+    Will man darüber hinaus den intern benutzten Roblet®-Klienten zu
+    Aufzeichnungen bewegen, muß die eben genannte Eigenschaft das Schlüsselwort
+    <TT>client</TT> enthalten und außerdem muß die Java™-Eigenschaft
+    <I><A href="#client">genRob.genControl.client.log</A></I>
+    mit weiteren Schlüsselworten versehen werden.
+</P>
+
+<P>
+    Folgende Schlüsselworte gibt es:
+</P>
+
+<UL>
+    <LI><TT>base</TT> - Vorgänge im Basismodul</LI>
+    <LI><TT>call</TT> - Aufruf und Verarbeitung entfernter Funktionalität</LI>
+    <LI><TT>confirm</TT> - Bestätigungen der Transportebene mit einem Klienten
+          (nur zusammen mit <TT>transport</TT> und/oder <TT>queues</TT>)</LI>
+    <LI><TT>client</TT> - Zur Aktivierung von
+                <I><A href="#client">genRob.genControl.client.log</A></I></LI>
+    <LI><TT>connect</TT> - Verbindungsauf- oder abbau</LI>
+    <LI><TT>directories</TT> - Verzeichnisdienst-Zugriff</LI>
+    <LI><TT>httpd</TT> - HTTP-Aktivitäten</LI>
+    <LI><TT>link</TT> - Verbindungsebene mit einem Klienten</LI>
+    <LI><TT>load</TT> - Laden von Klassen und Ressourcen vom Klienten</LI>
+    <LI><TT>long</TT> - ausführliche Datums- und Zeitausgabe
+                        (nur mit sinnvoll zusammen mit <TT>terminal</TT>)</LI>
+    <LI><TT>main</TT> - Generelle Vorgänge</LI>
+    <LI><TT>memorize</TT> - Einsatz eines Speicherwächters
+        (vgl. <A href="usage.server.server.console.html">Konsole</A>)</LI>
+    <LI><TT>module</TT> - Modulbetreuung</LI>
+    <LI><TT>queues</TT> - Warteschlangen der Transportebene mit einem Klienten
+                    (nur zusammen mit <TT>transport</TT>)</LI>
+    <LI><TT>security</TT> - Sicherheitsverwaltung</LI>
+    <LI><TT>shell</TT> - (ehemalige) Shell-Schnittstelle</LI>
+    <LI><TT>slots</TT> - Slots-Schnittstelle</LI>
+    <LI><TT>stream</TT> - Ströme mit einem Klienten</LI>
+    <LI><TT>transport</TT> - Transportebene mit einem Klienten</LI>
+    <LI><TT>tube</TT> - Röhrenebene mit einem Klienten</LI>
+    <LI><TT>terminal</TT> - Logbuch-Einträge synchron auf dem
+                            Standard-Ausgabestrom ausgeben</LI>
+    <LI><TT>unit</TT> - Vorgänge rund um Ersatzinstanzen von Einheiten</LI>
+    <LI><TT>version</TT> - Versionsinformationen</LI>
+</UL>
+
+<P>
+    Sollen Fehler im Protokoll gesucht werden, ist folgende Reihenfolge einer
+    Nutzung von Schlüsselworten sinnvoll.&nbsp;
+    Man gibt zunächst nur ein Schlüsselwort an und dann bei Bedarf immer mehr.
+    Es werden dadurch schrittweise immer mehr Informationen aufgezeichnet:&nbsp;
+    <TT>connect</TT>, <TT>call</TT>, <TT>load</TT>, <TT>transport</TT>,
+    <TT>queues</TT>, <TT>confirm</TT>, <TT>tube</TT>, <TT>link</TT>.
+</P>
+
+<H4>Ausgabe auf Standard-Ausgabestrom</H4>
+<P>
+    Standardmäßig dient die Java™-Eigenschaft <I>genRob.genControl.log</I>
+    nur dem Einschalten von Server-eigenen Aufzeichnungen.&nbsp;
+    Will man auch Ausgaben im Terminal(fenster) haben,
+    muß man das Schlüsselwort <TT>terminal</TT> verwenden.&nbsp;
+    Das Schlüsselwort <TT>long</TT> erzwingt dabei zusammen mit
+    <TT>terminal</TT> eine ausführliche Zeitausgabe mit Datum und Zeitzone,
+    was bei bei sehr lang laufenden Servern hilfreich ist.&nbsp;
+    Unabhängig davon arbeitet das Logbuch intern stets mit ausführliche Angaben.
+</P>
+<P>
+    Ausgaben der <A href="usage.server.server.console.html">Befehlszeile</A>
+    werden mit den Ausgaben des Logbuchs gemischt.&nbsp;
+    Unabhängig davon arbeitet das Logbuch intern stets mit ungemischten Angaben.
+</P>
+<P>
+    Der Standard-Ausgabestrom läßt sich in der Regel in eine Datei
+    umleiten.&nbsp;
+    <A href="#file">Loggen in eine Datei</A> verfolgt einen ähnlichen Zweck,
+    allerdings erfolgt die Abspeicherung dort in einem Binärformat, welches
+    das Logbuch fast identisch repräsentiert.
+</P>
+
+<H4>Beispiel</H4>
+<P>
+    Hier ein Beispiel, wie der Server per Kommandozeile aufzurufen ist
+    (alle Plattformen;&nbsp; in eine Zeile):
+</P>
+
+<PRE class="console">
+java  -D<B>genRob.genControl.log</B>=<I>terminal</I>,<I>version</I>
+    ...
+    -jar org.roblet.jar
+    server
+</PRE>
+
+<P>
+    Läßt man die Eigenschaft leer (<TT>genRob.genControl.log=</TT>), so ist das
+    gleichbedeutend mit dem Weglassen der Eigenschaft.
+</P>
+
+
+<A NAME="file"></A>
+<H3>Datei-Loggen</H3>
+
+<P>
+    Bei Angabe eines Dateinamens in der Java™-Eigenschaft
+    <TT>genRob.genControl.log.file</TT> wird der Server eingehende
+    Logbuch-Einträge parallel in eine Datei schreiben.&nbsp;
+    Das geschieht zusätzlich zum Speichern in der JVM in das Logbuch.&nbsp;
+    Diese Datei kann mit Hilfe
+    <A href="usage.server.tool.logs.html">Log-Datei-Funktion des Werkzeugs</A>
+    ausgelesen werden.&nbsp;
+    Die Abspeicherung erfolgt in einem Binärformat, welches
+    das Logbuch fast identisch repräsentiert und ist für eher seltene
+    Debug-Problme gedacht.
+</P>
+
+<P>
+    Beispiel (in eine Zeile):
+</P>
+
+<PRE class="console">
+java  -D<B>genRob.genControl.log.file</B>=<I>test.log</I>
+    ...
+    -jar org.roblet.jar
+    server
+</PRE>
+
+<P>
+    Läßt man die Eigenschaft leer (<TT>genRob.genControl.log.file=</TT>), so
+    ist das gleichbedeutend mit dem Weglassen der Eigenschaft.&nbsp;
+    Läßt sich die Datei nicht öffnen oder (nicht mehr) schreiben, so
+    wird die weitere Nutzung des Mechanismus eingestellt und eine Fehlermeldung
+    ins (interne) Log eingetragen.
+</P>
+
+
+<A NAME="client"></A>
+<H3>Loggen des internen Roblet®-Klienten</H3>
+
+<P class="important">
+    <B>Achtung Software-Entwickler:</B>&nbsp;
+    Wie eine <A href="usage.app.html">Roblet®-Anwendung</A> die von ihr
+    benutzten Roblet®-Klienten dazu bringt, Log-Information zu erzeugen, ist
+    in der Java™-Schnittstelle
+    <A href="app/genRob/genControl/client/Log.html"
+        ><TT>genRob.genControl.client.Log</TT></A>
+    (<I>Log</I> mit großem <I>L</I>) beschrieben.&nbsp;
+    An dieser Stelle geht es hingegen um den vom Roblet®-Server <B>intern</B>
+    benutzten Roblet®-Klienten.
+</P>
+
+<P>
+    Folgende Schlüsselworte gibt es für das Logging des Server-internen
+    Klienten:
+</P>
+
+<UL>
+    <LI><TT>base</TT> - Basisinformationen</LI>
+    <LI><TT>call</TT> - Aufruf und Verarbeitung entfernter Funktionalität</LI>
+    <LI><TT>confirm</TT> - Bestätigungen der Transportebene mit einem Server
+        (nur zusammen mit <TT>transport</TT>)</LI>
+    <LI><TT>clientConnection</TT> - Verbindungsaubau und -halt einer
+        RMI-Verbindung</LI>
+    <LI><TT>connect</TT> - Verbindungsauf- oder abbau</LI>
+    <LI><TT>directories</TT> - Verzeichnisdienst-Zugriff</LI>
+    <LI><TT>httpdInform</TT> - generelle Informationen zum HTTP-Server</LI>
+    <LI><TT>httpdExplain</TT> - Download-Informationen des HTTP-Server</LI>
+    <LI><TT>httpdHint</TT> - Detail-Informationen des HTTP-Server</LI>
+    <LI><TT>link</TT> - Verbindungsebene mit einem Server</LI>
+    <LI><TT>load</TT> - Laden von Klassen und Ressourcen vom Server</LI>
+    <LI><TT>queues</TT> - Paketverwaltung der Verbindung mit einem Server</LI>
+    <LI><TT>sieve</TT> - Sieb-Aktivitäten</LI>
+    <LI><TT>stream</TT> - Ströme mit einem Server</LI>
+    <LI><TT>transport</TT> - Transportebene mit einem Server</LI>
+    <LI><TT>tube</TT> - Röhrenebene mit einem Server</LI>
+</UL>
+
+<P>
+    Dabei ist zu beachten, daß für die Eigenschaft
+    <I><A href="#log">genRob.genControl.log</A></I>
+    auch der Wert <TT>client</TT> gesetzt ist,
+    da sonst der interne Roblet®-Klient nicht für die Ausgabe von
+    Log-Informationen initialisiert wird.
+</P>
+
+<P>
+    Hier ein Beispiel:
+</P>
+
+<PRE class="console">
+java  <B>-DgenRob.genControl.log=<I>client</I></B>,<I>terminal</I>
+      <B>-DgenRob.genControl.client.log=base</B>
+    ...
+    -jar org.roblet.jar
+    server
+</PRE>
+
+<P>
+    Läßt man die Eigenschaft leer (<TT>genRob.genControl.client.log=</TT>), so
+    ist das gleichbedeutend mit dem Weglassen der Eigenschaft.
+</P>
+
+
+<A name="quiet"></A>
+<H2>Rechte- und Versionsausgabe</H2>
+
+<P>
+    Durch Setzen des Wertes der Java™-Eigenschaft
+    <TT>org.roblet.server.quiet</TT> auf <TT>true</TT> kann die Ausgabe von
+    Rechte- und Versionsinformationen unterdrückt werden.&nbsp;
+    Der Wert kann beliebige Groß- und Kleinschreibung haben.
+</P>
+
+<PRE class="console">
+java  -D<B>org.roblet.server.quiet</B>=<I>true</I>
+    -jar org.roblet.jar
+    server
+</PRE>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2015 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 30.12.2015 um 02:16:58.945 UTC mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+</HTML>

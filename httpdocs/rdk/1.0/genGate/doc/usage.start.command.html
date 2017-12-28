@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<HTML>
+<HEAD>
+	<META http-equiv="Content-Language" content="de">
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>genRob®-genGate - Benutzung - Start - Kommando</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://genRob.com"  target=_top><IMG  src="LogoTextSmall.jpeg"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>genGate</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Benutzung</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.start.html"  target=_top>Start</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.start.files.html"  target=_top>Start-Dateien</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.start.command.html"  target=_top>Kommando</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.start.parameters.html"  target=_top>Parameter</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+
+<H1>Kommando
+</H1><DIV  id="content">
+
+An dieser Stelle wird der Start ohne den Umweg über eine
+<A href="usage.start.files.html">Start-Datei</A> beschrieben.&nbsp;
+Trotzdem sollten diese Dateien parallel zur Veranschaulichung des
+folgenden benutzt werden.
+
+<P>
+genRob®-genGate läuft als Modul unter Kontrolle von
+genRob®-genControl.&nbsp;
+Dazu muß beim Start von genRob®-genControl die Klassenbibliothek
+<TT>genRob.genGate.jar</TT> des Moduls im Klassenpfad enthalten sein
+und gleichzeitig als <I>Argument</I> (nicht Java™-Eigenschaft!)
+die Modul-Klasse <TT>genRob.genGate.ModuleImpl</TT> übergeben werden:
+
+<BLOCKQUOTE><PRE>
+java  -classpath ...<B>genRob.genGate.jar</B>...
+	... <B>genRob.genGate.ModuleImpl</B>
+</PRE></BLOCKQUOTE>
+
+<P>
+Da genRob®-genControl mit mindestens der Java™-Eigenschaft
+<TT>genRob.genControl.port</TT>
+zur Angabe des TCP-Ports
+parametrisiert werden muß, ist die obige Beschreibung nicht ausreichend.&nbsp;
+Dazu kommen noch zwei notwendige Parameter für genGate:&nbsp;
+<A href="usage.start.parameters.html#port"><TT>genRob.genGate.port</TT></A>
+und
+<A href="usage.start.parameters.html#target"><TT>genRob.genGate.target</TT></A>.
+
+<P>
+Angenommen man möchte genRob®-genGate, zu finden im Pfad <TT>mypath</TT>,
+benutzen und an Server-TCP-Port <I>12000</I> betreiben.&nbsp;
+Dazu soll genGate auf auf TCP-Port <I>20000</I> eingehende Verbindungen lauschen
+und diese zum Ziel-Server <I>server.dom:6000</I> weiterleiten, so ist folgendes
+zu schreiben
+(hier für Windows™;&nbsp; in einer Zeile; der Klassenpfad ohne Leerzeichen):
+
+<BLOCKQUOTE><PRE>
+java
+	-D<B>genRob.genControl.port</B>=<I>12000</I>
+	-D<B>genRob.genGate.port</B>=<I>20000</I>
+	-D<B>genRob.genGate.target</B>=<I>server.dom:6000</I>
+	-classpath
+		<B>mypath\genRob.genControl.jar</B>;
+		<B>mypath\genRob.genGate.jar</B>
+	<B>genRob.genControl.Main</B>
+	<B>genRob.genGate.ModuleImpl</B>
+</PRE></BLOCKQUOTE>
+
+Deutlich ist zu erkennen, daß weitere Informationen zu
+genRob®-genControl nicht fehlen dürfen.
+
+<P>
+Lesen Sie weitere Informationen zur
+<A href="usage.start.parameters.html">Parametrisierung</A>
+von genRob®-genGate.&nbsp;
+Mehr Informationen zu Server-bezogenen Parametern, wie die oben
+erwähnte Server-Port-Angabe, sind in der Dokumentation von
+<A href="content.html#server">genRob®-genControl</A>
+zu finden.
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2007-2010 genRob® GmbH, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:57.255 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.3</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+</HTML>

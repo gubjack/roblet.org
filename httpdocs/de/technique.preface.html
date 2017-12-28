@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>roblet®.org - Technik - Vorwort</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="index.html"  target=_top><IMG  src="../home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>Home</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="technique.html"  target=_top>Technik</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="technique.preface.html"  target=_top>Vorwort</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="technique.abstract.html"  target=_top>Übersicht</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="technique.sample.html"  target=_top>Hello World!</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="technique.book.html"  target=_top>Buch</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_5"><A  href="technique.software.html"  target=_top>Software</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Vorwort
+</H1><DIV  id="content">
+
+<DIV  class="reference">
+    <P>
+        Dieses Kapitel erläutert die abstrakten Beweggründe für die
+        (Weiter-)Entwicklung der Roblet®-Technik.&nbsp;
+        Konkreter wird es dann in der
+        <A href="technique.abstract.html">Übersicht</A>.
+    </P>
+    <P>
+        Wollen Sie lieber gleich etwas "hacken", so können Sie auch sofort zum
+        <A href="technique.sample.html">Hello-World!-Beispiel</A> gehen.
+    </P>
+</DIV>
+
+<P>
+    Auf die <B>Effizienz</B> kommt es an.&nbsp;
+    Die Roblet®-Technik hat schon immer selbst bewährte Technik eingesetzt
+    und neue Ideen nur hinzugefügt.&nbsp;
+    Aber für die Autoren der Roblet®-Technik ist ein wesentliches Kriterium
+    bei der Entwicklung die <EM>Effizienz im Einsatz</EM>.&nbsp;
+    Die Effizienz soll sich möglichst überall zeigen - nicht nur in Form
+    von schönen kurzen verständlichen Quellen.
+</P>
+
+
+<H2>Das Effizienzdreieck verteilter Systeme</H2>
+
+<P style="text-align: center">
+    <IMG  src="technique.preface.jpg"  border=1>
+</P>
+
+<P>
+    Das <B>Effizienzdreieck verteilter Systeme</B> wird
+    <I>in allen Projektphasen</I>,
+    d.h. beim Entwurf, der Entwicklung, dem Test, der Inbetriebnahme, der
+    Wartung, der Weiterentwicklung usw., gebildet durch:
+</P>
+
+<UL>
+    <LI>
+        <P>
+            <B>Verteilungsfreiheit</B> bei der Zuordnung von Funktionalität
+        </P>
+        <P>
+            Je <I>freier</I> Funktionalität in einem verteilten System
+            zugeordnet werden kann, um so besser.&nbsp;
+            Denn einerseits sollten verteilt laufende Komponenten möglichst
+            viel (spezifische) Funktionalität haben<SUP>1</SUP> aber
+            andererseits ist genau das normalerweise der Albtraum einer jeden
+            Organisation, eben wenn es um die genannten Projektphasen geht.
+        </P>
+    </LI>
+    <LI>
+        <P>
+            <B>Technikvereinheitlichung</B> für die verteilte Anwendung
+        </P>
+        <P>
+            Wo verschiedene Techniken zum Einsatz kommen müssen, damit eine
+            Anwendung produktiv werden kann, liegen störende Brüche vor.&nbsp;
+            Diese Brüche stören in allen Projektphasen.&nbsp;
+            Produktivitätsbeeinflussend sind das Erstellen, Verpacken und
+            Verteilen von Komponenten ebenso wie das Anpassen auf das jeweilige
+            Zielsystem und das Starten, Überwachen und notfalls unbedingte
+            Abbrechen einzelner oder aller Komponenten einer Anwendung
+            - auch wenn dafür Werkzeuge zur Verfügung stehen
+            (denn auch die brauchen Pflege).
+        </P>
+        <P>
+            Ideal ist, wenn es gar <I>keine Technikbrüche</I> gibt.&nbsp;
+            Eine Anwendung mit all ihren Komponenten sollte in nur einer
+            Programmiersprache unter einem beliebigen Betriebssystem mit einem
+            einzigen Compiler nur einmal kompiliert werden müssen, um dann unter
+            einem beliebigen Betriebssystem und einem beliebigen Prozessor zum
+            Laufen gebracht werden zu können.&nbsp;
+            Auf Grund der sprunghaften Entwicklung der Hardware läßt sich das
+            heute in schon sehr vielen Bereichen verwirklichen.
+        </P>
+    </LI>
+    <LI>
+        <P>
+            <B>Netzwerktransparenz</B> inklusive Datensicherheit
+        </P>
+        <P>
+            Sowohl beim Verteilen von Komponenten einer Anwendung als auch wenn
+            sich die Komponenten dann miteinander unterhalten, ist eine
+            zuverlässige Kommunikation von größter Bedeutung.&nbsp;
+            Zuverlässig bedeutet dabei korrekt und in keiner Weise durch
+            Dritte mißbraucht.
+        </P>
+        <P>
+            (Physische) Netzwerke sind prinzipiell nicht zuverlässig.&nbsp;
+            Sie sind weder perfekt stabil noch sicher.&nbsp;
+            Es bedarf stets passender Kommunikationssoftware, um
+            Netzwerkschwankungen oder Einflüsse Dritter auszugleichen.
+        </P>
+        <P>
+            Idealerweise verbirgt eine Technik sämtliche Netzwerkfehler oder
+            Timeout-Situationen.&nbsp;
+            Die gewünschte Kommunikation sollte solange aufgebaut bzw.
+            wiederhergestellt werden, bis das von den Komponenten einer
+            Anwendung explizit nicht mehr gewünscht ist.
+        </P>
+        <P>
+            Die Werkzeuge zur Kommunikation sollten derart sein, daß für den
+            Entwickler kaum Unterschiede zwischen lokalen und fernen
+            Komponenten sichtbar sind.&nbsp;
+            Einziger Unterschied sollten die je nach Netzverfügbarkeit
+            entstehenden Antwortzeiten sein.
+        </P>
+    </LI>
+</UL>
+
+<P>
+    Die <B>Roblet®-Technik</B> setzt das Effizenzdreieck auf praktische Weise
+    um.&nbsp;
+    Dabei wird spezifische, verteilte Funktionalität durch das
+    Versenden und Ausführen von parametrisierten Programmstücken, den
+    <I>Roblets®</I>, erreicht.&nbsp;
+    Die Technikvereinheitlichung wird durch den konsequenten Einsatz von
+    <I><A href="#java">Java™</A></I> umgesetzt.&nbsp;
+    Die Bibliotheken der Roblet®-Technik<SUP>2</SUP>
+    bringen die Netzwerktransparenz und
+    behandeln sämtliche Aspekte der Kommunikation.
+</P>
+
+<P>
+    Verwendet werden dazu erprobte Techniken, die milliardenfach genutzt,
+    Teil der Standard-Bibliotheken von Java™<SUP>3</SUP> sind.&nbsp;
+    Darüber hinaus kommen teilweise völlig neue Konzepte zum Tragen, die im
+    Rahmen des Einsatzes der Roblet®-Technik entstanden und die
+    allein durch die Grundidee des Verschickens von parametrisierten
+    Programmstücken erst praxistauglich werden.
+</P>
+
+
+<H2><A name="java">Java™</A></H2>
+
+<P>
+    Erreicht wird die außerordentliche Effizienz der Roblet®-Technik
+    im Grunde durch konsequente Ausnutzung grundlegender Eigenschaften von
+    Java™:
+
+    <UL>
+        <LI>
+            Einmal kompilierte Software (kurz: Code) läuft in jeder JVM
+            (Java™ virtual maschine),
+        </LI>
+        <LI>
+            Daten, die in einer JVM erzeugt wurden, werden von jeder
+            anderen JVM sofort verstanden,
+        </LI>
+        <LI>
+            die Standard-Bibliothek von Java™ ist
+            plattformübergreifend einheitlich im Verhalten,
+        </LI>
+        <LI>
+            für eine Hochsprache mit Objektorientierung und integrierter
+            Ausnahmebehandlung ist Java™ vergleichsweise spielend erlernbar,
+        </LI>
+        <LI>
+            für Java™ gibt es eine unüberschaubare Anzahl weiterer Bibliotheken
+            und Werkzeuge, um nahezu beliebige Dinge zu machen und
+        </LI>
+        <LI>
+            Java™ wird vermutlich von mehr Entwicklern verstanden, als jede
+            andere Programmiersprache.
+        </LI>
+    </UL>
+</P>
+
+<P>
+    Daraus leitet sich ab, daß die Kompilation an einem beliebigen Ort unter
+    einem beliebigen Betriebssystem und Prozessor durchgeführt werden
+    kann.&nbsp;
+    Die Definition von Java™ garantiert dabei, daß der Code und die Daten
+    überall laufen bzw. verstanden werden.&nbsp;
+    Diese Tatsache und dazu der Fakt, daß Java™ tatsächlich auf so ziemlich
+    allen Plattformen zu finden ist, ermöglicht extrem
+    heterogene Systeme<SUP>4</SUP>.
+</P>
+
+
+<HR>
+
+<SUP>1</SUP>&nbsp;
+<SMALL>
+    wie z.B. bei (mobilen) Agentensystemen gewünscht
+</SMALL>
+<BR>
+<SUP>2</SUP>&nbsp;
+<SMALL>
+das Roblet®-Development-Kit (RDK)
+</SMALL>
+<BR>
+<SUP>3</SUP>&nbsp;
+<SMALL>
+das Java™-Development-Kit (JDK) oder sogar die Java™-Runtime-Environment (JRE)
+</SMALL>
+<BR>
+<SUP>4</SUP>&nbsp;
+<SMALL>
+Anfangs wurde auch untersucht, ob nicht eher .NET zum Einsatz kommen
+sollte.&nbsp;
+Jedoch hat die damalige Verbreitung auf den verschiedenen Betriebssystemen
+dies nicht zugelassen.&nbsp;
+Dazu kam noch, daß die Zielsysteme oftmals vermutlich für eine
+.NET-Umgebung eh zu klein gewesen wären.&nbsp;
+Heute scheint klar, daß gewisse Möglichkeiten des Verschickens von Code
+in .NET nicht oder nicht so einfach gegeben sind, wie es in Java™ gegeben
+ist.&nbsp;
+Damit wäre die Technik dann im Grunde nicht auf .NET portierbar.
+</SMALL>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2015 roblet®.org, Hagen Stanek</DIV><DIV  id="footer_right"><A  href="contact.html">Kontakt</A></DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 15.05.2015 mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

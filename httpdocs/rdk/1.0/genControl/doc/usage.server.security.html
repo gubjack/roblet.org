@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>genRob®-genControl - Benutzung - Server - Sicherheit</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://genRob.com"  target=_top><IMG  src="LogoTextSmall.jpeg"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>genControl</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Benutzung</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.server.html"  target=_top>Server</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.server.execution.html"  target=_top>Ausführung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.server.console.html"  target=_top>Befehlszeile</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.security.html"  target=_top>Sicherheit</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.limitations.html"  target=_top>Randbedingungen</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+<H1>Sicherheit
+</H1><DIV  id="content">
+
+<P>
+    Die <A href="http://roblet.org/de">Roblet®-Technik</A> bezieht einen großen
+    Teil ihrer Leistungsfähigkeit aus der Tatsache, daß Java™-Code zur Laufzeit
+    mit großer Einfachheit zu Roblet®-Servern transportiert und sofort zur
+    Ausführung gebracht werden kann.&nbsp;
+    Genau das könnte aber auch Sicherheitsrisiken mit sich bringen, wenn nicht
+    auf Server-Seite eingebaute <B>Sicherheitsmechanismen</B> vorhanden
+    wären.&nbsp;
+    Dieses Kapitel beschreibt die Mechanismen.
+</P>
+
+
+<H2>Sandbox</H2>
+
+<P>
+    Nicht erst die Roblet®-Technik ist auf Probleme mit transportiertem Code
+    gestoßen.&nbsp;
+    Java™ ist seit der ersten Stunde damit konfrontiert.&nbsp;
+    Beispiele für ähnliche Fälle sind Applets und RMI
+    (remote method invocation).&nbsp;
+    In jedem Fall ist es notwendig, daß der "fremde" Code in der JVM oder gar
+    dem unterliegenden Betriebssystem und seinen Ressourcen, Schaden anrichten
+    kann.&nbsp;
+    Allein schon das Lesen von Daten kann dabei ein Schade sein.
+</P>
+
+<P>
+    Java™ wurde aus diesem Grund in der JVM und in der Java™-Bibliothek mit
+    Mechanismen ausgestattet, die eine völlige Abgrenzung des "fremden" Codes
+    vom "eigenen" Code erzwingen.&nbsp;
+    Für Applets, die in einer Browser laufen, hat sich dafür der Begriff
+    <I>Sandbox</I> eingebürgert.
+</P>
+
+<P>
+    Diese in Browsern millionenfach bewährte Sandbox-Technik wird auch im
+    Roblet®-Server für den Betrieb der Roblets® eingesetzt.&nbsp;
+    Durch Setzen der Java™-Eigenschaft
+    <A href="usage.server.execution.properties.html#security"
+        ><TT>genRob.genControl.security</TT></A>
+    wird die Sandbox-Technik aktiviert.
+</P>
+
+
+<H2>Arbeitsweise</H2>
+
+<P>
+    Bei der <A href="usage.server.execution.html">Ausführung</A> bzw. genauer
+    beim Start des Servers wird zunächst geprüft, ob ein externer
+    Sicherheits-Manager per Java™-Eigenschaft
+    <TT>java.security.manager</TT> gesetzt wurde.&nbsp;
+    Ist dies der Fall, so wird nichts weiter unternommen, sondern die dadurch
+    gesetzten Sicherheitsmerkmale inkl. Sicherheitsrichtlinien werden
+    akzeptiert.&nbsp;
+    Wurde jedoch kein Sicherheits-Manager gesetzt, so wird ein eigener gesetzt,
+    der eigene Sicherheitsrichtlinien (policy) verwendet.&nbsp;
+    Die eigenen Sicherheitsrichtlinien lassen für den <I>Server und die
+    Module</I> alles zu (<TT>java.security.AllPermission</TT>).
+</P>
+
+<P>
+    Gleichzeitig wird für jedes <I>Roblet®</I> stets ein Sicherheitsbereich
+    eingerichtet, der die Zugriffsmöglichkeiten auf eine "Sandbox"
+    einschränkt.&nbsp;
+    Dadurch kann ein Roblet® keine Ressourcen zugreifen, die nicht über den
+    Server und seine Module vermittelt werden.&nbsp;
+    Es sind demnach keine Datei- und Netzwerkzugriffe u.v.a.m. möglich.
+</P>
+
+
+<H2>Sicherheitsrichtlinien</H2>
+
+<P>
+    Will man außerdem eigene Sicherheitsrichtlinien per Java™-Eigenschaft
+    <TT>java.security.policy</TT> für den Server und die Module setzen,
+    so muß man zusätzlich zu <TT>genRob.genControl.security</TT> noch
+    <TT>java.security.manager</TT> einsetzen.&nbsp;
+    Das hat die Erzeugung und das Installieren eines
+    Standard-Sicherheits-Managers durch die Java™-Bibliothek bzw. die JVM zur
+    Folge.&nbsp;
+    Der Standard-Sicherheits-Manager liest dann die gewünschten
+    Sicherheitsrichtlinien.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2010 genRob® GmbH, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:52.196 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.3</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+
+</HTML>

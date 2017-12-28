@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Roblet®-Development-Kit - Einsatz - Roblet®-Server - Server
+        - Randbedingungen</TITLE>
+    <STYLE type="text/css">
+        #x th, #x td, #x td i  { font-size:smaller }
+    </STYLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.html"  target=_top>Roblet®-Server</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.server.server.html"  target=_top>Server</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.server.server.execution.html"  target=_top>Ausführung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.server.server.console.html"  target=_top>Befehlszeile</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.server.security.html"  target=_top>Sicherheit</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.server.limitations.html"  target=_top>Randbedingungen</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+<H1>Randbedingungen für den Einsatz von Servern
+</H1><DIV  id="content">
+
+<P>
+    Die vorliegende Version des Roblet®-Servers bringt im Hinblick auf einen
+    langzeitlichen und sicheren Betrieb von Servern einige wenige
+    <B>Randbedingungen</B> für der Entwicklung von Roblets® mit sich.&nbsp;
+    Sie sind im wesentlichen durch den momentanen Stand der Implementierung
+    des Servers, teilweise aber auch durch die momentane Definition der JVM
+    bedingt.
+</P>
+
+<P>
+    An der Aufhebung der sich ergebenen Einschränkungen gearbeitet.&nbsp;
+    Schon jetzt jedoch ist unter Beachtung der Hinweise ein störungsfreier
+    Betrieb von Servern möglich.&nbsp;
+    Dazu können zusätzlich in produktiver Umgebung weitere Maßnahmen zur
+    Sicherung getroffen werden.&nbsp;
+    Von zentraler Bedeutung ist dabei der Einsatz von VPN, SSH-Tunneln u.a.m.
+    zur Sicherung der Integrität von Kommunikation jeder Art.
+</P>
+
+<P>
+    Gern geben wir über das im folgenden geschriebene hinaus weitere praktische
+    Hinweise.&nbsp;
+    Kontaktieren Sie uns einfach per Mail an
+    <A href="rdk@roblet.org">rdk@roblet.org</A>.
+</P>
+
+<TABLE id="x" border="1" cellpadding="3">
+
+    <!--                            ### Kopf ###                            -->
+    <TR>
+        <TH rowspan="2">
+            Randbedingung
+        </TH>
+        <TH rowspan="2">
+            Ursache
+        </TH>
+        <TH colspan="3">
+            Lösung
+        </TH>
+    </TR>
+    <TR>
+        <TH>
+            kurzfristig
+        </TH>
+        <TH>
+            mittelfristig
+        </TH>
+        <TH>
+            langfristig
+        </TH>
+    </TR>
+    <!--                              Ressourcen                            -->
+    <TR>
+        <TD>
+            Ein direktes Benutzen von Ressourcen und Bibliotheken zu Ressourcen
+            ohne Kontrolle durch den Server darf grundsätzlich nicht geschehen
+            - die Nutzung muß über <I>Einheiten</I> erfolgen
+        </TD>
+        <TD>
+            Der Server hat so keine Möglichkeit die jeweilige Ressource
+            hinsichtlich der parallelen Nutzung durch verschiedene Roblets® zu
+            verwalten (sofern das keine im JDK o.ä. befindliche Bibliothek tut)
+            und für den Fall, daß der Server ein Roblet® zwangsweise beendet,
+            welches gerade eine solche Ressource/Bibliothek benutzt, verbleibt
+            letztere mit einer gewissen Wahrscheinlichkeit in einem
+            inkonsistenten Zustand (da derartige Fälle in aller Regel bei der
+            Entwicklung des Schnittstelle der Ressource bzw. der Bibliothek
+            nicht berücksichtigt wurden).
+        </TD>
+        <TD>
+            Durch Aktivierung der
+            <A href="usage.server.server.security.html">Sicherheitsmechanismen</A>
+            wird eine Nutzung solcher Ressourchen durch Roblets® mit einer
+            Ausnahme quittiert.&nbsp;
+            Zusätzlich muß beim Start des Servers sichergestellt werden, daß
+            keine Bibliotheken außerhalb des JDK im Klassenpfad sind, die den
+            Zugriff auf Ressourcen ohne die Verwendung von
+            Sicherheitsmechanismen zulassen (oftmals selbstgeschriebene
+            Bibliotheken).
+        </TD>
+        <TD>
+            Ab der nächsten Hauptversion werden Server stets eine Nutzung von
+            Ressourcen durch Roblets® mit einer Ausnahme quittieren.&nbsp;
+            Zusätzlich muß trotzdem beim Start des Servers sichergestellt
+            werden, daß keine Bibliotheken außerhalb des JDK im Klassenpfad
+            sind, die den Zugriff auf Ressourcen ohne die Verwendung von
+            Sicherheitsmechanismen zulassen (oftmals selbstgeschriebene
+            Bibliotheken).
+        </TD>
+        <TD>
+            Es wird an der Bereitstellung eines "Stellvertreter"-JDK gearbeitet,
+            welches den Roblets® eine "eigene Welt" vorspiegelt.&nbsp;
+            Allerdings haben erste Untersuchungen gezeigt, daß das JDK und die
+            JVM dafür noch einige "Freiheiten" und Mechanismen bereitstellen
+            müssen.
+        </TD>
+    </TR>
+
+    <!--                            ### Kopf ###                            -->
+    <TR>
+        <TH rowspan="2">
+            Randbedingung
+        </TH>
+        <TH rowspan="2">
+            Ursache
+        </TH>
+        <TH colspan="3">
+            Lösung
+        </TH>
+    </TR>
+    <TR>
+        <TH>
+            kurzfristig
+        </TH>
+        <TH>
+            mittelfristig
+        </TH>
+        <TH>
+            langfristig
+        </TH>
+    </TR>
+    <!--                           Thread-Gruppen                           -->
+    <TR>
+        <TD rowspan="2">
+            Starten von Threads (<TT>java.lang.Thread</TT>) darf nur in der
+            Threadgruppe (<TT>java.lang.ThreadGroup</TT>) des ersten Threads
+            des Roblets® oder in untergeordneten Gruppen geschehen
+        </TD>
+        <TD rowspan="2">
+            Der Server verwendet die Gruppierungsmechanismen zum Betreuen der
+            Roblets®.
+        </TD>
+        <TD>
+            <I>Variante A:</I><BR>
+            Beim Code-Review sind alle Fälle zu untersuchen.
+        </TD>
+        <TD rowspan="2">
+            Eine Lösung mit Einsatz eines speziellen, noch strikteren
+            Security-Managers für eine situationsabhängige Behandlung wird
+            momentan untersucht.<BR>
+            Alternativ:&nbsp;
+            Der Server prüft jede Klasse noch vor der Übergabe an die JVM, ob
+            <TT>ThreadGroup</TT> eingesetzt wird und weist derartige
+            Klassen gegebenenfalls zurück.
+        </TD>
+        <TD rowspan="2">
+            Sobald das JDK eine Möglichkeit bereitstellt, die Erzeugung von
+            Threads und das Holen von <TT>ThreadGroup</TT>-Referenzen feiner
+            mitzuverfolgen, kann der Server automatische Korrekturen
+            vornehmen.&nbsp;
+            Ein Roblet® würde dann gar nicht mitbekommen, daß es noch andere
+            Thread-Gruppen gibt.
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <I>Variante B:</I><BR>
+            Nicht unüblich ist auch eine Richtlinie für alle Entwickler, die
+            das generelle Verbot von <TT>ThreadGroup</TT> und
+            <TT>getThreadGroup</TT> vorsieht.&nbsp;
+            Die Einhaltung kann leicht über textbasierte Suche über alle Quellen
+            sichergestellt werden.
+        </TD>
+    </TR>
+    <!--                          Thread-Priorität                          -->
+    <TR>
+        <TD rowspan="2">
+            Threads eines Roblet® dürfen keine Priorität höher als die des
+            ersten Threads haben
+        </TD>
+        <TD rowspan="2">
+            Die Verwendung von Prioritäten höher als die initiale des ersten
+            Threads des Roblets® kann die Funktion des Servers empfindlich
+            beeinträchtigen.&nbsp;
+            Der Server ist dann bei hoher Auslastung nicht mehr in der Lage,
+            zuverlässig seine Arbeit zu tun bis hin zu ungewöhnlichen Ausnahmen.
+        </TD>
+        <TD>
+            <I>Variante A:</I><BR>
+            Beim Code-Review sind alle Fälle zu untersuchen.
+        </TD>
+        <TD rowspan="2">
+            Eine Lösung mit Einsatz eines speziellen, noch strikteren
+            Security-Managers für eine situationsabhängige Behandlung wird
+            momentan untersucht.<BR>
+            Alternativ:&nbsp;
+            Der Server prüft jede Klasse noch vor der Übergabe an die JVM, ob
+            <TT>setPriority</TT> eingesetzt wird und weist derartige
+            Klassen gegebenenfalls zurück.
+        </TD>
+        <TD rowspan="2">
+            Sobald das JDK eine Möglichkeit bereitstellt, das Setzen der
+            Prioritäten feiner mitzuverfolgen, kann der Server automatische
+            Korrekturen vornehmen.&nbsp;
+            Ein Roblet® würde dann gar nicht mitbekommen, wie die gesetzten
+            Prioritäten tatsächlich umgesetzt werden.
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <I>Variante B:</I><BR>
+            Nicht unüblich ist auch eine Richtlinie für alle Entwickler, die
+            das generelle Verbot von <TT>setPriority</TT> vorsieht.&nbsp;
+            Die Einhaltung kann leicht über textbasierte Suche über alle Quellen
+            sichergestellt werden.
+        </TD>
+    </TR>
+
+    <!--                            ### Kopf ###                            -->
+    <TR>
+        <TH rowspan="2">
+            Randbedingung
+        </TH>
+        <TH rowspan="2">
+            Ursache
+        </TH>
+        <TH colspan="3">
+            Lösung
+        </TH>
+    </TR>
+    <TR>
+        <TH>
+            kurzfristig
+        </TH>
+        <TH>
+            mittelfristig
+        </TH>
+        <TH>
+            langfristig
+        </TH>
+    </TR>
+    <!--                              Ausnahmen                             -->
+    <TR>
+        <TD rowspan="2">
+            Nur von <TT>java.lang.Exception</TT> abgeleitete Ausnahmen dürfen
+            abgefangen werden
+        </TD>
+        <TD rowspan="2">
+            Ein pauschales Abfangen von <TT>java.lang.Throwable</TT> oder
+            <TT>java.lang.Error</TT> und Ableitungen verhindert, daß der Server
+            über die jeweils entstandene Situation informiert wird.&nbsp;
+            Es handelt sch dabei in alle Regel um Problemsituationen, die nicht
+            im Rahmen eines Roblets® geklärt werden können.<BR>
+            Keinesfalls darf <TT>java.lang.ThreadDeath</TT> abgefangen
+            werden, ohne danach sofort geworfen zu werden.
+        </TD>
+        <TD>
+            <I>Variante A:</I><BR>
+            Beim Code-Review sind alle Fälle zu untersuchen.
+        </TD>
+        <TD rowspan="2">
+            Der Server prüft jede Klasse noch vor der Übergabe an die JVM, ob
+            die Klassen <TT>Throwable</TT> oder <TT>Error</TT> eingesetzt werden
+            und weist derartige Klassen gegebenenfalls zurück.
+        </TD>
+        <TD rowspan="2">
+            Sobald die JVM eine Möglichkeit bereitstellt, "von außen" zu
+            steuern, welche Ausnahmen bei Roblets® angkommen dürfen, kann diese
+            Randbedingung aufgehoben werden.&nbsp;
+            Der Server kann dann alle für seine Arbeit relevanten Typen selbst
+            verarbeiten und so die Roblets gegebenenfalls unterstützen oder
+            - als letzten Ausweg - beenden.
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <I>Variante B:</I><BR>
+            Nicht unüblich ist auch eine Richtlinie für alle Entwickler, die
+            das generelle Verbot von <TT>Throwable</TT> und <TT>Error</TT>
+            vorsieht.&nbsp;
+            Die Einhaltung kann leicht über textbasierte Suche über alle Quellen
+            sichergestellt werden.
+        </TD>
+    </TR>
+    <!--                              finally                               -->
+    <TR>
+        <TD rowspan="2">
+            <TT>finally</TT> in Klassen einer Anwendung unerwünscht, die von
+            Roblets® benutzt werden.
+        </TD>
+        <TD rowspan="2">
+            Die Verwendung von <TT>finally</TT> birgt das Risiko, daß Ausnahmen
+            vom Typ <TT>java.lang.Error</TT> in Roblets® nicht
+            korrekt an den Server weitergereicht werden.&nbsp;
+            Dadurch kann ein inkonsistenter Zustand im Roblet® oder sogar
+            Server entstehen.
+        </TD>
+        <TD>
+            <I>Variante A:</I><BR>
+            Beim Code-Review sind alle Fälle zu untersuchen.
+        </TD>
+        <TD rowspan="2">
+            Der Server prüft jede Klasse noch vor der Übergabe an die JVM, ob
+            <TT>finally</TT> eingesetzt wird und weist derartige Klassen
+            gegebenenfalls zurück.
+        </TD>
+        <TD rowspan="2">
+            Sobald die JVM eine Möglichkeit bereitstellt, "von außen" zu
+            steuern, welche Ausnahmen bei Roblets® angkommen dürfen, kann diese
+            Randbedingung aufgehoben werden.&nbsp;
+            Der Server kann dann alle für seine Arbeit relevanten Typen selbst
+            verarbeiten und so die Roblets gegebenenfalls unterstützen oder
+            - als letzten Ausweg - beenden.
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <I>Variante B:</I><BR>
+            Nicht unüblich ist auch eine Richtlinie für alle Entwickler, die
+            das generelle Verbot von <TT>finally</TT> vorsieht.&nbsp;
+            Die Einhaltung kann leicht über textbasierte Suche über alle Quellen
+            sichergestellt werden.
+        </TD>
+    </TR>
+
+    <!--                            ### Kopf ###                            -->
+    <TR>
+        <TH rowspan="2">
+            Randbedingung
+        </TH>
+        <TH rowspan="2">
+            Ursache
+        </TH>
+        <TH colspan="3">
+            Lösung
+        </TH>
+    </TR>
+    <TR>
+        <TH>
+            kurzfristig
+        </TH>
+        <TH>
+            mittelfristig
+        </TH>
+        <TH>
+            langfristig
+        </TH>
+    </TR>
+    <!--                              finalize()                            -->
+    <TR>
+        <TD rowspan="2">
+            <TT>finalize()</TT> in Klassen einer Anwendung unerwünscht, die von
+            Roblets® benutzt werden
+        </TD>
+        <TD rowspan="2">
+            Die Verwendung von <TT>finalize()</TT>-Methoden führt teilweise zu
+            Aktivitäten nach dem Ende eines Roblets® und sollte grundsätzlich
+            vermieden werden.&nbsp;
+            Erfahrungsgemäß können viele Module damit nicht umgehen, da sie
+            vom Server bereits über das Ende eines Roblets® informiert
+            wurden.&nbsp;
+            Im Zuge dessen entstehen (in seltenen Fällen) schwer einzugrenzende
+            Fehlerzustände.
+        </TD>
+        <TD>
+            <I>Variante A:</I><BR>
+            Beim Code-Review sind alle Fälle zu untersuchen.
+        </TD>
+        <TD rowspan="2">
+            Der Server prüft jede Klasse noch vor der Übergabe an die JVM, ob
+            die Methode <TT>finalize()</TT> eingesetzt wird und weist derartige
+            Klassen gegebenenfalls zurück.
+        </TD>
+        <TD rowspan="2">
+            Sobald die JVM eine Möglichkeit bereitstellt, den Prozeß der
+            Instanzerzeugung "von außen" zu überwachen, können alle Instanzen
+            eines Roblets® in ihrem Lebenszyklus bis hin zur Garbage-Collection
+            betreut werden.&nbsp;
+            Der Server weiß dann genau, wann auch die letzte von einem Roblet®
+            benutzte Instanz vergangen ist und informiert entsprechend erst
+            danach die Module über das Ende eines Roblets®.
+        </TD>
+    </TR>
+    <TR>
+        <TD>
+            <I>Variante B:</I><BR>
+            Nicht unüblich ist auch eine Richtlinie für alle Entwickler, die
+            das generelle Verbot von <TT>finalize()</TT> vorsieht.&nbsp;
+            Die Einhaltung kann leicht über textbasierte Suche über alle Quellen
+            sichergestellt werden.
+        </TD>
+    </TR>
+    <!--                              native                               -->
+    <TR>
+        <TD>
+            <TT>native</TT> in Klassen einer Anwendung unerwünscht, die von
+            Roblets® benutzt werden.
+        </TD>
+        <TD>
+            Die Verwendung von <TT>native</TT> ist in der Roblet®-Technik
+            nicht erwünscht, da dem Roblet®-Server durch die jetzigen JVM's
+            keine Möglichkeit der Kontrolle eingeräumt werden kann.
+        </TD>
+        <TD>
+            Durch Aktivierung der
+            <A href="usage.server.server.security.html">Sicherheitsmechanismen</A>
+            wird eine Nutzung von <TT>native</TT> durch Roblets® mit einer
+            Ausnahme quittiert.
+        </TD>
+        <TD>
+            Ab der nächsten Hauptversion werden Server stets eine Nutzung von
+            <TT>native</TT> durch Roblets® mit einer Ausnahme quittieren.
+        </TD>
+        <TD>
+            Sobald die JVM eine Überwachung von <TT>native</TT>-Schnittstellen
+            "von außen" ermöglicht, kann ein Server solche Aufrufe in den
+            Aufruf von Modul-Funktionalität übersetzen.&nbsp;
+            Dann wäre in vielen Fällen keine Fehlermeldung mehr an Roblets®
+            nötig.
+        </TD>
+    </TR>
+
+    <!--                            ### Kopf ###                            -->
+    <TR>
+        <TH rowspan="2">
+            Randbedingung
+        </TH>
+        <TH rowspan="2">
+            Ursache
+        </TH>
+        <TH colspan="3">
+            Lösung
+        </TH>
+    </TR>
+    <TR>
+        <TH>
+            kurzfristig
+        </TH>
+        <TH>
+            mittelfristig
+        </TH>
+        <TH>
+            langfristig
+        </TH>
+    </TR>
+    <!--                            Klassenversionen                       -->
+    <TR>
+        <TD rowspan="2">
+            "Invalid class version" - neue Klassenversionen laufen nicht unter
+            alten JDK's
+        </TD>
+        <TD rowspan="2">
+            Kompiliert man eine Anwendung mit seinen Roblets® z.B. mit einem
+            JDK 1.6, hat aber Roblet®-Server z.B. mit einem
+            JDK 1.5 laufen, so weist der Server die Roblets® mit dem Hinweis
+            auf "Invalid class version" (o.ä.) zurück.&nbsp;
+            Das liegt ganz einfach daran, daß eine JVM 1.5 keine Klassen neuerer
+            Version, wie sie vom Compiler 1.6 erzeugt werden, versteht.<BR>
+            Das hat prinzipiell nichts mit der Roblet®-Technik zu tun - das
+            Problem tritt hier jedoch, wie auch z.B. bei RMI, Servlets etc.,
+            zutage, da Server oft meist schon (lange) auf einem Rechner laufen,
+            während die Entwicklung von Roblet®-Anwendungen auf "schicken"
+            neuen Rechnern mit neuesten JDK's vorgenommen wird.
+        </TD>
+        <TD colspan="2">
+            <I>Variante A:</I><BR>
+            Sicherstellen, daß alle Server mit der jeweils neuesten Java-Version
+            laufen.&nbsp;
+            Sind die Roblets® z.B. mit einem älteren JDK kompiliert, so kann
+            der Server die Klassen trotzdem verarbeiten (es geht nur nicht
+            anders herum).
+        </TD>
+        <TD rowspan="2">
+            Die Lösung muß durch die Entwickler des JDK bzw. der JVM kommen.
+        </TD>
+    </TR>
+    <TR>
+        <TD colspan="2">
+            <I>Variante B:</I><BR>
+            Alle Roblet® der Anwendungen müssen in der niedrigsten
+            Klassenversion erzeugt werden, die noch von allen Roblet®-Servern
+            eines System verarbeitet werden kann.&nbsp;
+            Zu beachten ist, daß nicht nur die Klassen der Roblets®, sondern
+            auch alle von den Roblets® benutzten in der niedrigsten
+            Klassenversion vorliegen müssen.<BR>
+            Der Compiler hat dazu entsprechend instruiert zu werden.&nbsp;
+            Das geschieht durch die Parameter <TT>-source</TT> und noch
+            wichtiger <TT>-target</TT>.<BR>
+            Beispiel:<BR>
+            <TT>-source 1.5 -target 1.5</TT><BR>
+            Dabei muß <TT>-source</TT> immer kleiner (älter) oder gleich
+            <TT>-target</TT> sein.&nbsp;
+            <TT>-source</TT> gibt an, was der Compiler an Quellen zu erwarten
+            hat;&nbsp;
+            <TT>-target</TT> gibt letztlich an, was der Compiler als
+            Klassenversion zu erzeugen hat.
+        </TD>
+    </TR>
+</TABLE>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2010 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 10.06.2010 um 15:17:18.545 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

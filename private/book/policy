@@ -1,0 +1,54 @@
+// Diese Datei muß als UTF-8 kodiert sein.
+
+// Rechte für den Server und die Module - solche für die Roblets® werden hier
+// nicht berührt, sondern sind im Server fest auf eine "Sandbox" eingeschränkt.
+grant
+{
+    // Grant all permissions including future ones.
+//    permission java.security.AllPermission;
+
+    // Server
+    permission java.util.PropertyPermission "user.timezone", "write";
+    permission java.io.FilePermission "${java.home}/lib/zi", "read";
+    permission java.util.PropertyPermission "genRob.genControl.security", "read";
+    permission java.util.PropertyPermission "genRob.genControl.port", "read";
+    permission java.util.PropertyPermission "genRob.genControl.log", "read";
+    permission java.util.PropertyPermission "genRob.genControl.log.file", "read";
+    permission java.lang.RuntimePermission "stopThread";
+    permission java.util.PropertyPermission "genRob.genControl.disregards", "read";
+    // Server - RMI, httpd, Jini
+    permission java.net.SocketPermission "localhost:1024-", "connect,listen,resolve";
+    permission java.util.PropertyPermission "java.rmi.server.codebase", "write";
+    permission java.util.PropertyPermission "net.jini.discovery.interface", "read";
+    permission java.util.PropertyPermission "net.jini.discovery.ttl", "read";
+    permission java.util.PropertyPermission "net.jini.discovery.mtu", "read";
+    // Server - Base-Modul
+    permission java.lang.RuntimePermission "modifyThreadGroup";
+    // Client - Jini
+    permission net.jini.discovery.DiscoveryPermission "*";
+    permission java.util.PropertyPermission "net.jini.discovery.debug", "read";
+    permission java.net.SocketPermission "224.0.1.84", "connect,accept,resolve";
+    permission java.net.SocketPermission "224.0.1.85", "connect,accept,resolve";
+    permission java.util.PropertyPermission "net.jini.discovery.announce", "read";
+    permission java.net.SocketPermission "87.106.132.53", "connect,resolve";
+    permission java.net.SocketPermission "10.0.1.11", "connect,resolve";
+    // Shell
+    permission java.net.SocketPermission "*:1024-", "accept,resolve";
+    permission java.lang.RuntimePermission "createClassLoader";
+    permission java.lang.RuntimePermission "setContextClassLoader";
+    permission java.lang.RuntimePermission "accessClassInPackage.sun.reflect";
+    permission java.lang.RuntimePermission "accessClassInPackage.sun.security.action";
+    permission java.lang.RuntimePermission "accessClassInPackage.sun.security.util";
+    permission java.util.PropertyPermission "sun.security.pkcs11.allowSingleThreadedModules", "read";
+    permission java.io.FilePermission "/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/-", "read";
+    permission java.io.FilePermission "/usr/libexec/SmartCardServices/pkcs11/tokendPKCS11.so", "read";
+    permission java.io.FilePermission "${user.home}/private/book/genRob.genControl.client.jar", "read";
+    permission java.io.FilePermission "${user.home}/work/roblet.org/private/book/genRob.genControl.client.jar", "read";
+    // Buch-Server
+    permission java.util.PropertyPermission "book.module.log", "read";
+    permission java.util.PropertyPermission "user.home", "read";
+    permission java.io.FilePermission "${user.home}/httpdocs/de/technique.sample.html", "read,delete,write";
+    permission java.io.FilePermission "${user.home}/work/roblet.org/httpdocs/de/technique.sample.html", "read,delete,write";
+    permission java.io.FilePermission "${user.home}/httpdocs/de/technique.sample.html.tmp", "write";
+    permission java.io.FilePermission "${user.home}/work/roblet.org/httpdocs/de/technique.sample.html.tmp", "write";
+};

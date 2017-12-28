@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<HTML>
+<HEAD>
+	<META http-equiv="Content-Language" content="de">
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>genRob®-genGate - Benutzung - Start - Parameter</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://genRob.com"  target=_top><IMG  src="LogoTextSmall.jpeg"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>genGate</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Benutzung</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.start.html"  target=_top>Start</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.start.files.html"  target=_top>Start-Dateien</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.start.command.html"  target=_top>Kommando</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.start.parameters.html"  target=_top>Parameter</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+
+<H1>Parameter
+</H1><DIV  id="content">
+
+genRob®-genGate läßt sich über verschiedene Parameter in seinem
+Laufzeitverhalten beeinflußen.&nbsp;
+Solche Parameter werden als Java™-Eigenschaften als Teil des
+<A href="usage.start.command.html">Kommandos</A> oder eingebettet
+in eine <A href="usage.start.files.html">Start-Datei</A>
+mit angegeben.
+
+<P>
+Java™-Eigenschaften werden in der folgenden Form der Java™-VM übergeben:
+<BLOCKQUOTE><PRE>
+-D<B>Name=Wert</B>
+</PRE></BLOCKQUOTE>
+
+Zur Vereinfachung sollte ihre Angabe gleich nach <TT>java</TT> erfolgen,
+um Komplikationen zu vermeiden.
+<BLOCKQUOTE><PRE>
+java -D<B>Name=Wert</B> -classpath ...
+</PRE></BLOCKQUOTE>
+
+<TT>Name</TT> und <TT>Wert</TT> dürfen keine Leerzeichen enthalten
+oder müssen in Shell- bzw. Kommandozeileninterpreter-spezifische Steuerzeichen,
+wie z.B. Anführungszeichen, eingefaßt werden.
+
+<P>
+Folgende Parameter kennt genRob®-genGate:
+<UL>
+	<LI><A href="#port">Port</A> - <I>muß angegeben werden</I>
+	<LI><A href="#target">Ziel</A> - <I>muß angegeben werden</I>
+	<LI><A href="#log">Logbuch</A>
+</UL>
+
+Server-bezogene Parameter sind in der Dokumentation von
+<A href="content.html#server">genRob®-genControl</A>
+zu finden.
+
+
+<HR>
+
+<H2><A name="port">Port</A></H2>
+
+Roblet®-Anwendungen brauchen einen Ersatz-Server-Namen, um den über
+genRob®-genGate vermittelten Roblet®-Server im lokalen Netz
+ansprechen zu können.&nbsp;
+Über die Java™-Eigenschaft <TT>genRob.genGate.port</TT> wird
+der Port-Anteil des Namens festgelegt - es handelt sich um das TCP-Port,
+an dem genGate auf eingehende Rufe lauscht.&nbsp;
+Der Host-Teil des Namens ergibt ist einfach der Host-Name (oder IP-Adresse)
+des Rechners, auf dem die genGate-Instanz läuft.
+
+<P>
+Hier ein Beispiel:
+<BLOCKQUOTE><PRE>
+java  -D<B>genRob.genGate.port</B>=<I>12001</I> ...
+</PRE></BLOCKQUOTE>
+
+<P>
+Die Eigenschaft muß gesetzt sein und eine positive ganze Zahl
+kleiner 65536 sein.
+
+
+<HR>
+
+<H2><A name="target">Ziel</A></H2>
+
+Bei seiner Arbeit nimmt genRob®-genGate nur Rufe und Daten entgegen
+und leitet sie weiter.&nbsp;
+Die lokal (vgl. <A href="#port">Port</A>) eingenden Rufe und Daten werden
+an das per Java™-Eigenschaft <TT>genRob.genGate.target</TT>
+angegebene Ziel weitergeleitet.&nbsp;
+Ziel kann dabei direkt der Roblet®-Server sein, für den genGate stellvertretend
+wirkt, oder eine weitere genGate-Instanz oder auch z.B. ein SSH-Tunnel o.a.m.
+
+<P>
+Hier ein Beispiel:
+<BLOCKQUOTE><PRE>
+java  -D<B>genRob.genGate.target</B>=<I>remote.uni-xxx.de:12001</I> ...
+</PRE></BLOCKQUOTE>
+
+<P>
+Die Eigenschaft muß gesetzt sein und muß eine Kombination aus Host-Namen
+und Port-Adresse, getrennt durch einen Doppelpunkt, sein.&nbsp;
+Der Host-Name muß ein korrekter DNS-Name oder IP-Adresse sein.&nbsp;
+Das TCP-Port muß eine ganze Zahl größer Null und kleiner 65536 sein.
+
+
+<HR>
+
+<H2><A name="log">Logbuch</A></H2>
+
+genRob®-genGate kann viele Informationen über seine Aktivitäten
+ins Logbuch des Roblet®-Servers eintragen.&nbsp;
+Das Eintragen ins Logbuch ist standardmäßig abgeschaltet.
+
+<P>
+Um Informationen ins Logbuch eintragen zu lassen, muß
+die Java™-Eigenschaft <TT>genRob.genGate.log</TT>
+bestimmte Schlüsselworte enthalten.
+
+<P>
+Folgende Schlüsselworte gibt es:
+<UL>
+	<LI><TT>connect</TT> - Verbindungsverarbeitung,
+	<LI><TT>jini</TT> - Jini™-Arbeit,
+	<LI><TT>module</TT> - Generelle Vorgänge
+		((Einheit-Anforderungen etc.)),
+	<LI><TT>server</TT> - Verbindungsannahme,
+	<LI><TT>tunnel</TT> - Kommunikation und
+	<LI><TT>version</TT> - Modulversion.
+</UL>
+
+<P>
+Hier ein Beispiel:
+<BLOCKQUOTE><PRE>
+java  -D<B>genRob.genGate.log</B>=<I>version,module</I> ...
+</PRE></BLOCKQUOTE>
+
+<P>
+Läßt man die Eigenschaft leer (<TT>genRob.genGate.log=</TT>), so
+ist das gleichbedeutend mit dem Weglassen der Eigenschaft.
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2007-2010 genRob® GmbH, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:57.256 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.3</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+</HTML>

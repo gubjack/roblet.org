@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+
+<HTML>
+<HEAD>
+    <meta http-equiv="Content-Language" content="de">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Roblet®-Development-Kit - Einsatz - Roblet®-Server - Server
+        - Ausführung</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.html"  target=_top>Roblet®-Server</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.server.html"  target=_top>Server</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.server.server.execution.html"  target=_top>Ausführung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.server.server.execution.overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.server.server.execution.simple.html"  target=_top>Einfach</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.server.execution.modules.html"  target=_top>Module</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.server.execution.properties.html"  target=_top>Eigenschaften</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Ausführung
+</H1><DIV  id="content">
+
+<P>
+    An dieser Stelle wird beschrieben, wie ein Server unter den verschiedenen
+    Betriebssystemen ausgeführt (bzw. gestartet) wird.&nbsp;
+    Zur Veranschaulichung wird dabei eine Ausführung über die Befehlszeile einer
+    Shell (im Zweifelsfall <TT>bash</TT>) unter Unix/Linux/MacOS/Cygwin bzw.
+    <TT>cmd.exe</TT> unter Windows™ angenommen.
+</P>
+
+<P>
+    Auf einem Wirtsrechner (<I>host</I>) können parallel mehrere Roblet®-Server
+    laufen, solange sichergestellt ist, daß
+    <UL>
+        <LI>
+            sie an verschiedenen
+            <A href="usage.server.server.execution.properties.html#port">TCP-Ports</A>
+            (<I>port</I>) laufen und
+        </LI>
+        <LI>sie nicht die gleichen Ressourcen betreuen.</LI>
+    </UL>
+    Letzteres bedeutet meist, daß sie nicht mit den gleichen
+    <A href="usage.server.server.execution.modules.html">Modulen</A>
+    parametrisiert sein dürfen.
+</P>
+
+<P>
+    Vereinfachend wird in der Praxis meist ein Start per Script-/Batch-Datei
+    oder per Java™-Start-Programm vorgenommen.&nbsp;
+    Der Start direkt per Befehlszeile bleibt oft dem "Ausprobieren" der
+    Parameter vorbehalten.&nbsp;
+    Die Batch-Datei <TT>server.bat</TT> (unter Windows™) bzw. das Script
+    <TT>server.sh</TT> (unter Unix/Linux/MacOS/Cygwin) bieten ein Beispiel und
+    lassen sich für die eigene Nutzung leicht anpassen.
+</P>
+
+<P>
+    Das Kapitel <A href="usage.server.server.execution.overview.html">Überblick</A>
+    erläutert den Sprachgebrauch für die verschiedenen Arten von Angaben, die
+    beim Ausführen zu machen sind.&nbsp;
+    Hier ist auch eine Übersicht über die möglichen Angaben zu finden.
+</P>
+
+<P>
+    Ein <A href="usage.server.server.execution.simple.html">einfacher Server</A> ist
+    einer, der ohne Angabe von Modulen läuft.&nbsp;
+    Nicht nur für den Einsteiger sind die dortigen Erläuterungen sicher von
+    Interesse.&nbsp;
+    Ein <A href="usage.server.server.execution.modules.html">Server mit Modulen</A>
+    bietet Zugang zu besonderen Ressourcen für Roblets® an.&nbsp;
+    Auf diese Weise läßt sich ein Server beliebig erweitern.
+</P>
+
+<P>
+    <A href="usage.server.server.execution.properties.html">Java™-Eigenschaften</A>
+    ermöglichen eine weitergehende Einrichtung des Servers insbesondere
+    hinsichtlich der
+    <A href="usage.server.server.execution.properties.html#log">Log-Ausgaben</A>
+    zur Diagnose.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2010 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 10.06.2010 um 15:17:18.528 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+</HTML>

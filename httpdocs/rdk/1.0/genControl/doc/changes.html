@@ -1,0 +1,1077 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>genRob®-genControl - Änderungen</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://genRob.com"  target=_top><IMG  src="LogoTextSmall.jpeg"></A></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="index.html"  target=_top>genControl</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="changes.html"  target=_top>Änderungen</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="content.html"  target=_top>Inhalt</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.html"  target=_top>Benutzung</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+<H1>Änderungen
+</H1><DIV  id="content">
+
+Auf dieser Seite sind die Anpassungen, Erweiterungen und Änderungen
+aufgelistet, die für die vorliegende Version gemacht wurden.&nbsp;
+Zuerst kommen die jüngsten (neuesten) Einträge.
+
+<P>
+Folgende Eintragsklassen gibt es:
+<UL>
+    <LI class="new">Neue Dinge,
+    <LI class="change">geänderte Sachen und
+    <LI class="correct">Fehlerkorrekturen.
+</UL>
+
+
+<!--
+<H2>Für Version 4.6++</H2>
+<ul>
+	<li>Neue Schnittstelle
+		<a href="modules/genRob/genControl/modules/Logger.html"
+			><tt>genRob.genControl.modules.Logger</tt></a>
+		ersetzt <tt>genRob.genControl.modules.Log</tt>,
+		um das neue Logging zu unterstützen.&nbsp;
+		Passend wurde auch
+		<a href="modules/genRob/genControl/modules/Supervisor.html"
+			><tt>genRob.genControl.modules.Supervisor</tt></a>
+		verändert.<br>
+		<i>Achtung:</i>&nbsp;
+		Alte Module, welche das Logging benutzen, laufen nicht mehr
+		mit dieser Version
+</ul>
+-->
+
+<H2>Für Version 6.3</H2>
+<UL>
+    <LI class="correct">
+        Sicherstellung, daß Roblet®-Rückgabewerte stets freigegeben werden
+    </LI>
+    <LI class="change">
+        Verbesserung des Mechanismus zum Erkennen des Endes eines Roblets®
+    </LI>
+    <LI class="change">
+        Umstellung auf die
+        <A href="content.html#client">Klienten-Bibliothek 2.4</A>.<BR>
+        Damit werden gewisse Änderungen beim Debugging nutzbar.&nbsp;
+        Der interne Klient verwendet nun auch kein RMI zu kontaktieren von
+        Servern mehr.&nbsp;
+        Außerdem erfolgte so die Umstellung auf die
+        <A href="content.html#library">Roblet®-Bibliothek 2.3</A>.
+    <LI class="new">
+        Neuer Befehl <I>g</I> für die
+        <A href="usage.server.console.html">Konsole</A> zum Laufenlassen des
+        Garbage-Collectors.
+    </LI>
+    <LI class="new">
+        Neues Schlüsselwort <I>memorize</I> für das Logbuch zur Erzeugung
+        eines
+        <A href="usage.server.execution.properties.html#log"
+            >Speicherwächters</A>.
+    </LI>
+    <LI class="new">
+        Neuer Befehl <I>m</I> für die
+        <A href="usage.server.console.html">Konsole</A> zur Anzeige aller
+        noch eingemeldeten und nicht aufgeräumten Instanzen des
+        <A href="usage.server.execution.properties.html#log"
+            >Speicherwächters</A>.
+    </LI>
+    <LI class="new">
+        Der Server prüft nun beim Start die Beschaffenheit der
+        Ausführungsumgebung.&nbsp;
+        Die Java™-Eigenschaft 
+        <A href="usage.server.execution.properties.html#disregards"
+            ><TT>genRob.genControl.disregards</TT></A> erlaubt die
+        Mißachtung der Gefahren.
+    </LI>
+    <LI class="correct">
+        Prioritäten der Roblet®-Threads nun stets auf maximal 3 eingeschränkt.
+    </LI>
+    <LI class="change">
+        Leicht verändertes Verhalten bei Nutzung des Schlüsselwortes
+        <TT>confirm</TT> zum
+        <A href="usage.server.execution.properties.html#log">Server-seitigen
+            Loggen</A>
+        von Bestätigungspaketen der Transportebene - es wird ohne Schlüsselwort
+        noch weniger geloggt
+    </LI>
+    <LI>
+        Leicht verändertes Verhalten bei Nutzung des Schlüsselwortes
+        <TT>queues</TT> zum
+        <A href="usage.server.execution.properties.html#log">Server-seitigen
+            Loggen</A>
+        der Warteschlangen der Transportebene - es wird nur noch zusammen
+        mit <TT>transport</TT> geloggt
+    </LI>
+</UL>
+
+<H2>Für Version 6.2</H2>
+<UL>
+    <LI class="new">
+        Neue Java™-Eigenschaft
+        <A href="usage.server.execution.properties.html#security"
+            ><TT>genRob.genControl.security</TT></A> zur vereinfachten
+        Aktivierung von
+        <A href="usage.server.security.html">Sicherheitsmerkmalen</A> zur
+        Einschränkung der Möglichkeiten von Roblets®
+    </LI>
+    <LI class="new">
+        Neues Schlüsselwort <TT>security</TT>
+        zum <A href="usage.server.execution.properties.html#log">Server-seitigen
+        Loggen</A>
+        der sicherheitsrelevanten Aktivitäten des Servers und der Roblets®
+    </LI>
+    <LI class="new">
+        Für die Entwicklung von Modulen wurde das Kapitel
+        <A href="usage.development.architecture.html">Architektur</A>
+        passend erweitert, da Sicherheitsmerkmale in einer zukünftigen
+        Version stets aktiviert sein werden und Module deshalb stets auf die
+        Behandlung von Privilegien vorbereitet sein sollten
+    </LI>
+    <LI class="new">
+        Die Beispiel-Start-Batch/Script-Dateien <TT>run.bat</TT> bzw.
+        <TT>run.sh</TT> benutzen nun die neuen Sicherheitsmerkmale
+    </LI>
+    <LI class="change">
+        Die undokumentierten Einheiten
+        <TT>genRob.genControl.unit.JiniPublisher</TT>
+        und <TT>genRob.genControl.unit.RemoteExport</TT>
+        werde bei aktivierten
+        <A href="usage.server.security.html">Sicherheitsmerkmalen</A> nicht
+        mehr zur Verfügung gestellt
+    </LI>
+    <LI class="change">
+        Umstellung aller Beispiele auf TCP-Port 2001
+    <LI class="change">
+        Überarbeitung der Dokumentation des
+        <A href="usage.tool.html">Werkzeugs</A>
+    <LI class="change">
+        Überarbeitung der Dokumentation des
+        <A href="usage.server.execution.html">Ausführung</A> des Servers
+    <LI class="change">
+        Überarbeitung der Dokumentation der
+        <A href="usage.server.console.html">Befehlszeile (Konsole)</A>
+        des Servers im Zusammenhang mit leicht verändertem Verhalten
+    <LI class="change">
+        Aktualisierung der
+        <A href="usage.server.limitations.html">Randbedingungen</A>
+        des Servers
+    <LI class="change">
+        Vollständige Überarbeitung des <A href="overview.html">Überblicks</A>
+    <LI class="change">
+        Überarbeitung der Beschreibung der
+        <A href="usage.development.html">Entwicklung von Modulen</A>
+    </LI>
+</UL>
+
+<H2>Für Version 6.1</H2>
+<UL>
+    <LI class="change">
+        Umstellung auf genRob®-genSite 3.3 für die Generierung der
+        Dokumentation
+    <LI class="new">
+        Neues Kapitel <A href="usage.development.html">Entwicklung</A>, in dem
+        nun (wieder) auf die Erstellung von Modulen eingegangen wird
+    </LI>
+    <LI class="change">
+        HTML-Referenzen auf die in diesem Paket nicht mehr mitgelieferte
+        Dokumentation der <A href="content.html#client">Klienten-Bibliothek</A>
+        entfernt
+    <LI class="correct">
+        Umstellung auf die
+        <A href="content.html#client">Klienten-Bibliothek 2.1</A>.<BR>
+        Diese Version hat eine überarbeitete Dokumentation und kann gegenüber
+        der Vorgängerversion 2.0 auch wieder unter Java™ 1.4 eingesetzt
+        werden.<BR>
+        Im Zuge dessen ist auch auf die
+        <A href="content.html#library">Roblet®-Bibliothek 2.2</A> umgestellt
+        worden.
+    <LI class="correct">
+        Der Server wird mit Kompilationsziel 1.4 erzeugt.<BR>
+        <FONT color="brown">
+            In der vergangenen Version kam fälschlicherweise beim Wechsel nach
+            Java™ 1.5 eine 1.5-Kompilation zum Einsatz.&nbsp;
+            Obwohl die Klassendateien inhaltlich gleich sind, ist jedoch die
+            Klassenversion verschieden.&nbsp;
+            Die Version 6.0 kann daher nicht unter Java™ 1.4 eingesetzt werden.
+        </FONT>
+    <LI class="change">
+        Dokumentation der Server-Einheiten ist nicht mehr enthalten.&nbsp;
+        Die Server-Einheiten sind jetzt Teil der
+        <A href="content.html#client">Klienten-Bibliothek</A> und werden
+        im vorliegenden Paket nur noch mit ausgeliefert.
+    <LI class="change">
+        Überarbeitung des Kapitels <A href="usage.html">Benutzung</A>.
+    <LI class="change">
+        Überarbeitung des Kapitels <A href="content.html">Inhalt</A>.
+    <LI class="change">
+        <I>Schnittstellen</I> nun als <A href="modules/index.html">Javadoc</A>
+        unter <A href="usage.development.html">Entwicklung</A>.
+    </LI>
+    <LI class="change">
+        Verallgemeinerung des ehemaligen Kapitels <I>Funktionsweise</I> nach
+        <A href="overview.html">Überblick</A>.
+    </LI>
+    <LI class="change">
+        Verschiebung des Kapitels <A href="usage.tool.html">Werkzeug</A> nach
+        <A href="usage.html">Benutzung</A>.
+    </LI>
+    <LI class="change">
+        Überarbeitung des alten/neuen Kapitels
+        <A href="usage.development.html">Entwicklung</A>.
+    </LI>
+    <LI class="change">
+        <TT>genControl.sh</TT> nach <TT>run.sh</TT> umbenannt
+    </LI>
+    <LI class="change">
+        <TT>genControl.bat</TT> nach <TT>run.bat</TT> umbenannt
+    </LI>
+    <LI class="change">
+        RMI-Registry ausgebaut
+    </LI>
+</UL>
+
+<H2>Für Version 6.0</H2>
+<UL>
+    <LI><FONT color="orange">Ä</FONT>
+        Umstellung auf die
+        <A href="content.html#client">Klienten-Bibliothek 2.0</A>
+        um ferne Instanzen verarbeiten zu können
+    <LI><FONT color="green">N</FONT>
+        Damit verbunden ist die Unterstützung des
+        <I>Roblet®-Protokoll der Version 3</I>
+    <LI><FONT color="green">N</FONT>
+        Neue Einheiten
+        <TT>genRob.genControl.unit.Remotes</TT> und
+        <TT>genRob.genControl.unit.Proxies</TT>
+        für die Kommunikation mit fernen Instanzen
+    <LI class="change">
+        Überarbeitung der
+        <A href="usage.server.limitations.html">einschränkenden Hinweise</A>
+        für Roblets®-Entwickler
+    </LI>
+    <LI><FONT COLOR=orange>Ä</FONT>
+        <FONT COLOR=brown>
+        Altes Klient-Server-Protokoll basierend auf RMI wird nicht mehr
+        unterstützt.&nbsp;
+        Die Java™-Eigenschaft <TT>genRob.genControl.server.RMI</TT> wird nun
+        ignoriert.
+        </FONT>
+</UL>
+
+<H2>Für Version 5.4</H2>
+<UL>
+    <LI><FONT color="orange">Ä</FONT>
+        Umstellung auf die
+        <A href="content.html#client">Klienten-Bibliothek 1.0</A>;&nbsp;
+        damit einher geht die Umstellung auf die
+        <A href="content.html#library">Roblet®-Bibliothek 2.1</A>
+    <LI><FONT color="orange">Ä</FONT>
+        Überarbeitung des Kapitels <A href="content.html">Inhalt</A>
+	<LI><FONT color="green">N</FONT>
+		Hinzufügen eines Beispieles zum Start eines Roblet-Servers
+		aus einer eigenen Klasse heraus (unveröffentlicht)
+</UL>
+
+<H2>Für Version 5.3</H2>
+<UL>
+	<LI><FONT color="orange">Ä</FONT>
+		Anpassungen für Quellverwaltung per SVN
+	<LI><FONT color="green">N</FONT>
+		Hinzufügen von Beispielen zu den Quellen (unveröffentlicht)
+	<LI><FONT color="orange">Ä</FONT>
+		Korrektur von grammatischen oder rechtschreiblichen Fehlern
+	<LI><FONT color="orange">Ä</FONT>
+		Erweiterung der Modul-Schnittstelle
+		<A href="modules/genRob/genControl/modules/Slot.html"
+			><TT>genRob.genControl.modules.Slot</TT></A>
+		um die Methode <TT>halt()</TT>, damit Module auch Roblets®
+		beenden können
+</UL>
+
+<H2>Für Version 5.2</H2>
+<UL>
+	<LI>(5.2.1)
+		<UL>
+			<LI><FONT color="green">N</FONT>
+				Leichte Verdeutlichung in der Dokumentation zu
+                <TT>genRob.genControl.client.Sieve</TT>
+			<LI><FONT color="red">K</FONT>
+				Verhinderung des Abbruchs der Verbindung durch den
+				Klienten für den Fall, daß die zugehörige
+				Server-Repräsentanz aufgeräumt wird, obwohl noch
+				am zugehörigen Eingabestrom gelesen wird
+			<LI><FONT color="red">K</FONT>
+				Korrektur in der Verarbeitung des Protokolls server- und
+				klientseitig für Ströme.&nbsp;
+				Empfangene Paket-Bestätigungen für Ströme werden nun
+				aufgeräumt.
+		</UL>
+	<LI><FONT color="orange">Ä</FONT>
+		Umstellung des bei der Protokoll-1/2-Implementierung von
+        <TT>Server.toString()</TT>
+		zurückgegebenen Bezeichners vom (lokalen) Servernamen auf
+		die (eindeutige) Server-ID um auch in komplizierten Netzen
+		eine sichere Zuordnung zu ermöglichen
+	<LI><FONT color="orange">Ä</FONT>
+		Änderung der Server-ID-Erzeugung, um besser die (lokalen) Servernamen
+		herauslesen zu können
+	<LI><FONT color="green">N</FONT>
+		Neue Klasse
+        <TT>genRob.genControl.client.Sieve</TT>,
+		zur Vereinfachung des Auffindens passender Server
+	<LI><FONT color="green">N</FONT>
+		Neues Schlüsselwort <TT>sieve</TT>
+		zum Klient-seitigen Loggen
+		(gilt für den
+            <A href="usage.server.execution.properties.html#client"
+                >Server-internen Klienten</A>
+			ebenso wie bei der Nutzung durch Roblet®-Anwendungen per Schnittstelle
+            <TT>genRob.genControl.client.Log</TT>)
+	<LI><FONT color="green">N</FONT>
+		Neue Klasse
+        <TT>genRob.genControl.client.Identity</TT>,
+		um Persistenz von Serververbindungsdaten zur späteren
+		Verbindungswiederaufnahme zu ermöglichen
+</UL>
+
+<H2>Für Version 5.1</H2>
+<UL>
+	<LI><FONT color="green">N</FONT>
+		Neue Einheit
+        <TT>genRob.genControl.unit.Streams</TT>,
+		damit Roblets® mit ihre Anwendungen kommunizieren können
+	<LI><FONT color="green">N</FONT>
+		Erweiterung der Schnittstelle
+        <TT>genRob.genControl.client.Slot</TT>
+		der Klienten-Bibliothek,
+		damit Anwendungen mit Ihren Roblets® kommunizieren können
+	<LI><FONT color="red">K</FONT>
+		Verschiedene Rechtschreib- und Namenskorrekturen in der Dokumentation
+	<LI><FONT color="green">N</FONT>
+		Neues Schlüsselwort <TT>stream</TT>
+        zum <A href="usage.server.execution.properties.html#log">Server-seitigen
+        Loggen</A> der Ströme zwischen Roblet® und Server
+	<LI><FONT color="green">N</FONT>
+		Neues Schlüsselwort <TT>stream</TT>
+		zum Klient-seitigen Loggen
+		(gilt für den
+            <A href="usage.server.execution.properties.html#client"
+                >Server-internen Klienten</A>
+			ebenso wie bei der Nutzung durch Roblet®-Anwendungen per Schnittstelle
+            <TT>genRob.genControl.client.Log</TT>)
+	<LI><FONT color="orange">Ä</FONT>
+		Anpassung von TCP- und Puffer-Parametern
+		für Klient und Server zur Optimierung
+		der Kommunikationsgeschwindigkeit
+</UL>
+
+<H2>Für Version 5.0</H2>
+<UL>
+	<LI>Roblet®-Protokoll
+		<UL>
+			<LI><FONT COLOR=green>N</FONT>
+				Neues Kommunikationsprotokoll (in der Version 1)
+				zwischen Klienten-Bibliothek und Server
+				als Ersatz für RMI
+			<LI><FONT COLOR=orange>Ä</FONT>
+				<FONT COLOR=brown>
+				Altes Klient-Server-Protokoll basierend auf RMI
+				muß nun über die neue Java™-Eigenschaft
+				<TT>genRob.genControl.server.RMI</TT>
+				<I>serverseitig bei Bedarf eingeschaltet</I> werden
+				</FONT>
+			<LI><FONT COLOR=orange>Ä</FONT>
+				Anpassung der Klienten-Bibliothek zur Unterstützung
+				des neuen Protokolls und gleichzeitig Weiterunterstützung
+				der bisherigen RMI-Kommunikation
+		</UL>
+    <LI><A HREF="usage.server.execution.properties.html#log">Logbuch</A> des
+        Servers
+		<UL>
+			<LI><FONT COLOR=green>N</FONT>
+				Schaffung einer Möglichkeit, die intern im Server genutzte
+                Klienten-Bibliothek zum
+                <A HREF="usage.server.execution.properties.html#client"
+                    >Loggen</A> zu bringen
+			<LI><FONT COLOR=green>N</FONT>
+				Bei Angabe eines Dateinames mit Hilfe der Java&trade;-Eigenschaft
+                <A HREF="usage.server.execution.properties.html#file"
+                    ><TT>genRob.genControl.log.file</TT></A> kann nun
+				der Server veranlaßt werden, sämtliche Log-Einträge
+				bei Eingang gleichzeitig in eine Datei zu schreiben.<BR>
+                Mit Hilfe der Funktion
+                <A HREF="usage.tool.logs.html"><TT>log</TT></A>
+                des <A HREF="usage.tool.html">Werkzeugs</A>
+				können dann eine oder mehrer solcher Dateien gemischt
+				ausgegeben werden.
+			<LI>Neue Schlüsselworte
+				<UL>
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>connect</TT>
+						zur Aufzeichnung von Verbindungsannahmen
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>link</TT>
+						zur Aufzeichnung der Verbindungsebene mit einem Klienten
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>tube</TT>
+						zur Aufzeichnung der Röhrenebene mit einem Klienten
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>transport</TT>
+						zur Aufzeichnung der Transportebene mit einem Klienten
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>queues</TT>
+						zur Ausgabe von Paketverwaltungsinformation
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>confirm</TT>
+						zur Ausgabe von Bestätigungen der Transportebene mit einem Klienten
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>load</TT> für Informationen zum
+						Laden von Klassen und Ressourcen vom Klienten
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>call</TT> für Informationen zu
+						Aufruf und Verarbeitung entfernter Funktionalität
+				</UL>
+		</UL>
+	<LI>Loggen eines Klienten
+		<UL>
+			<LI><FONT COLOR=orange>Ä</FONT>
+				Überarbeitung der Schnittstelle
+                <TT>genRob.genControl.client.Log</TT>
+				für Log-Informationen an Roblet®-Anwendungen
+			<LI>Bereitstellung einer Möglichkeit, den
+                <A HREF="usage.server.execution.properties.html#client"
+                    >Server-internen Klienten</A>
+				zum Loggen zu bringen
+			<LI>Neue Schlüsselworte für das Loggen eines Klienten
+				<UL>
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>connect</TT>, um über die Kontaktaufnahme
+						zu einem Server zu informieren
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>link</TT>, um über die Verbindungsebene
+						zu einem Server zu informieren
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>tube</TT>, um über die Röhrenebene
+						zu einem Server zu informieren
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>transport</TT>, um über die Transportebene
+						zu einem Server zu informieren
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>queues</TT> zur Ausgabe von
+						Paketverwaltungsinformation
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>confirm</TT> zur Ausgabe von
+						Bestätigungen der Transportebene mit einem Server
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>load</TT> für Informationen zum
+						Laden von Klassen und Ressourcen vom Server
+					<LI><FONT COLOR=green>N</FONT>
+						<TT>call</TT> für Informationen zu
+						Aufruf und Verarbeitung entfernter Funktionalität
+				</UL>
+			<LI><FONT COLOR=orange>Ä</FONT>
+				Vereinfachung des Schlüsselwortes von alt <TT>clientBase</TT>
+				nach neu <TT>base</TT>
+		</UL>
+	<LI>Klienten-Bibliothek
+		<UL>
+			<LI><FONT COLOR=orange>Ä</FONT>
+				Änderung des Aufhängungspunktes (<TT>ThreadGroup</TT>) für
+				durch Klienten erzeugte Threads (außer RMI-Threads) und
+				Überarbeitung der Dokumentation von
+                <TT>genRob.genControl.client.Client.Client()</TT>.
+			<LI><FONT COLOR=orange>Ä</FONT>
+				Dokumentation des Java&trade;-Paketes
+				<TT>genRob.genControl.client.util.operation</TT>
+				entfernt, da es in absehbarer Zeit aufgelöst wird
+			<LI><FONT COLOR=orange>Ä</FONT>
+				Interner HTTP-Server für RMI lädt nun Ressourcen
+				über den Kontext-Lader, wenn der nicht vorhanden ist,
+				über den Lader des Threads und wenn dieser auch nicht da ist,
+				über den Lader des Systems
+		</UL>
+	<LI>Kapitel <A HREF="usage.html">Benutzung</A>
+		<UL>
+			<LI><FONT COLOR=orange>Ä</FONT>
+				Restrukturierung
+			<LI><FONT COLOR=green>N</FONT>
+                Beschreibung der <I>Funktionsweise</I></LI>
+			<LI><FONT COLOR=orange>Ä</FONT>
+				Erweiterung des Abschnitts
+                <A HREF="usage.server.execution.properties.html"
+                    >Eigenschaften</A>
+		</UL>
+</UL>
+
+<H2>Für Version 4.7</H2>
+<UL>
+	<LI><FONT COLOR=red>K</FONT>
+		Korrektur der Zeilenwechselzeichen in der Datei
+		<TT>genControl.sh</TT> auf Unix-Standard <TT>0A</TT> (hexadezimal)
+	<LI><FONT COLOR=red>K</FONT>
+		Korrektur des zweiten Beispiels in der Dokumentation der Klasse
+        <TT>genRob.genControl.client.Client</TT>
+	<LI><FONT COLOR=red>K</FONT>
+		Korrektur der Dokumentation für das Terminal-Kommando
+        <A HREF="usage.server.console.html"><TT>p</TT></A>
+		(früher fehlerhafterweise <TT>e</TT>)
+	<LI><FONT COLOR=red>K</FONT>
+		Verbesserung des Mechanismus zur Anzeige
+		unerwarteter Fehler innerhalb des Servers
+	<LI><FONT COLOR=orange>Ä</FONT>
+		Restrukturierung des RMI-Teils
+	<LI><FONT COLOR=orange>Ä</FONT>
+		Hilfsdatei <TT>genRob.genControl.policy</TT> entfällt
+	<LI><FONT COLOR=green>N</FONT>
+        Zum Paket wurde jetzt auch ein <A HREF="usage.tool.html">Werkzeug</A>
+		zur Betreuung während der Laufzeit eines Server hinzugefügt.
+	<LI><FONT COLOR=orange>Ä</FONT>
+		Einbau einer
+        <I>Instanzprüfung</I> für Logeinträge von Roblets®
+	<LI><FONT COLOR=green>N</FONT>
+		Einführung von Report-Klassen:&nbsp;
+        <TT>genRob.genControl.unit.log.ChainReport</TT>
+		und
+        <TT>genRob.genControl.unit.log.ThrowableReport</TT>
+	<LI><FONT COLOR=orange>Ä</FONT>
+		Überarbeitung der
+        <I>Überblickseite der Log-Dokumentation</I>
+	<LI><FONT COLOR=orange>Ä</FONT>
+		Verfeinerung der Modul-Definition:&nbsp;
+		<A HREF="modules/genRob/genControl/modules/Module.html#getRegistry()"
+			>getRegistry()</A>
+		kann nun auch <TT>null</TT> zurückgeben, um zu signalisieren,
+		daß das Grundbuchkonzept nicht benutzt wird.
+</UL>
+
+<H2>Für Version 4.6</H2>
+<ul>
+	<LI>(4.6.1)
+		<ul>
+			<li>Verhinderung von mehrfachen Server-Kandidaten bei mehreren
+				genMediator-Instanzen
+		</ul>
+	<li>Änderung des Schnittstellennamens
+		<tt>genRob.genControl.client.ClientListener</tt>
+        in <TT>genRob.genControl.client.NomineeListener</TT>,
+		da dieser Name der wahren Bedeutung entspricht
+	<li>Detaillierung der Dokumentation der
+        <I>Klienten-Bibliothek</I>
+	<li>Vereinfachung der Implementierung der Klienten-Bibliothek.
+</ul>
+
+<H2>Für Version 4.5</H2>
+<ul>
+	<li>(4.5.1)
+		<ul>
+			<li>Korrektur eines Fehlers beim Modul-Loggens während
+				des Initialisierens eines Moduls
+			<li>Korrektur von
+				<SMALL>
+                <TT>genRob.genControl.unit.log.RobletWrapper.hashCode()</TT>
+				</SMALL>
+			<li>Korrektur der Implementierung von
+                <TT>genRob.genControl.unit.log.Logger</TT>
+				für den Fall, daß ein Roblet® <tt>null</tt> übergibt.<br>
+				Die Umwandlung nach <tt>java.lang.String</tt> wird jetzt
+				auch außerhalb des Modul-Kontexts durchgeführt.
+			<li>Korrektur der Implementierung von
+                <TT>genRob.genControl.unit.log.Logger2</TT>
+				dahingehend, daß bis auf weiteres alle
+				Nachrichten nach <tt>java.lang.String</tt> gewandelt
+				werden, da momentan nur so sichergestellt werden kann,
+				daß ein Roblet® keine eigenen Typen ins Log gibt.
+			<li>Korrektur des Unterbrechungsverhaltens im Jini™-Teil von
+                <TT>genRob.genControl.client.Client.Client()</TT>
+		</ul>
+	<li>Starke Überarbeitung des Loggings
+	<li>Neue Log-Einheiten
+        <TT>genRob.genControl.unit.log.Logger2</TT>
+		und
+        <TT>genRob.genControl.unit.log.Log2</TT>
+		und damit zusammenhängende Typen
+	<li>Log-Eigenschaft der Klienten-Bibliothek kann jetzt auch gesetzt
+		sein, wenn generell keine Log-Ausgaben des Klienten
+		erlaubt wurden.
+	<li>Änderung des Logging-Schlüsselwortes <tt>output</tt>
+        nach <A href="usage.server.execution.properties.html#log"
+            ><TT>terminal</TT></A>
+	<li>Überarbeitung der <a href="usage.html">Benutzung</a>
+	<li>Umstellung auf genRob®-genSite 2.1.2 für bessere Seitengenerierung
+    <LI>Beschreibung der
+        <A href="usage.server.console.html">Terminal-Befehle</A></LI>
+	<li>Dokumentation der bekannten
+        <A href="usage.server.limitations.html#restrictions">Einschränkungen
+            für Roblets®</A>
+</ul>
+
+<H2>Für Version 4.4</H2>
+<ul>
+    <LI>Überarbeitung des <I>Klienten</I>
+		<ul>
+			<li>Mehr Log-Ausgaben
+			<li>Behebe Fehler beim Schließen der Bibliothek
+			<li>Neue Schnittstelle
+                <<TT>genRob.genControl.client.Log</TT>
+				ermöglicht Anwendungen, Log-Informationen
+				zu erhalten
+			<li>Überarbeitung der (undokumentierten)
+				Ausgabe-Klasse <tt>genRob.genControl.client.util.Out</tt>
+			<li>Neue Eigenschaft <tt>genRob.genControl.client.log</tt>
+				zur Steuerung der Log-Inhalte:<br>
+				<tt>httpdInform</tt>, <tt>httpdExplain</tt>,
+				<tt>httpdHint</tt>,
+				<tt>genMediator</tt>,
+				<tt>clientBase</tt>, <tt>clientConnection</tt>
+				- siehe Klasse
+                <TT>genRob.genControl.client.Log</TT>
+			<li>Neuer Konstruktor für Klienten:&nbsp;
+                <TT>genRob.genControl.client.Client.Client(Log)</TT>;<br>
+				dafür entfällt der Konstruktur mit Parameter
+				<tt>genRob.genControl.client.util.Out</tt>
+			<li>Vereinfachung des Verbindungsaufbaus
+			<li>Entferne (undokumentiertes) Paket
+				<tt>genRob.genControl.client.jini</tt>
+			<li>Weitergabe von Roblet®-/Server-Ausnahmen, die nicht von
+				<tt>java.lang.Exception</tt> abgeleitet sind
+			<li>Leichte inhaltliche Änderung von
+				<SMALL><tt>genRob.genControl.client.ClientListener. removedNominee(...)</tt></SMALL>,
+				um Server-Neustarts (unter gleichem Namen)
+				für die Anwendungen über die Verzeichnisdienste
+				sichtbar zu machen
+			<li>Vereinfache Synchronisierung im Klienten
+			<li>Verlagerung des (undokumentierten) Paketes
+				<tt>genRob.genControl.client.util.jini</tt>
+				zur weiteren Verwertung / Auflösung
+			<li>Leichte Anpassung der (undokumentierten) Hilfsklasse
+				<tt>genRob.genControl.client.util.Out</tt>
+		</ul>
+	<li>Leichte Erweiterung der Dokumentation von
+		<a href="modules/genRob/genControl/modules/Module.html"
+			><tt>genRob.genControl.modules.Module</tt></a>
+	<li>Überarbeitung der internen Tests
+</ul>
+
+<H2>Für Version 4.3</H2>
+<ul>
+	<li>(4.3.1)
+		<ul>
+			<li>Änderung der Klassenstruktur, um mit der
+				MacOSX-JVM (und eventuell anderen auch)
+				problemloser arbeiten zu können
+		</ul>
+	<li>Überarbeitung der
+        <I>Klienten-Schnittstelle</I>
+		<ul>
+			<li>Einführung von
+                <TT>genRob.genControl.client.Nominee</TT>
+				und entsprechende Überarbeitung von
+				<tt>genRob.genControl.client.ClientListener</tt>.<br>
+				Hintergrund ist die Tatsache, daß
+				Instanzen vom Typ
+                <TT>genRob.genControl.client.Server</TT>
+				zukünftig genau einen laufenden Roblet®-Server
+				repräsentieren sollen und jeder laufende, bereits
+				von der zugehörigen Klienten-Instanz kontaktierte
+				Server nur eine Instanz zugehörig haben soll.
+			<li>Wird in
+                <TT>genRob.genControl.client.Client</TT>
+				die Methode <tt>run(...)</tt> unterbrochen,
+				so wird ein laufendes Roblet® nicht mehr beendet.<br>
+				Tieferer Grund dieser Änderung ist, daß der Vorgang
+				sowieso nicht gesichert werden kann.
+			<li>Der Konstruktor von
+                <TT>genRob.genControl.client.Client</TT>
+				wirft jetzt Ausnahmen vom Typ
+                <TT>genRob.genControl.client.ClientException</TT>
+				als Verallgemeinerung der bisherigen
+				<tt>java.io.IOException</tt>
+			<li>Umbau der Verzeichnisdienstverwaltung
+			<li>Die Klasse
+                <TT>genRob.genControl.client.Client</TT>
+				hat eine neue Methode <tt>getServer(...)</tt>,
+				mit der Server-Repräsentationen
+                (<TT>genRob.genControl.client.Server</TT>)
+				besorgt werden können.
+			<li>Umstellung der Ausnahmerückgabe bei
+				gleichzeitiger Umstellung auf den Typ
+                <TT>genRob.genControl.client.ClientException</TT>
+			<li>Dokumentierung der Fach-Schnittstelle
+                <TT>genRob.genControl.client.Slot</TT>
+				- sie ermöglicht das optimierte benutzen des
+				Roblet®-Servers durch Wiederverwendung von Fächern
+				und das Beenden von Roblets® über das Senden
+				von <tt>null</tt>
+		</ul>
+	<li>Anpassung der
+		<a href="content.html">Beispiel-Start-Skripts-/-Batch-Dateien</a>
+		um die Angabe eines Ports
+</ul>
+
+<H2>Für Version 4.2</H2>
+<ul>
+	<li>Überarbeitung der
+        <I>Klienten-Schnittstelle</I>
+		<ul>
+			<li>Prioritäten der Threads der Klienten-Bibliothek sind jetzt
+				kleiner oder gleich zur Priorität
+				des initialisierenden Thread.
+			<li>Die Bibliothek kann in Vorbereitung auf eine
+				Konzeptumstellung nicht mehr mit einer Server-Namensliste
+				initialisiert werden
+			<li>Die Klassen
+                <TT>genRob.genControl.client.Server</TT>
+				und
+				<TT>genRob.genControl.client.Slot</TT>
+				sind nun Schnittstellen (<tt>interface</tt>)
+		</ul>
+	<li>Leichte Veränderung im Jini®-Teil des Servers zur Verhinderung
+		seltener, aber störender Ausnahmen
+	<li>Anpassung des Loggings vom Jini®-Teil
+	<li>Ausgabe des Threads und seiner Gruppen auf der Konsole,
+		für den Fall, daß von dem Thread kein Speicher mehr
+		allokiert werden kann
+	<li>Ausgabe von Ursachen, Thread, Gruppen auf der Konsole
+		und ins Log und zusätzlich Ausgabe des Stacktrace auf der
+		Konsole im Falle einer fälschlicherweise unbehandelten Ausnahme
+</ul>
+
+<H2>Für Version 4.1</H2>
+<ul>
+	<li>Hilfsbibliotheksteil
+		<tt>genRob.genControl.client.util.operation</tt>
+		nun dokumentiert
+	<li>Umstellung auf genRob®-genSite 2.1
+    <LI>Einhängen und Überarbeiten der Dokumentation der
+        <I>Schnittstellen</I></LI>
+	<li>Überarbeitung der
+        <I>Klienten-Schnittstelle</I>
+		<ul>
+			<li>Die Methode
+				<tt>genRob.genControl.client.Client.run(Roblet)</tt>
+				gibt es nicht mehr
+			<li>Die Parameterreihenfolge von
+                <TT>genRob.genControl.client.Client.run(...)</TT>
+				ist vertauscht
+			<li>Ausnahmen, die ein Roblet® wirft, können von den
+				<tt>run(...)</tt>-Methoden jetzt direkt per <tt>catch(...)</tt>
+				abgefangen werden	;<br>
+				<SMALL>
+				<tt>genRob.genControl.client.server.ExecutionException</tt>
+				</SMALL>
+				wird nicht mehr geworfen
+			<li><tt>Client.run(...)</tt> prüft jetzt, ob eine Port-Nummer
+				angegeben wurde und wirft ansonsten eine Ausnahme
+			<li>Die Namen der Roblet®-Server, die von der Klienten-Bibliothek
+				gefunden werden, enthalten jetzt immer die Port-Nummer
+			<li>Die Methode <tt>Server.getName()</tt> ist durch
+                <TT>genRob.genControl.client.Server.toString()</TT>
+				ersetzt worde.
+		</ul>
+	<li>Server können jetzt nicht mehr ohne Angabe eines Portes
+		gestartet werden (vgl. <a href="usage.html">Benutzung</a>)
+		- es gibt also kein Standardport mehr
+</ul>
+
+<H2>Für Version 4.0</H2>
+<ul>
+	<li>(4.0.2)
+		<ul>
+			<li>Korrektur eines unansehnlichen HTML-Fehlers im Kapitel
+				<a href="usage.html">Benutzung</a>
+		</ul>
+	<li>(4.0.1)
+		<ul>
+			<li>Korrektur der Versionsangabe der Implementierung
+				von <tt>genRob.genControl.unit.Version</tt>
+			<li>Einfügung von (lizenzrechtlichen) Hinweisen für den produktiven
+				Einsatz in <a href="usage.html">Benutzung</a> und
+				<a href="content.html">Inhalt</a>
+		</ul>
+	<li>Umstellung auf die
+		<a href="content.html#roblet">Roblet®-Bibliothek 2.0</a>
+	<li>Korrektur der Dokumentation - Fehlerhaft eingebundenen
+		Menüpunkt "Entwicklung" entfernt
+	<li>Quellen-Dokumentation jetzt mit Dokumentation des Java&trade;-API
+		der Version 1.4.2 verbunden:&nbsp;
+		<a href="http://java.sun.com/j2se/1.4.2/docs/api/"
+			>http://java.sun.com/j2se/1.4.2/docs/api/</a>
+	<li>Quellen-Dokumentation jetzt mit Dokumentation der
+		Java&trade;-Roblet®-Bibliothek 2.0 verbunden
+</ul>
+
+<H2>Für Version 3.0</H2>
+<ul>
+	<li>Ausbau der Einzel-Roblet®-Umgebung
+	<li>Änderung der Ausnahmebehandlung für Roblets®
+		<ul>
+			<li>jetzt werden ausnahmslos alle bearbeitet
+			<li>Veränderung des Loggings
+		</ul>
+	<li>Umstellung auf genRob®-genSite 1.1.1
+	<li>Änderungen am Aufzeichnungssystem (Logging)
+		<ul>
+			<li>Umbenennung von <tt>genRob.genControl.out</tt> nach
+                <A href="usage.server.execution.properties.html#log"
+                    ><TT>genRob.genControl.log</TT></A>
+			<li>Ausgaben von Log-Aufzeichnungen im Terminal(fenster)
+				sind jetzt standardmäßig
+				abgeschaltet und müssen per Schlüsselwort
+				<tt>output</tt>
+				eingeschaltet werden
+			<li>Bei eingeschalteten Ausgaben kann nun per
+                <A href="usage.server.execution.properties.html#log"
+                    ><TT>long</TT></A>
+				eine lange Anzeige von Datum und Zeit eingeschaltet werden
+			<li>Neues Schlüsselwort
+                <A href="usage.server.execution.properties.html#log"
+                    ><TT>version</TT></A>,
+				um die Aufzeichnung von Copyright und Version zu aktivieren
+			<li>Umbenennung des Schlüsselwortes <tt>modules</tt> nach
+                <A href="usage.server.execution.properties.html#log"
+                    ><TT>module</TT></A>
+		</ul>
+	<li>Baue den Teil um, der sich mit dem Beenden des Server und der
+		Entgegennahme von Nutzerbefehlen befaßt.&nbsp;
+		Jetzt sind Nutzereingaben sofort sichtbar und nicht erst nach
+		Drücken von &lt;Enter&gt;.
+	<li>Änderungen an der Modul-Schnittstelle
+		<ul>
+			<li>Methode
+				<tt>genRob.genControl.modules.Module.moduleReset()</tt>
+				wird nicht mehr benutzt und muß nicht mehr implementiert
+				werden.<br>
+				<b>Achtung:</b>&nbsp;
+				Bisher wurde diese Methode mindestens einmal aufgerufen.&nbsp;
+				Deshalb muß jedes Modul daraufhin überprüft werden, ob
+				gegebenenfalls ein Aufruf von <tt>moduleReset()</tt>
+				am Ende des eigenen <tt>moduleInit(...)</tt> erfolgen sollte.
+			<li>Ebenso Methode
+				<tt>genRob.genControl.modules.Registry.free()</tt>
+				wird nicht mehr benutzt und muß nicht mehr implementiert
+				werden.<br>
+				<b>Achtung:</b>&nbsp;
+				Bisher wurde diese Methode mindestens einmal aufgerufen.&nbsp;
+				Deshalb muß jedes Modul daraufhin überprüft werden, ob
+				gegebenenfalls ein Aufruf von <tt>free()</tt>
+				am Ende des eigenen <tt>moduleInit(...)</tt> erfolgen sollte.
+			<li><tt>genRob.genControl.modules.Use.reset()</tt> existiert
+				nicht mehr.&nbsp;
+				Eine Benutzung sollte nicht stattgefunden haben.
+		</ul>
+</ul>
+
+<H2>Für Version 2.3</H2>
+<ul>
+	<li>2.3.1
+		<ul>
+			<li>Behebe den Fehler
+				<tt>ConcurrentModificationException</tt>, der manchmal bei
+				starker Belastung des Server auftrat
+			<li>Entferne <tt>Client.stop()</tt>, da nicht sinnvoll
+				implementiert/implementierbar
+			<li><tt>Client.run(...)</tt> setzt jetzt ein Fach zurück, wenn
+				der aufrufende Thread zum Unterbrechen aufgefordert wurde
+				und das Roblet® noch nicht seinen Haupt-Thread beendet hatte
+		</ul>
+	<li>Dokumentation des Teils Entwicklung wurde wieder entfernt,
+		da er zu stark veraltet war;&nbsp;
+		API-Dokumentation der Module bleibt aber im Paket
+	<li>Das Administrationsprogramm wird momentan nicht ausgeliefert.&nbsp;
+		Hier besteht grundsätzlicher Überarbeitungsbedarf.
+	<li>Neue Einheit <tt>genRob.genControl.unit.Version</tt>, mit der
+		die Version der genControl-Instanz erfahren werden kann
+	<li>Neue Einheit <tt>genRob.genControl.unit.client.Client</tt>, mit der
+		ein Roblet® Roblets® verschicken kann
+	<li>API-Dokumentation für die Einheiten-Bibliothek (Anfänge)
+	<li>Korrektur der API-Dokumentation für die Klienten-Bibliothek.
+	<li>Sämtliche JAR-Dateien geben jetzt wenigstens Version aus,
+		wenn sie per <tt>java  -jar XXX.jar</tt> aufgerufen werden
+	<li>Nutzung von genRob®-genSite 1.0.
+	<li>Umstellung aller Quellen auf UTF-8 (außer Scripte/Batches)
+	<li>Dokumentationsverzeichnis jetzt <tt>doc</tt> anstatt <tt>docs</tt>.
+	<li>Ant-Umstellung auf Nutzung einer Hilfsdatei für jedes Teilstück.
+	<li><tt>genRob.genControl.interface.jar</tt> ist entfallen.&nbsp;
+		Falls diese alte Modul-Schnittstelle noch benutzt wird, so muß
+		nun gegen <tt>genRob.genControl.jar</tt> gebunden werden
+</ul>
+
+<H2>Für Version 2.2</H2>
+<ul>
+	<li>Änderungen in der Klienten-Bibliothek auf eine
+		neue (endgültige) Philosophie hin:&nbsp;
+		Die Bibliothek informiert nur noch über wirklich
+		von der Anwendung <i>sichtbare</i> Roblet®-Server bzw.
+		deren Verschwinden (Ende oder Netzabriß).&nbsp;
+		<tt>Connection</tt> entfällt (wird nicht mehr benötigt).
+	<li>Die Beispiel-Startdateien (genControl.bat und genControl.sh)
+		starten jetzt genControl ohne Module und sind gleich benutzbar.
+	<li>Ant-Umstellung auf Nutzung einer Hilfsdatei.
+</ul>
+
+<H2>Für Version 2.1</H2>
+<UL>
+	<li>Klientenbibliothek
+		<ul>
+			<li>Die Klientenbibliothek wurde um die Klasse
+				<tt>genRob.genControl.client.Client</tt> erweitert.&nbsp;
+				Mit ihr können nun "Ein-Zeilen"-Programme geschrieben werden,
+				was einfacheres "Prototyping" ermöglicht.
+			<li>Kleinere Anpassungen&nbsp;
+				(<small>
+					Ein Diensteintrag muss jetzt nicht mehr unbedingt
+					mit einer <tt>Occupant</tt>-Instanz
+					beantwortet werden.&nbsp;
+					Dadurch können z.B. solche Einträge ignoriert werden,
+					wo der Dienste fehlt oder keine <tt>Slots</tt>-Instanz ist.
+				</small>)
+		</ul>
+	<li>Eine Einheit zum Abfragen des Server-Logs steht nun zur Verfügung:&nbsp;
+		<tt>genRob.genControl.unit.log.Log</tt>.
+	<li>Eine Einheit zum Ausgeben in das Server-Log steht nun zur Verfügung:&nbsp;
+		<tt>genRob.genControl.unit.log.Logger</tt>.
+	<li>Interne Änderungen
+		<ul>
+			<li>Überarbeitung des Logging-Konzeptes&nbsp;-&nbsp;
+				Vorstufe zur allgemeinen Logging-Funktionalität.
+			<li>Feinere Granulierung des Loggings:&nbsp;
+				<tt>base</tt>, <tt>httpd</tt>, <tt>jini</tt>,
+				<tt>main</tt>, <tt>modules</tt>,
+				<tt>shell</tt> und <tt>slots</tt>
+			<li>Erstellung eines allgemein für RMI einsetzbaren HTTP-Servers und
+				Ersetzung der verschiedenen anderen Server
+			<li>Überarbeitung des zentralen Ant-Scripts inkl. Reorganisation
+				der Dateistruktur, um die einzelnen Jar-Dateien klarer zu
+				trennen
+		</ul>
+	<li>Updates
+		<ul>
+			<li>2.1.1
+				<ul>
+					<li>Neue Methode
+						<SMALL>
+						<tt>genRob.genControl.client.Server.run(Roblet)</tt>
+						</SMALL>
+						um einfachste Jini™-nutzende Anwendungen
+						schreiben zu können
+					<li><SMALL>
+						<tt>genRob.genControl.client.Server.getConnection()</tt>
+						</SMALL>
+						gibt nun auch allgemeine Exceptions zurück
+						(Fehler wurden bisher nicht gemeldet ...)
+					<!-- <li>Gebe nun Klienten-Bibliothek-API-Doku bei -->
+				</ul>
+			<li>2.1.2
+				<ul>
+					<li>Neue Schnittstelle
+						<tt>genRob.genControl.client.ClientListener</tt>
+						kann benutzt werden, um einem <tt>Client</tt>
+						über im Netz befindliche Roblet®-Server (genControl)
+						informiert zu werden
+					<li>Der HTTP-Server wurde dahingehend verändert, dass
+						er sich nun angeforderte Dateien über den
+						<i>classpath</i> der jeweiligen Anwendung verschafft
+						und zur Verfügung stellt.
+				</ul>
+		</ul>
+</UL>
+
+<H2>Für Version 2.0</H2>
+<UL>
+	<LI>Umstellung auf genRob®-Roblet®-Bibliothek 1.0
+		<ul>
+			<li>Frühere Anteile <tt>genRob.roblet.server.*</tt>
+				jetzt in <tt>genRob.genControl.client.server.*</tt>
+				(zu finden in <tt>genRob.genControl.client.jar</tt>)
+			<li>Frühere Anteile <tt>genRob.util.*</tt>
+				jetzt in <tt>genRob.genControl.client.util.*</tt>
+				(zu finden in <tt>genRob.genControl.client.jar</tt>)
+			<li>Frühere Anteile <tt>genRob.roblet.client.*</tt>
+				jetzt in <tt>genRob.genControl.client.*</tt>
+				(zu finden in <tt>genRob.genControl.client.jar</tt>)
+			<li>Frühere Anteile <tt>genRob.robletX.genControl.*</tt>
+				jetzt in <tt>genRob.genControl.unit.*</tt>
+				(zu finden in <tt>genRob.genControl.unit.jar</tt>)
+		</ul>
+	<LI>Um eine höhere Granularität bei der Ausgabe auf die Konsole
+		zu ermöglichen, wurde das Konzept erneut angepasst.
+		<ol>
+			<li>Der Name der Eigenschaft ist ab jetzt
+				<i>genRob.genControl.out</i>
+				(statt bisher <i>genRob.genControl.Main.out</i>).
+			<li>Für Ausgaben der Basis (Erzeugung von Roblets etc.) muß nun
+				der Wert <b>base</b> sein
+				(das entspricht dem früheren <b>enabled</b>).
+			<li>Für Ausgaben bezüglich der Jini™-Aktivitäten
+				ist der Wert <b>jini</b>.
+		</ol>
+		S.a. <a href="usage.html">Benutzung</a> für die Anwendung.
+</UL>
+
+<H2>Für Version 1.2</H2>
+<UL>
+	<LI>RMI: &nbsp;Stubs bekommen jetzt IP-Adresse statt DNS-Namen mitgegeben
+	<LI>Innerhalb von Modulen besteht jetzt die Möglichkeit, zu erfragen,
+		ob Roblets zu enden haben.
+		Damit können Module, die Roblet®-Threads warten lassen, herausfinden,
+		ob sie diese freilassen müssen.
+	<Li>Um Informationen auf der Konsole ausgeben zu lassen, muß nun
+		die Eigenschaft <i>genRob.genControl.Main.out</i> auf
+		<b>enabled</b> gesetzt werden.
+</UL>
+
+<H2>Für Version 1.1</H2>
+<UL>
+	<LI>Anpassung auf genRob®-Roblet®-Bibliothek 0.6
+	<LI>Verbesserung der Jini-Kommunikation:
+		Der Server übergibt dem genMediator mehr Informationen,
+		um ein Auffinden seiner selbst zu vereinfachen.
+	<LI>Vereinfachung der Modul-API inkl. Erstellung einer Dokumentation.
+	<LI>Überarbeitung sämtlicher Dokumentation im Hinblick
+		auf einheitliche Verwendung der Begriffe.
+</UL>
+
+<H2>Für Version 1.0</H2>
+<UL>
+	<LI>Beispiele - Überblick, Minimum, Hello 
+	<LI>Dokumentation - Architektur, Überblick Entwicklung 
+	<LI>Restrukturierung der Einleitung - Neu: Inhalt, Benutzung 
+	<LI>Schärfung und Vereinheitlichung von Begrifflichkeiten 
+</UL>
+
+<H2>Für Version 0.6</H2>
+<UL>
+	<LI>Überarbeitung des HTTP-Servers 
+	<LI>Anpassung der Prioritäten 
+	<LI>Neue Modul-Schnittstelle (inkl. Dokumentation) 
+		<UL>
+			<LI>Basismodul (intern) darauf umgestellt
+			<LI>Mastertechnologie nun auf Modulebene
+		</UL>
+	<LI>Erstellung (build) nun per <A href="http://ant.apache.org">Ant</A> 
+	<LI><TT>genControl.sh</TT> nun ebenso wie
+		<TT>genControl.bat</TT> als Start-Beispiel mitgeliefert 
+	<LI>Eine Dokumentation wurde erstellt 
+		<UL>
+			<LI>Ein Überblick wurde erstellt (index.html)
+			<LI>Eine Änderungsseite (diese Seite) wurde hinzugefügt.
+			<LI><TT>Das Paket genRob.genControl.modules</TT>
+				wurde beschrieben (Modul-API)
+		</UL>
+</UL>
+
+<H2>Für Version 0.5</H2>
+<UL>
+	<LI>Die genRob®-Roblet®-Bibliothek liegt jetzt in der Version 0.5 bei.
+		Siehe dort für Änderungen. 
+	<LI>Implementation der neuen Master-Einheiten-Definition
+		gemäß genRob®-Roblet®-Bibliothek 0.5 
+	<LI>Anpassungen für genMap 0.0 
+</UL>
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2010 genRob® GmbH, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:52.158 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.3</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+</HTML>

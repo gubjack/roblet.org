@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>Roblet®-Development-Kit - Änderungen</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="index.html"  target=_top>RDK</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="changes.html"  target=_top>Änderungen</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="content.html"  target=_top>Inhalt</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Änderungen
+</H1><DIV  id="content">
+
+<P>
+    Auf dieser Seite sind die Anpassungen, Erweiterungen und Änderungen
+    aufgelistet, die für die vorliegende Version gemacht wurden.&nbsp;
+    Zuerst kommen die jüngsten (neuesten) Einträge.
+</P>
+
+<P>
+    Folgende Eintragsklassen gibt es:
+</P>
+
+<UL>
+    <LI  class="new">Neue Dinge,</LI>
+    <LI  class="change">geänderte Sachen und</LI>
+    <LI  class="correct">Fehlerkorrekturen.</LI>
+</UL>
+
+
+<H2>Für Version 2.0</H2>
+
+<H3>I) Hauptsächlich für Administratoren wichtig</H3>
+<UL>
+    <LI  class="change"  style="color:maroon">
+        Alle Java™-Archive arbeiten nur noch mit JDK 1.5 oder höher.&nbsp;
+        Alle Klassen sind nun gegen JDK 1.5 kompiliert.&nbsp;
+        Die Dokumentation wurde passend verknüpft.
+    </LI>
+    <LI  class="new">
+        Bei Angabe von 0 als gewünschtes
+        <A href="usage.server.server.execution.properties.html#port"
+            >Port</A> wählt der Server die nächste (vom Betriebssystem
+        vergebene) freie Nummer.
+    </LI>
+    <LI  class="new">
+        Der Server als Java™-Programm definiert nun
+        <A href="usage.server.server.execution.exit.html"
+            >Rückgabewerte</A>,
+        welche in Start-Scripten oder -Batches genutzt werden können.
+    </LI>
+    <LI  class="new">
+        Die Ausgabe der Rechte- und Versionsinformationen kann nun mit Hilfe
+        der Java™-Eigenschaft
+        <A href="usage.server.server.execution.properties.html#quiet"
+            ><TT>org.roblet.server.quiet</TT></A>
+        unterdrückt werden.
+    </LI>
+    <LI  class="new">
+        Die
+        <A href="usage.server.server.console.html#commands"
+            >Befehlszeile</A> kennt nun den neuen Befehl <TT>h</TT> zur
+        Anzeige einer Kurzübersicht aller Befehle.
+    </LI>
+    <LI class="new">
+        Der Verzeichnisdienst kann nun mit Hilfe von Roblets angesprochen
+        werden.&nbsp;
+        Um den Inhalt von Verzeichnisdiensten anzuzeigen, wurde das
+        <A href="usage.server.tool.directories.html">Werkzeug</A>
+        passend erweitert.
+        Klient und Server nutzten das nach Möglichkeit auch.&nbsp;
+        Die Interoperabilität mit alten Verzeichnisdiensten, Klienten und
+        Servern bleibt aber noch gewahrt.
+    </LI>
+    <LI class="new">
+        Der Verzeichnisdienst kann nun hinsichtlich des
+        <A href="usage.directory.parameters.html#log">Loggings</A> justiert
+        werden.
+    </LI>
+    <LI  class="change">
+        Das Logging von Verzeichnisdienst-Zugriffen des
+        <A href="usage.server.server.execution.properties.html#log"
+            >Servers</A>
+        und des
+        <A href="usage.proxy.start.parameters.html#log"
+            >Vertreters</A>
+        wird nun mit dem Schlüsselwort <TT>directories</TT> (statt bisher
+        <TT>jini</TT>) gesteuert.
+    </LI>
+    <LI  class="change">
+        Das Logging von Verzeichnisdienst-Zugriffen des Klienten wird nun
+        mit dem Schlüsselwort <TT>directories</TT> (statt bisher
+        <TT>genMediator</TT>) gesteuert.&nbsp;
+        Das betrifft sowohl den
+        <A href="usage.server.server.execution.properties.html#client"
+            >Server-internen Klienten</A>
+        als auch
+        <A href="app/genRob/genControl/client/Log.html"
+                >Klienten von Anwendungen</A>.
+    </LI>
+    <LI  class="change">
+        Die alte Modul-Schnittstelle
+        <A href="mod/genRob/genControl/modules/Module.html"
+                ><TT>genRob.genControl.modules.Module</TT></A>
+        ist nun abgekündigt.&nbsp;
+        Der Server wird alte Module aber noch einige Zeit unterstützen.
+    </LI>
+    <LI  class="change">
+        <TT>genRob.genControl.client.jar</TT> nun direkt im Klassenpfad von
+        <TT>org.roblet.jar</TT> mit enthalten.
+    </LI>
+    <LI class="change">
+        <A href="mod/genRob/genControl/modules/Module2.html">Module
+            neuen Typs</A> werden nun vor
+        <A href="mod/genRob/genControl/modules/Module.html">Modulen
+            alten Typs</A> geladen.&nbsp;
+        Die Reihenfolge innerhalb der Typen bleibt ansonsten erhalten.
+    </LI>
+    <LI  class="change">
+        Der Klient unterstützt keine RMI-basierte Kommunikation zu (alten)
+        Roblet®-Servern mehr.&nbsp;
+        Das Setzen der Java™-Eigenschaft
+        <TT>genRob.genControl.client.protocol.RMI</TT> führt nun dazu, daß der
+        <A href=
+"app/genRob/genControl/client/Client.html#Client(genRob.genControl.client.Log,%20boolean)"
+            >Klient</A> eine Ausnahme erzeugt.
+    </LI>
+    <LI  class="change">
+        Die Java™-Eigenschaft <TT>genRob.genControl.disregards</TT> wird nicht
+        mehr verwendet.
+    </LI>
+    <LI  class="change">
+        Server endet im Fehlerfall nun mit Fehlermeldung, auch wenn kein Logging
+        aktiviert ist.&nbsp;
+        Insbesondere endet nun der Server, wenn das gewünschte
+        <A href="usage.server.server.execution.properties.html#port"
+            >Port</A> besetzt ist.
+    </LI>
+    <LI  class="change">
+        Der <A href="usage.directory.html">Verzeichnisdienst</A> startet keinen
+        RMI-Dämon (rmid) mehr.&nbsp;
+        Es wird auch kein temporäres Verzeichnis mehr benötigt.&nbsp;
+        Der Start mehrerer <A href="usage.directory.html">Verzeichnisdienste</A>
+        auf dem gleichen Rechner ist nun möglich.
+    </LI>
+    <LI  class="change">
+        Die Jini™-Dateien <TT>tools.jar</TT>, <TT>reggie-dl.jar</TT> und
+        <TT>jini-examples-dl.jar</TT> sind entfallen.&nbsp;
+        <TT>jini-core.jar</TT>, <TT>jini-ext.jar</TT>, <TT>reggie.jar</TT> und
+        <TT>jini-examples.jar</TT> werden nun aus den Quellen mit JDK 1.5
+        gebaut.
+    </LI>
+    <LI  class="correct">
+        Ausnahmen der Art
+        <TT>java.lang.IllegalStateException: discovery terminated</TT>
+        vermieden
+    </LI>
+</UL>
+
+<H3>II) Hauptsächlich für Anwendungsentwickler wichtig</H3>
+<UL>
+    <LI  class="change"  style="color:maroon">
+        Alle Java™-Archive arbeiten nur noch mit JDK 1.5 oder höher.&nbsp;
+        Alle Klassen sind nun gegen JDK 1.5 kompiliert.&nbsp;
+        Die Dokumentation wurde passend verknüpft.
+    </LI>
+    <LI  class="correct">
+        Die Methoden
+        <UL>
+            <LI><A href=
+"app/genRob/genControl/client/Client.html#getServer(java.lang.String)"
+            ><TT>genRob.genControl.client.Client.getServer(String)</TT
+            ></A></LI>
+            <LI><A href=
+"app/genRob/genControl/client/Client.html#getServer(genRob.genControl.client.Identity)"
+            ><TT>genRob.genControl.client.Client.getServer(Identity)</TT
+            ></A></LI>
+            <LI><A href=
+        "app/genRob/genControl/client/Nominee.html#getServer()"
+            ><TT>genRob.genControl.client.Nominee.getServer()</TT></A
+            ></LI>
+            <LI><A href=
+        "app/genRob/genControl/client/Server.html#getSlot()"
+            ><TT>genRob.genControl.client.Server.getSlot()</TT></A></LI>
+        </UL>
+        warten nun "unendlich" lang auf die Möglichkeit, eine Verbindung
+        zum Server aufzubauen.&nbsp;
+        Sie geben im wesentlichen nur noch eine
+        <TT>java.lang.InterruptedException</TT> zurück,
+        wenn sie durch einen anderen Thread unterbrochen wurden.
+    </LI>
+    <LI  class="change">
+        Die Methode <A href=
+"app/genRob/genControl/client/Client.html#getServer(java.lang.String)"
+            ><TT>genRob.genControl.client.Client.getServer(String)</TT
+            ></A>
+        akzeptiert nun jegliche Server-Namen, auch wenn sie
+        möglicherweise ein falsches Format haben.&nbsp;
+        Der Aufrufer muß selbst im Bedarfsfall für passende Prüfungen
+        sorgen.
+    </LI>
+    <LI class="change">
+        <A href=
+"app/genRob/genControl/unit/log/Logger2.html#log(java.io.Serializable)"
+            ><TT>genRob.genControl.unit.log.Logger2.log(..)</TT></A>
+        ignoriert nun <TT>null</TT>-Nachrichten.
+    </LI>
+    <LI  class="change">
+        Das Logging von Verzeichnisdienst-Zugriffen des Klienten wird nun
+        mit dem Schlüsselwort <TT>directories</TT> (statt bisher
+        <TT>genMediator</TT>) gesteuert.&nbsp;
+        Das betrifft sowohl den
+        <A href="usage.server.server.execution.properties.html#client"
+            >Server-internen Klienten</A>
+        als auch
+        <A href="app/genRob/genControl/client/Log.html"
+                >Klienten von Anwendungen</A>.
+    </LI>
+    <LI  class="correct">
+        Die Verbindungsaufnahme beim Erzeugen von Server-Repräsentanten
+        wurde überarbeitet, korrigiert und parallelisiert.
+    </LI>
+    <LI  class="change">
+        Die Schnittstelle des Fach-Repräsentanten wurde auf angepaßt und
+        im besonderen sind nun 
+        <A href=
+            "app/genRob/genControl/client/Slot.html#getInputStream()"
+            ><TT>genRob.genControl.client.Slot.getInputStream()</TT></A>
+        und
+        <A href=
+        "app/genRob/genControl/client/Slot.html#getOutputStream()"
+            ><TT>genRob.genControl.client.Slot.getOutputStream()</TT
+            ></A>
+        abgekündigt.
+    </LI>
+    <LI  class="change">
+        Die bisher schon abgekündigte Einheiten
+        <UL>
+            <LI>
+                <TT>genRob.genControl.unit.log.Log</TT> und die zugehörigen
+                Hilfsklassen
+                <TT>genRob.genControl.unit.log.LogEntry</TT> und
+                <TT>genRob.genControl.unit.log.ThreadInfo</TT>
+            </LI>
+            <LI><TT>genRob.genControl.unit.log.Logger</TT></LI>
+            <LI><TT>genRob.genControl.unit.Version</TT></LI>
+        </UL>
+        wurden entfernt.&nbsp;
+        Sie stehen nun auch im Server nicht mehr zur Verfügung
+        und werden vom Werkzeug nicht mehr unterstützt.
+    </LI>
+    <LI  class="change">
+        Die bisher schon abgekündigte Methoden <TT>run(...)</TT> von
+        <UL>
+            <LI><TT>genRob.genControl.client.Client</TT></LI>
+            <LI><TT>genRob.genControl.client.Nominee</TT></LI>
+            <LI><TT>genRob.genControl.client.Server</TT></LI>
+        </UL>
+        wurden entfernt.&nbsp;
+        Es steht nur noch
+        <A href=
+        "app/genRob/genControl/client/Slot.html#run(org.roblet.Roblet)"
+            ><TT
+            >genRob.genControl.client.Slot.run(org.roblet.Roblet)</TT
+            ></A>
+        zur Verfügung.
+    </LI>
+    <LI class="change">
+        Die undokumentierte Einheit
+        <TT>genRob.genControl.unit.JiniPublisher</TT> wurde entfernt.
+    </LI>
+    <LI  class="change">
+        Owner-Konzept wurde entfernt.
+    </LI>
+    <LI  class="correct">
+        TCP-Verbindungswiederaufbau des Klienten nun mit Abbruchbedingung
+    </LI>
+</UL>
+
+<H3>III) Hauptsächlich für Entwickler von Modulen wichtig</H3>
+<UL>
+    <LI  class="change">
+        Die Methode <A href=
+"mod/genRob/genControl/modules/Module2.html#moduleInit(genRob.genControl.modules.ModuleContext)"
+            ><TT
+        >genRob.genControl.modules.Module2.initModule(ModuleContext)</TT
+        ></A>
+        beendet bei Werfen einer Ausnahme doch wieder den Server.
+    </LI>
+    <LI class="change">
+        <A href="mod/genRob/genControl/modules/Module2.html">Module
+            neuen Typs</A> werden nun vor
+        <A href="mod/genRob/genControl/modules/Module.html">Modulen
+            alten Typs</A> geladen.&nbsp;
+        Die Reihenfolge innerhalb der Typen bleibt ansonsten erhalten.
+    </LI>
+    <LI  class="change">
+        Die alte Modul-Schnittstelle
+        <A href="mod/genRob/genControl/modules/Module.html"
+                ><TT>genRob.genControl.modules.Module</TT></A>
+        ist nun abgekündigt.&nbsp;
+        Der Server wird alte Module aber noch einige Zeit unterstützen.
+    </LI>
+    <LI  class="change">
+        Owner-Konzept wurde entfernt.
+    </LI>
+</UL>
+
+
+<H2>Für Version 1.3</H2>
+<UL>
+    <LI  class="new">
+        Neuer Modultyp
+        <A href="mod/genRob/genControl/modules/Module2.html"
+            ><TT>Module2</TT></A>
+        mit automatischer Behandlung von Abgrenzungsmechanismen
+    </LI>
+    <LI  class="new">
+        Neues Schlüsselwort <TT>unit</TT> zum
+        <A href="usage.server.server.execution.properties.html#log">Loggen</A>
+        von Server-Aktivitäten hinsichtlich Einheiten-Ersatzinstanzen
+    </LI>
+    <LI  class="change">
+        Das Kapitel
+        <A href="usage.server.server.security.html">Server-Sicherheit</A>
+        wurde ausführlicher gestaltet.
+    </LI>
+    <LI  class="correct">
+        Unterbrochene Aufrufe ferner Instanzen führten nicht zur definierten
+        <TT>java.lang.RuntimeException</TT> mit verketteter
+        <TT>java.lang.InterruptedException</TT>, sondern stattdessen zu einer
+        <TT>java.lang.reflect.UndeclaredThrowableException</TT>, da die
+        Methoden der fernen Instanzen in aller Regel keine
+        <TT>InterruptedException</TT> deklariert hatten.
+    </LI>
+    <LI  class="correct">
+        Der Aufruf einer fernen Instanz durch ein Roblet® führte zu einer
+        <TT>java.lang.NullPointerException</TT> für den Fall, daß auf der
+        lokalen Seite der Anwendung keine fernen Instanzen (mehr) angeboten
+        wurden.
+    </LI>
+    <LI  class="correct">
+        Der Mechanismus zum Laden von Klassen auf Serverseite wurde erweitert,
+        um auch Felder korrekt behandeln zu können.
+    </LI>
+</UL>
+
+
+<H2>Für Version 1.2</H2>
+<UL>
+    <LI  class="change">
+        Das Java™-Archiv <TT>org.roblet.jar</TT> ist nun von allen anderen
+        Archiven abhängig.&nbsp;
+        Daher braucht bei Kompilation und Ausführung nur noch dieses eine
+        angegeben werden.&nbsp;
+        Sämtliche Dokumentation wurde entsprechend vereinfacht.&nbsp;
+        Da im Laufe der Zeit alle anderen Archive nach und nach entfallen
+        werden, ist ein schrittweiser Umstieg sinnvoll.
+    </LI>
+    <LI  class="change">
+        Der <A href="usage.server.server.execution.simple.html">Server</A>,
+        das <A href="usage.server.tool.html">(Server-)Werkzeug</A>,
+        der <A href="usage.directory.html">Verzeichnisdienst und der Browser</A>
+        können nun über <TT>org.roblet.jar</TT> gestartet werden.&nbsp;
+        Start-Scripte und Start-Batches (<TT>server.sh</TT>,
+        <TT>directory.sh</TT> und <TT>browser.sh</TT>
+        bzw. <TT>server.bat</TT>, <TT>directory.bat</TT> und
+        <TT>browser.bat</TT>) wurden entsprechend angepaßt.
+    </LI>
+    <LI  class="change">
+        Das Werkzeug zum Vertreter wurde entfernt, da die Funktionalität
+        nicht mehr benötigt wird.
+    </LI>
+    <LI  class="change">
+        Der Vertreter stellt keine Einheiten mehr bereit.&nbsp;
+        Damit ist auch <TT>genRob.genGate.unit.Version</TT> entfallen.
+    </LI>
+    <LI  class="change">
+        Der Server nimmt ab dieser Version als
+        Standard-<A href="usage.server.server.execution.properties.html#port"
+            >Port-Nummer</A> <EM>2001</EM> an.&nbsp;
+        Er gibt nun keine Fehlermeldung mehr aus, wenn für ihn keine
+        Port-Nummer angegeben wurde.
+    </LI>
+    <LI  class="change">
+        Ab dieser Version sind die
+        <A href="usage.server.server.security.html">Sicherheitsmerkmale</A>
+        des Server <EM>standardmäßig aktivert</EM>.&nbsp;
+        In absehbarer Zeit wird dann eine Abschaltung nicht mehr möglich sein.
+    </LI>
+    <LI  class="change">
+        Anwendungen brauchen bei Servern, die am Standard-Port 2001 laufen,
+        im Servernamen keine Port-Nummer mehr anzugeben.&nbsp;
+        Im wesentlichen wurde dazu
+        <A href=
+        "app/genRob/genControl/client/Client.html#getServer(java.lang.String)"
+            ><TT>genRob.genControl.client.Client.getServer(String)</TT></A>
+        angepaßt.&nbsp;
+        Entsprechend wurde auch das
+        <A href="usage.server.tool.html">Server-Werkzeug</A> überarbeitet.
+    </LI>
+    <LI  class="new">
+        Server und Klient verstehen zusätzlich eine Version des
+        Roblet®-Protokolls (Version 4).&nbsp;
+        Dieses Protokoll wird nur zur Verfügung gestellt, wenn die
+        <A href="usage.server.server.security.html">Sicherheitsmerkmale</A>
+        aktiviert sind.&nbsp;
+        Damit nutzt die Implementierung dann auch keine RMI-Klassen mehr.&nbsp;
+        Zu beachten ist, daß dann RMI-Server vor einem Transport auch nicht
+        mehr in RMI-Stubs gewandelt werden.
+    </LI>
+</UL>
+
+
+<H2>Für Version 1.1</H2>
+<UL>
+    <LI  class="change">
+        <TT>org.roblet.Version</TT> und <TT>org.roblet.client.Version</TT>
+        werden nicht mehr unterstützt.&nbsp;
+        Sie wurden verändert bzw. sind entfallen und werden nicht mehr
+        dokumentiert.
+    </LI>
+    <LI  class="change">
+        Sämtliche Java™-Archive inkl. aller Programme geben nun als
+        Versionshinweis das RDK aus
+    </LI>
+    <LI  class="change">
+        <TT>org.roblet.math.Robiant</TT> wird nicht mehr unterstützt.&nbsp;
+        Die Klasse steht nun zukünftig
+        als Hilfsklasse <TT>genRob.genMap.unit.Robiant</TT> der
+        <A href="http://genRob.com/system/genMap">genRob®-genMap-Einheiten</A>
+        zur Verfügung.
+    </LI>
+    <LI  class="change">
+        Die bisherige Dokumentation der <I>Roblet®-Bibliothek</I> und der
+        <I>Klienten-Bibliothek</I> wurde
+        vollständig in die RDK-Dokumentation integriert.&nbsp;
+        Die bisherige API-Dokumentation ist jetzt Teil der
+        <A href="app/index.html">API-Dokumentation für Anwendungen</A>.
+    </LI>
+    <LI  class="change">
+        <TT>genControl.bat</TT> und <TT>genControl.sh</TT> wurden in
+        <TT>server.bat</TT> bzw. <TT>server.sh</TT> umbenannt
+    </LI>
+    <LI  class="change">
+        Die bisherige Dokumentation des
+        <I>Roblet®-Servers genRob®-genControl</I> wurde
+        vollständig in die RDK-Dokumentation integriert.&nbsp;
+        Die bisherige API-Dokumentation ist jetzt Teil der
+        <A href="mod/index.html">API-Dokumentation für Module</A>.
+    </LI>
+    <LI  class="change">
+        <TT>genMediator.bat</TT> und <TT>genMediator.sh</TT> wurden in
+        <TT>directory.bat</TT> bzw. <TT>directory.sh</TT> umbenannt
+    </LI>
+    <LI  class="change">
+        Die bisherige Dokumentation des
+        <I>Verzeichnisdienstes genRob®-genMediator</I> wurde
+        vollständig in die RDK-Dokumentation integriert.
+    </LI>
+    <LI  class="change">
+        <TT>genGate.bat</TT> und <TT>genGate.sh</TT> wurden in
+        <TT>proxy.bat</TT> bzw. <TT>proxy.sh</TT> umbenannt
+    </LI>
+    <LI  class="change">
+        Die bisherige Dokumentation des
+        <I>Vertreterdienstes genRob®-genGate</I> wurde
+        vollständig in die RDK-Dokumentation integriert.&nbsp;
+        Die bisherige API-Dokumentation ist jetzt Teil der
+        <I>API-Dokumentation für Vertreter</I>.
+    </LI>
+    <LI  class="change">
+        Die Einheiten
+        <A href="app/genRob/genControl/unit/Version.html"
+            ><TT>genRob.genControl.unit.Version</TT></A> und
+        <I><TT>genRob.genGate.unit.Version</TT></I>
+        wurden als <I>deprecated</I> gekennzeichnet und werden bei der nächsten
+        Änderung am Server entfallen.
+    </LI>
+    <LI  class="change">
+        Die Einheit
+        <A href="app/genRob/genControl/unit/Streams.html"
+            ><TT>genRob.genControl.unit.Streams</TT></A>
+        wurde als <I>deprecated</I> gekennzeichnet und wird bei der nächsten
+        Änderung am Server entfallen.&nbsp;
+        Ersatz sind dann wie schon jetzt die fernen Instanzen
+        (vgl. <A href="app/genRob/genControl/unit/Proxies.html"
+                ><TT>genRob.genControl.unit.Proxies</TT></A>
+        und <A href="app/genRob/genControl/unit/Remotes.html"
+                ><TT>genRob.genControl.unit.Remotes</TT></A>).
+    </LI>
+ </UL>
+
+
+<H2>Für Version 1.0</H2>
+<UL>
+    <LI  class="new">
+        Initiale Version
+    </LI>
+    <LI  class="new">
+        <I>Roblet®-Bibliothek 2.3</I> hinzugefügt
+    </LI>
+    <LI  class="new">
+        <I>Klienten-Bibliothek 2.4</I> hinzugefügt
+    </LI>
+    <LI  class="new">
+        <I>Roblet®-Server genRob®-genControl 6.3</I> hinzugefügt
+    </LI>
+    <LI  class="new">
+        <I>Verzeichnisdienst genRob®-genMediator 1.4</I> hinzugefügt
+    </LI>
+    <LI  class="new">
+        <I>Stellvertreterdienst genRob®-genGate 1.3</I> hinzugefügt
+    </LI>
+    <LI  class="change">
+        Dateien der Subpakete, die nicht die Dokumentation betreffen, wurden
+        ins Hauptverzeichnis verlegt.
+    </LI>
+    <LI  class="change">
+        <TT>run.*</TT> von genControl und genGate wurden in
+        <TT>genControl.*</TT> und <TT>genGate.*</TT> umbenannt
+    </LI>
+</UL>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2011 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 08.01.2011 um 12:28:48.018 CET mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<HTML>
+<HEAD>
+    <meta http-equiv="Content-Language" content="de">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>genRob®-genControl - Benutzung - Server - Ausführung
+        - Module</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://genRob.com"  target=_top><IMG  src="LogoTextSmall.jpeg"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>genControl</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Benutzung</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.html"  target=_top>Server</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.server.execution.html"  target=_top>Ausführung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.server.execution.overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.server.execution.simple.html"  target=_top>Einfach</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.execution.modules.html"  target=_top>Module</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.execution.properties.html"  target=_top>Eigenschaften</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+
+<H1>Module
+</H1><DIV  id="content">
+
+<P>
+    Mit Hilfe von Modulen kann ein Roblet®-Server den Roblets® zusätzliche
+    Ressourcen anbieten.&nbsp
+    Module fungieren als eine Art Treiber und werden in der Regel vom Hersteller
+    der Ressource mit angeboten - können aber auch selbst
+    <A href="usage.development.html">entwickelt</A> werden.&nbsp;
+    Der Server bietet in der unten beschriebenen Variante keinen Zugang zum
+    Rechner, auf dem er läuft, und Roblets® sind maximal in ihren Handlungen
+    auf eine "Sandbox" eingeschränkt.
+</P>
+
+<P>
+    Angenommen man möchte ein Modul mit der Modul-Klasse
+    <I>mypackage.MyModule</I>, enthalten in
+    <I>mypath2\myModule.jar</I> bzw. <I>mypath2/myModule.jar</I> einbinden und
+    den Server in <I>mypath</I> an TCP-Port <I>2001</I> bei aktivierten
+    <A href="usage.server.security.html">Sicherheitsmerkmalen</A> betreiben,
+    so ist folgendes zu schreiben
+    (Windows™;&nbsp; in einer Zeile;&nbsp; der Klassenpfad ohne Leerzeichen):
+
+<BLOCKQUOTE><PRE>
+java  -DgenRob.genControl.security=<B>true</B>
+    -DgenRob.genControl.port=<B>2001</B>
+    -classpath
+        <B>mypath\</B>genRob.genControl.jar;
+        <B>mypath2\myModule.jar</B>
+    genRob.genControl.Main
+    <B>mypackage.MyModule</B>
+</PRE></BLOCKQUOTE>
+
+    Bzw.
+    (Unix/Linux/MacOS/Cygwin;&nbsp; in einer Zeile;&nbsp; der Klassenpfad ohne
+    Leerzeichen):
+
+<BLOCKQUOTE><PRE>
+java  -DgenRob.genControl.security=<B>true</B>
+    -DgenRob.genControl.port=<B>2001</B>
+    -classpath
+        <B>mypath/</B>genRob.genControl.jar:
+        <B>mypath2/myModule.jar</B>
+    genRob.genControl.Main
+    <B>mypackage.MyModule</B>
+</PRE></BLOCKQUOTE>
+
+    Zu beachten ist, daß Sie nicht die
+    <A href="usage.server.execution.simple.html">einfache</A>
+    <I>-jar</I>-Variante des Server-Starts verwenden können, in der Hoffnung,
+    dann auf die Angabe der Start-Klasse <I>genRob.genControl.Main</I>
+    des Servers verzichten zu können.&nbsp;
+    In diesem Fall ignoriert die JVM den Klassenpfad.&nbsp;
+    Weiterhin muß normalerweise sichergestellt sein, daß Roblets® nicht im
+    Klassenpfad der JVM des Servers sichtbar sind, da sie vom Server sonst
+    nicht über das Netz geladen werden.&nbsp;
+    Eine derartige Situation ist nur selten erwünscht.
+</P>
+
+<P>
+    Weitere Module fügt man einfach hinzu, indem man den Klassenpfad
+    entsprechend erweitert und die Modul-Klassen als weitere Argumente
+    angibt.
+</P>
+
+<P>
+    Der Server macht hierbei nur wenige Ausgaben ganz am Anfang.&nbsp;
+    Modul-Klassen werden in der Reihenfolge ihrer Angabe geladen und
+    initialisiert und machen dabei teilweise auch Ausgaben.
+    Log-Ausgaben und anderes werden über weitere
+    <A href="usage.server.execution.properties.html">Java™-Eigenschaften</A>
+    gesteuert.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2010 genRob® GmbH, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:52.184 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.3</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+</HTML>

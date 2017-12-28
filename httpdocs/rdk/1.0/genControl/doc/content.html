@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>genRob®-genControl - Inhalt</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://genRob.com"  target=_top><IMG  src="LogoTextSmall.jpeg"></A></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="index.html"  target=_top>genControl</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="changes.html"  target=_top>Änderungen</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="content.html"  target=_top>Inhalt</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.html"  target=_top>Benutzung</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+
+<H1>Inhalt
+</H1><DIV  id="content">
+
+<P>
+    Der <B>Inhalt dieses Paketes</B> läßt sich grob in vier Bereiche einteilen:
+</P>
+
+<UL>
+    <LI><A href="#server">Roblet®-Server</A>,</LI>
+    <LI><A href="#development">Modul-Entwicklung</A>,</LI>
+    <LI><A href="#tool">Werkzeug</A> und</LI>
+    <LI><A href="#documentation">Dokumentation</A>.</LI>
+</UL>
+
+<P>
+    Roblet®-Server, Modul-Entwicklung und Werkzeug hängen von
+    Software-Komponenten anderer Pakete von zum Teil anderen Herstellern ab:
+</P>
+
+<UL>
+    <LI><A href="#client">Klienten-Bibliothek</A> 2.4,</LI>
+    <LI><A href="#library">Roblet®-Bibliothek</A> 2.3 und</LI>
+    <LI><A href="#jini">Jini™-Bibliothek</A> 1.2.1_001.</LI>
+</UL>
+
+<HR>
+
+<H2>Versionsausgabe</H2>
+
+Die Jar-Datei des Servers gibt beim Laufenlassen die Versionsnummer und anderes
+mehr zurück:
+
+<BLOCKQUOTE><PRE>
+java  <B>-jar genRob.genControl.jar</B>
+</PRE></BLOCKQUOTE>
+
+<H2>Dateien dieses Paketes</H2>
+
+<P>
+    Die nachfolgende Darstellung der zu den o.g. Teilen gehörigen Dateien
+    erfolgt mit Mehrfachnennung.&nbsp;
+    Das bedeutet, daß jeweils alle Dateien, die für die
+    <A href="usage.html">Benutzung</A> notwendig sind, beim jeweiligen Teil
+    mit aufgelistet werden.
+</P>
+
+<P>
+    Der <A name="server"><B>Roblet®-Server</B></A> besteht aus mehreren
+    Java™-Archiven und einigen Beispiel-Start-Scripten:
+</P>
+
+<UL>
+    <LI><TT>genRob.genControl.jar</TT>
+        <SMALL>(der eigentliche Roblet®-Server)</SMALL>,</LI>
+    <LI><TT>genRob.genControl.modules.jar</TT>
+        <SMALL>(die Schnittstelle für Module-Entwickler)</SMALL>,</LI>
+    <LI><TT>org.roblet.client.jar</TT>
+        <SMALL>(<A href="#client">Klienten-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>genRob.genControl.client.jar</TT>
+        <SMALL>(<A href="#client">Klienten-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>genRob.genControl.unit.jar</TT>
+        <SMALL>(<A href="#client">Klienten-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(<A href="#library">Roblet®-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>jini-core.jar</TT>
+        <SMALL>(<A href="#jini">Jini™-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>jini-ext.jar</TT>
+        <SMALL>(<A href="#jini">Jini™-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>run.bat</TT>
+        <SMALL>(Beispiel-Start-Batch-Datei für Microsoft-Windows™)</SMALL>
+        und</LI>
+    <LI><TT>run.sh</TT>
+        <SMALL>(Beispiel-Start-Script-Datei für Unix®, Mac OS X™ und
+            Linux)</SMALL>.</LI>
+</UL>
+
+<P>
+    Die <A name="development"><B>Modul-Entwicklung</B></A> benötigt mehrere
+    Java™-Archive (für Tests ist ein Roblet®-Server nötig):
+</P>
+
+<UL>
+    <LI><TT>genRob.genControl.modules.jar</TT>
+        <SMALL>(die Schnittstelle für Module-Entwickler)</SMALL> und</LI>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(<A href="#library">Roblet®-Bibliothek</A>)</SMALL>.</LI>
+</UL>
+
+<P>
+    Das <A name="tool"><B>Werkzeug</B></A> besteht aus mehreren Java™-Archiven:
+</P>
+
+<UL>
+    <LI><TT>genRob.genControl.tool.jar</TT>
+        <SMALL>(das Werkzeug)</SMALL>,</LI>
+    <LI><TT>org.roblet.client.jar</TT>
+        <SMALL>(<A href="#client">Klienten-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>genRob.genControl.client.jar</TT>
+        <SMALL>(<A href="#client">Klienten-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>genRob.genControl.unit.jar</TT>
+        <SMALL>(<A href="#client">Klienten-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(<A href="#library">Roblet®-Bibliothek</A>)</SMALL>,</LI>
+    <LI><TT>jini-core.jar</TT>
+        <SMALL>(<A href="#jini">Jini™-Bibliothek</A>)</SMALL> und</LI>
+    <LI><TT>jini-ext.jar</TT>
+        <SMALL>(<A href="#jini">Jini™-Bibliothek</A>)</SMALL>.</LI>
+</UL>
+
+<P>
+    Die <A name="documentation"><B>Dokumentation</B></A> besteht aus
+</P>
+
+<UL>
+    <LI>der <I>Einstiegsdatei</I> <TT>index.html</TT> im Hauptverzeichnis
+        und</LI>
+    <LI>allen Dateien im Unterverzeichnis <TT>doc</TT>.</LI>
+</UL>
+
+<P>
+    Die Einstiegsdatei kann mit Hilfe eines beliebigen Browsers geöffnet
+    werden.&nbsp;
+    Damit erschließen sich dann alle Teile der Dokumentation.&nbsp;
+    Der vorliegende Text gehört dazu.
+</P>
+
+
+<HR>
+
+<H2>Verwendete Pakete</H2>
+
+<H3><A name="client">roblet®.org - Klienten-Bibliothek</A></H3>
+
+<P>
+    Die Klienten-Bibliothek ermöglicht die Kommunikation einer Anwendung auf
+    Basis der Roblet®-Technik mit Roblet®-Servern.&nbsp;
+    Diese Bibliothek wird von <A href="http://roblet.org/de">roblet®.org</A>
+    angeboten und weiterentwickelt.
+</P>
+
+<P>
+    Für das vorliegende Paket wurden nur einige Java™-Archive verwendet.&nbsp;
+    Die Dokumentation etc. sind nicht mit beigegeben.&nbsp;
+    Dennoch wurde der Javadoc-Teil des vorliegenden Paketes mit der online
+    verfügbaren Javadoc der Bibliothek verknüpft.
+</P>
+
+<P>
+    Das vollständige Paket kann von
+    <A href="http://roblet.org/client">http://roblet.org/client</A>
+    heruntergeladen werden.&nbsp;
+    Beigefügt wurde die Version 2.4 vom 16. April 2010.&nbsp;
+    Die <A href="#library">Roblet®-Bibliothek</A> und die
+    <A href="#jini">Jini™-Bibliothek</A> sind Teil des Paketes.
+</P>
+
+
+<H3><A name="library">roblet®.org - Roblet®-Bibliothek</A></H3>
+
+<P>
+    Die Roblet®-Bibliothek ist die Basis eines jeden verteilten Systems,
+    welches die Roblet®-Technik einsetzt.&nbsp;
+    Diese Bibliothek wird von <A href="http://roblet.org/de">roblet®.org</A>
+    angeboten und weiterentwickelt.
+</P>
+
+<P>
+    Für das vorliegende Paket wurden nur einige Java™-Archive verwendet.&nbsp;
+    Die Dokumentation etc. sind nicht mit beigegeben.&nbsp;
+    Dennoch wurde der Javadoc-Teil des vorliegenden Paketes mit der online
+    verfügbaren Javadoc der Bibliothek verknüpft.
+</P>
+
+<P>
+    Das vollständige Paket kann von
+    <A href="http://roblet.org/library">http://roblet.org/library</A>
+    heruntergeladen werden.&nbsp;
+    Beigefügt wurde die Version 2.3 vom 10. Januar 2010.&nbsp;
+    Die hier mitgegebene Version ist der
+    <A href="#client">Klienten-Bibliothek</A> entnommen.
+</P>
+
+
+<H3><A name="jini">Sun - Jini™-Bibliothek - Kern und Erweiterung</A></H3>
+
+<P>
+    Die Jini™-Bibliothek wird benutzt, damit Roblet®-Server in einem lokalen
+    Netzwerk ohne vorherige Kenntnis ihres Namens <I>Host:Port</I> gefunden
+    werden können.&nbsp;
+    Die Bibliothek wird von der Firma
+    <A href="http://sun.com">Sun Microsystems</A> angeboten und
+    weiterentwickelt.
+</P>
+
+<P>
+    Für das vorliegende Paket wurden nur einige Java™-Archive verwendet.&nbsp;
+    Die Dokumentation etc. sind nicht mit beigegeben.
+</P>
+
+<P>
+    Das vollständige Paket kann von
+    <A href="http://sun.com/jini">http://sun.com/jini</A>
+    heruntergeladen werden.&nbsp;
+    Beigefügt wurde die Version "1.2.1_001" vom August 2002
+    - u.U. können jedoch auch ältere oder neuere Versionen
+    für den Betrieb benutzt werden.&nbsp;
+    Die hier mitgegebene Version ist der
+    <A href="#client">Klienten-Bibliothek</A> entnommen.
+</P>
+
+<BLOCKQUOTE>
+    Die mitgelieferten Dateien sind nur zur Referenz und zum Testen
+    einer Installation mitgegeben worden.&nbsp;
+    <I>Für den produktiven Einsatz sind passende Versionen von der o.g.
+        Website des Herstellers zu verwenden.</I>&nbsp;
+    Lesen Sie dort auch die Lizenzbedingungen.
+</BLOCKQUOTE>
+
+<P>
+    Ein möglicher Verzeichnisdienst für Roblet®-Server ist dabei
+    <A href="http://genRob.com/system/genMediator">genRob®-genMediator</A> des
+    <A href="http://genRob.com/system">genRob®-Systems</A> der
+    <A href="http://genRob.com">genRob GmbH</A>.&nbsp;
+    Von genRob®-genMediator muß im Netzwerk mindestens eine Instanz
+    laufen, damit die beschriebene Funktionalität verfügbar ist.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2010 genRob® GmbH, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:52.170 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.3</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+</HTML>

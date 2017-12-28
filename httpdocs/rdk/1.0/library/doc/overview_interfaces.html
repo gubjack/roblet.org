@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>Roblet®-Bibliothek - Überblick - Schnittstellen</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>Roblet®-Bib.</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="overview_interfaces.html"  target=_top>Schnittstellen</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="overview_helpers.html"  target=_top>Hilfsklassen</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Schnittstellen
+</H1><DIV  id="content">
+
+<P>
+    Die <B>Schnittstellen</B> der Roblet®-Bibliothek sind im Java™-Paket
+    <A href="lib/org/roblet/package-summary.html"><TT>org.roblet</TT></A>
+    zu finden:
+</P>
+
+<UL>
+    <LI><A href="#roblet"><TT>Roblet</TT></A>,</LI>
+    <LI><A href="#robot"><TT>Robot</TT></A> und</LI>
+    <LI><A href="#unit"><TT>Unit</TT></A>.</LI>
+</UL>
+
+
+<H2><A name="roblet"><TT>org.roblet.Roblet</TT> - Roblet®-Schnittstelle</A></H2>
+
+<P>
+    Will eine Anwendung eine gewünschte Funktionalität auf einem
+    Roblet®-Server ausführen, so muß sie eine Klasse erstellen,
+    die die Java™-Schnittstelle
+    <A href="lib/org/roblet/Roblet.html"><TT>org.roblet.Roblet</TT></A>
+    implementiert<SUP>1</SUP>.&nbsp;
+    Zur Laufzeit können in der Anwendung bei Bedarf (beliebig viele,
+    auch verschiedene) Instanzen von solchen Klassen erzeugt
+    werden<SUP>2</SUP>.&nbsp;
+    Diese Instanzen können jederzeit zu einem Roblet®-Server
+    geschickt werden.&nbsp;
+    Dort werden sie dann ausgeführt.<SUP>3</SUP>
+</P>
+
+<P>
+    Aus einer Roblet®-Instanz wird vom Roblet®-Server durch Ausführen der
+    Methode
+    <A href="lib/org/roblet/Roblet.html#execute(org.roblet.Robot)"
+        ><TT>execute(...)</TT></A> ein Roblet®.&nbsp;
+    Die genannte  Methode wird vom Entwickler der Roblet®-Klasse
+    als Teil der Anwendung bereitgestellt.&nbsp;
+    Die Methode ist vergleichbar mit der Methode <TT>main(...)</TT> einer
+    normalen Java™-Anwendung.
+</P>
+
+<P>
+    Eine Anwendung versendet Roblet®-Instanzen mit Hilfe der
+    Klienten-Klasse.&nbsp;
+    Die Klienten-Klasse ist Teil der
+    <A href="http://roblet.org/client">Klienten-Bibliothek</A>, welche von
+    <A href="http://roblet.org">roblet®.org</A> betreut und weiterentwickelt
+    wird.&nbsp;
+    Dort gibt es auch weitere Informationen und Beispiele dazu.
+</P>
+
+
+<H2><A name="robot"><TT>org.roblet.Robot</TT> - Kontext</A></H2>
+
+<P>
+    Einem <A href="#roblet">Roblet®</A> wird im Roblet®-Server beim
+    Ausführen der o.g. <TT>execute()</TT>-Methode eine Instanz vom Typ
+    <A href="lib/org/roblet/Robot.html"><TT>org.roblet.Robot</TT></A>
+    übergeben.&nbsp;
+    Diese Instanz wird Kontext genannt.&nbsp;
+    Mit diesem Kontext kann das Roblet® auf die vom Roblet®-Server
+    bereitgestellten <A href="#unit">Einheiten</A> zugreifen.&nbsp;
+    Der Zugriff auf diese Einheiten erfolgt mit der Methode
+    <A href="lib/org/roblet/Robot.html#getUnit(java.lang.Class)"
+        ><TT>getUnit(...)</TT></A>.
+</P>
+
+
+<H2><A name="unit"><TT>org.roblet.Unit</TT> - Einheiten</A></H2>
+
+<P>
+    Ein Roblet®-Server bietet einem <A href="#roblet">Roblet®</A> die von ihm
+    verwalteten Ressourcen mit Hilfe von Instanzen von Klassen an, die die
+    Java™-Schnittstelle
+    <A href="lib/org/roblet/Unit.html"><TT>org.roblet.Unit</TT></A>
+    implementieren.&nbsp;
+    Roblets® können sich diese Instanzen über die (einzige) Methode des
+    <A href="#robot"><TT>Robot</TT></A> holen:&nbsp;
+    <A href="#robot"><TT>getUnit(...)</TT></A>.
+</P>
+
+<H3>Definition von Einheiten</H3>
+
+<P>
+    Der Themenkomplex <I>Einheit</I> (engl. <I>unit</I>) beginnt damit, daß
+    ein <B>Hersteller</B> oder einfach ein Entwickler eine Ressource zur
+    Verfügung stellen will.&nbsp;
+    Eine Ressource kann ein Stück Hardware sein, aber auch eine Software
+    oder oft auch eine Kombination aus beidem.
+</P>
+
+<P>
+    Gemacht wird das, indem eine Java™-Schnittstelle (<TT>interface</TT>)
+    erstellt wird.&nbsp;
+    Diese Schnittstelle muß <A href="#unit"><TT>Unit</TT></A>
+    erweitern (<TT>extends</TT>).&nbsp;
+    Damit wird eine Einheit <I>definiert</I>.&nbsp;
+    Diese Definition sollte dokumentiert werden und kann dann an <B>Nutzer</B>
+    herausgegeben werden.
+</P>
+
+<H3>Implementation von Einheiten</H3>
+
+<P>
+    Der Hersteller einer anzubietenden Ressource erstellt passend eine Klasse,
+    die die o.g. eigene Schnittstelle <I>implementiert</I>
+    (<TT>implements</TT>).&nbsp;
+    Diese Klasse platziert<SUP>4</SUP> er in einem Roblet®-Server, so daß dieser
+    bei Bedarf von ihr Instanzen erzeugen kann.
+</P>
+
+<P>
+    Die Implementierung der Klasse kann reines Java™ sein, aber auch eine
+    Anbindung anderer Software und damit auch der Zugriff auf Hardware ist
+    möglich.&nbsp;
+    Eine solche Implementierung kann mit Treibern in Betriebssystemen verglichen
+    werden.
+</P>
+
+<H3>Instanzen von Einheiten</H3>
+
+<P>
+    Fragt ein Roblet® nach der durch die Einheitendefinition dargestellten
+    Ressource, so gibt der Roblet®-Server daraufhin eine <I>Instanz</I> der
+    Einheitenimplementierung zurück.&nbsp;
+    Der Methode <A href="#robot"><TT>getUnit(...)</TT></A> des
+    <A href="#robot">Kontext</A> wird dazu die Klasse der
+    Einheiten-Schnittstelle als Parameter übergeben.
+</P>
+
+<H3>Zusammenfassung zur Thematik Einheiten</H3>
+
+<P>
+    Eine Einheiten<I>definition</I> ist ein Java™-<TT>interface</TT>
+    zuzüglich einer textuellen Beschreibung, d.h. der Dokumentation der Art und
+    Weise, wie sie benutzt werden kann und soll, inkl. Grundzustand,
+    Fehlerfälle, Sonderfälle etc.&nbsp;
+    Diese Definition erweitert <A href="#unit"><TT>Unit</TT></A>.&nbsp;
+    Die Einheiten<I>implementierung</I> (dann eine Java™-<TT>class</TT>)
+    wird als Teil eines Roblet®-Servers bereitgestellt.&nbsp;
+    Ein Roblet® erhält auf Anfrage zur Laufzeit jeweils eine <I>Instanz</I>
+    einer solchen Klasse und kann damit die dargestellte Ressource benutzen.
+</P>
+
+<P>
+    Wesentlich ist, daß nach Veröffentlichung der Definition einer Einheit keine
+    Änderung mehr vorgenommen werden darf.&nbsp;
+    Eine Änderung würde dazu führen, daß die bereits existierenden Anwendungen
+    nicht mehr das vorfinden, wogeben sie entwickelt wurden.
+</P>
+
+<H3>Weiterentwicklung von Einheiten</H3>
+
+<P>
+    Jedoch kann eine Weiterentwicklung erfolgen, indem einfach eine weitere
+    Definition gemacht wird.&nbsp;
+    Diese Definition kann der vorigen sehr ähnlich sein.&nbsp;
+    Auch die neue Definition muß eine Implementierung bereitgestellt
+    werden, die aber für den Fall, daß sie der vorigen sehr ähnlich ist,
+    auch sehr ähnlich und daher einfach sein wird.&nbsp;
+    Der Roblet®-Server kann dann möglicherweise sogar beide
+    Implementierungen zur Verfügung stellen.
+</P>
+
+<P>
+    Auf diese Weise ist erfahrungsgemäß ein einfaches aber sehr tragfähiges
+    Konzept der Versionierung gegeben.&nbsp;
+    Alte Anwendungen verwenden noch die alte Einheit (sofern verfügbar),
+    neue Anwendungen können wählen.
+</P>
+
+<H3>Weiterführende Informationen</H3>
+
+<P>
+    Auch zum Thema Einheiten sind Informationen und Beispiele
+    auf <A href="http://roblet.org">roblet®.org</A> verfügbar.
+</P>
+
+
+<HR>
+
+<SUP>1</SUP>&nbsp;
+<SMALL>
+    Diese Klassen werden <I>Roblet®-Klassen</I> genannt.
+</SMALL>
+<BR>
+<SUP>2</SUP>&nbsp;
+<SMALL>
+    Diese Instanzen werden <I>Roblet®-Instanzen</I> genannt.
+</SMALL>
+<BR>
+<SUP>3</SUP>&nbsp;
+<SMALL>
+    Eine in einem Roblet®-Server laufende Instanz wird <I>Roblet®</I> genannt.
+</SMALL>
+<BR>
+<SUP>4</SUP>&nbsp;
+<SMALL>
+    Die Art und Weise, wie die Implementierung im Server platziert wird, ist
+    dort beschrieben (vgl. Roblet®-Server
+    <A href="http://genRob.com/system/genControl">genRob®-genControl</A>).
+</SMALL>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2010 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:42.821 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

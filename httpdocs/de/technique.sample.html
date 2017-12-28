@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>roblet®.org - Technik - Hello-World!-Beispiel</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="index.html"  target=_top><IMG  src="../home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>Home</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="technique.html"  target=_top>Technik</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="technique.preface.html"  target=_top>Vorwort</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="technique.abstract.html"  target=_top>Übersicht</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="technique.sample.html"  target=_top>Hello World!</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="technique.book.html"  target=_top>Buch</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_5"><A  href="technique.software.html"  target=_top>Software</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Hello-World!-Beispiel
+</H1><DIV  id="content">
+
+<P>
+    Um den Überblick über die Roblet®-Technik nicht zu trocken werden zu
+    lassen, an dieser Stelle ein (sehr) einfaches Beispiel.&nbsp;
+    Es kann erfahrungsgemäß sogar von Anfängern der Programmiersprache
+    Java™ zum Laufen gebracht werden, ohne daß sie sich vorher durch die
+    <A href="technique.abstract.html">Übersicht</A> arbeiten müssen.
+</P>
+
+
+<H2>Hello-World!-Quelldatei</H2>
+
+<P>
+    Folgende Zeilen sind zunächst in eine Datei namens
+    <A href="../Hello.java"><TT>Hello.java</TT></A>
+    zu bringen:
+</P>
+
+<PRE  class="java">
+<SPAN class="keyword">import</SPAN>  book.unit.*;
+<SPAN class="keyword">import</SPAN>  genRob.genControl.client.*;
+<SPAN class="keyword">import</SPAN>  java.io.*;
+<SPAN class="keyword">import</SPAN>  org.roblet.*;
+
+<SPAN class="keyword">public class</SPAN>  Hello <SPAN class="keyword">implements</SPAN> Roblet, Serializable {
+    <SPAN class="keyword">public static void</SPAN>  main (String[] args) <SPAN class="keyword">throws</SPAN> Exception {
+        <SPAN class="keyword">new</SPAN> Client (). getServer (<SPAN class="string">"roblet.org"</SPAN>). getSlot ().
+                run (<SPAN class="keyword">new</SPAN> Hello ());
+    }
+    <SPAN class="keyword">public</SPAN> Object  execute (Robot robot) {
+        HelloUnit  hu = (HelloUnit) robot. getUnit (HelloUnit.<SPAN class="keyword">class</SPAN>);
+        hu. sayHello ();
+        <SPAN class="keyword">return null</SPAN>;
+    }
+}
+</PRE>
+
+
+<H2>JDK, RDK und Buch-Server-Einheiten</H2>
+
+<P class="important">
+    Alle verwendeten Bibliotheken sind kostenfrei verfügbar und nutzbar.
+</P>
+
+<P>
+    Vor dem Kompilieren und Ausführen muß sichergestellt sein, daß ein
+    <A href="http://java.sun.com/jdk">Java™-Development-Kit (JDK)</A>
+    installiert ist.&nbsp;
+    Weiterhin muß die Umgebungsvariable PATH so gesetzt sein, daß die Programme
+    <TT>java</TT> und <TT>javac</TT> in einem Unix-Terminal(-Fenster) bzw.
+    einer Windows™-Eingabeaufforderung gefunden werden.
+</P>
+
+<P>
+    Nun benötigt man das
+    <A href="../rdk/index.html"
+        target="_blank">Roblet®-Development-Kit (RDK)</A>.&nbsp;
+    Laden Sie sich dort das neueste Paket mit <I>Arbeitsdateien</I>
+    herunter.&nbsp;
+    Das RDK werden Sie auch in Zukunft immer benötigen.
+</P>
+
+<P>
+    Dann benötigten Sie noch speziell für obiges Beispiel die sogenannten
+    <I>Einheiten des Servers zum Buch</I>
+    (erst einmal nicht weiter darüber nachdenken):
+</P>
+
+<P style="padding-left: 25px">
+    <A href="http://roblet.org/book.unit.zip"
+            >http://roblet.org/book.unit.zip</A>
+</P>
+
+<P>
+    Das heruntergeladene ZIP-Archiv der Arbeitsdateien des RDK
+    und die Datei <TT>book.unit.zip</TT>
+    müssen entpackt werden.&nbsp;
+    Merken Sie sich, in welche Verzeichnisse Sie entpacken!&nbsp;
+    Im folgenden wird der Pfad zu den Arbeitsdateien des RDK mit <TT>(rdk)</TT>
+    und der Pfad zu den Dateien aus <TT>book.unit.zip</TT> mit <TT>(book)</TT>
+    bezeichnet.&nbsp;
+    Unter <TT>(rdk)</TT> findet die Datei <TT>org.roblet.jar</TT> und einiges
+    andere mehr;&nbsp;
+    unter <TT>(book)</TT> findet sich mindestens die Datei
+    <TT>book.unit.jar</TT>.
+</P>
+
+
+<H2>Kompilieren und Ausführen</H2>
+
+<P>
+    Nun holen Sie sich ein Terminal (unter Unix, Linux, MacOSX etc.) oder
+    eine Eingabeaufforderung (Windows).&nbsp;
+    Wechseln Sie mit <TT>cd</TT> in das Verzeichnis, in dem auch die oben
+    angelegte Datei <TT>Hello.java</TT> zu finden ist.&nbsp;
+    Aus diesem Verzeichnis heraus müssen Sie auch kompilieren und ausführen.
+</P>
+
+<P>
+    Zum Kompilieren ist unter Unix inkl. MacOSX und Linux folgendes
+    einzugeben (ersetzen Sie <TT>(rdk)</TT> und <TT>(book)</TT> passend):
+</P>
+<PRE class="console">
+javac -cp .:(rdk)/org.roblet.jar:(book)/book.unit.jar  Hello.java
+</PRE>
+
+<P>
+    Unter Windows™ ist hingegen folgendes einzugeben (ersetzen Sie
+    <TT>(rdk)</TT> und <TT>(book)</TT> passend):
+</P>
+<PRE class="console">
+javac -cp .;(rdk)/org.roblet.jar;(book)/book.unit.jar  Hello.java
+</PRE>
+
+<P>
+    Die beiden obigen Versionen unterscheiden sich lediglich im Zeichen
+    <TT>:</TT> bzw. <TT>;</TT>.
+</P>
+
+<P>
+    Ausgeführt wird unter Unix inkl. MacOSX und Linux mittels
+    (ersetzen Sie <TT>(rdk)</TT> und <TT>(book)</TT> passend):
+</P>
+<PRE class="console">
+java -cp .:(rdk)/org.roblet.jar:(book)/book.unit.jar Hello
+</PRE>
+
+<P>
+    Unter Windows™ wird ausgeführt mittels
+    (ersetzen Sie <TT>(rdk)</TT> und <TT>(book)</TT> passend):
+</P>
+<PRE class="console">
+java -cp .;(rdk)/org.roblet.jar;(book)/book.unit.jar Hello
+</PRE>
+
+<P>
+    Kompilieren und Ausführen unterscheidet sich dabei nur dadurch, daß
+    <TT>javac</TT> bzw. <TT>java</TT> eingesetzt wird.&nbsp;
+    Außerdem gibt man beim Kompilieren den Dateinamen <TT>Hello.java</TT> an
+    und beim Ausführen nur den Klassennamen <TT>Hello</TT>.
+</P>
+
+
+<H2>Was passiert?</H2>
+
+<P>
+    Lokal auf ihrem Computer wurde <TT>main(...)</TT> ausgeführt und
+    eine Instanz der Klasse <TT>Hello</TT> erzeugt.&nbsp;
+    Mit Hilfe des Klienten <TT>Client</TT> wurde eine Verbindung zum Server
+    aufgebaut und die Instanz von <TT>Hello</TT> verschickt und dort zur
+    Ausführung gebracht.
+</P>
+
+<P>
+    Wesentlich und bezeichnend ist, daß die Methode <TT>execute(...)</TT>
+    auf dem <I>Roblet®-Server</I> <TT><FONT color="blue">roblet.org</FONT></TT>
+    ausgeführt wird (dieser Server lauscht an Port 2001 und darf nicht
+    mit dem Webserver verwechselt werden, der Ihnen die Webseite geschickt
+    hat, die Sie gerade lesen).&nbsp;
+    Dort wird die Einheit <TT>HelloUnit</TT> geholt und deren Methode
+    <TT>sayHello()</TT> genutzt.&nbsp;
+    Die Einheit im Server fügt dann zu der HTML-Seite, die sie nun gerade
+    (möglicherweise in einer älteren Version) lesen, weiter unten im Text
+    eine weitere Zeile hinzu.
+</P>
+
+<P>
+    Einzelheiten zu den Abläufen finden Sie im online verfügbaren
+    <A href="../book/index.html">Buch zur Roblet®-Technik</A>.&nbsp;
+    Der Datenfluß von der (lokalen) Anwendung bis zum (lokalen) Browser ist in
+    der nachfolgenden Abbildung erläutert.
+</P>
+
+<P>
+    <IMG src="technique.sample.jpg"
+        alt="Datenfluß von der (lokalen) Anwendung bis zum (lokalen) Browser">
+</P>
+
+
+<H2>Ergebnis ansehen</H2>
+
+<P>
+    Haben Sie das Beispiel laufen lassen, so können Sie <EM>die Webseite, die
+    Sie mit Ihrem Browser gerade lesen,</EM> neu laden (auffrischen) und eine
+    Ausgabe sollte hier im nachfolgenden Kasten erscheinen:
+</P>
+<BLOCKQUOTE>
+	<TABLE  border="1" cellspacing="0" cellpadding="5" bgcolor="#DDDDDD">
+		<TR>
+			<TD>
+<BOOK>
+12.05.2008 10:53:31.466 CEST - Hello World!
+			</TD>
+		</TR>
+	</TABLE>
+</BLOCKQUOTE>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2015 roblet®.org, Hagen Stanek</DIV><DIV  id="footer_right"><A  href="contact.html">Kontakt</A></DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 15.05.2015 mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

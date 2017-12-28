@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>roblet®.org - Technik - Übersicht - FAQ</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="index.html"  target=_top><IMG  src="../home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>Home</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="technique.html"  target=_top>Technik</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="technique.abstract.html"  target=_top>Übersicht</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="technique.abstract.units.html"  target=_top>Einheiten</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="technique.abstract.directories.html"  target=_top>Verzeichnisse</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="technique.abstract.proxies.html"  target=_top>Vertreter</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="technique.abstract.future.html"  target=_top>Zukunft</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_5"><A  href="technique.abstract.faq.html"  target=_top>FAQ</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>FAQ (Frequently Asked Questions)
+</H1><DIV  id="content">
+
+<P>
+    Diese Seite listet einige häufig gestellte Fragen mit den zugehörigen
+    Antworten auf.
+</P>
+
+<UL>
+    <LI><A href="#OSGi">Was ist der Unterschied zu OSGi bzw. Gemini?</A></LI>
+    <LI><A href="#DOSGi">Was ist der Unterschied zu Distributed OSGi?</A></LI>
+    <LI><A href="#other">Was ist der Unterschied zu anderen
+        Kommunikationstechniken?</A></LI>
+    <LI><A href="#RMI">Was ist der Unterschied zu RMI?</A></LI>
+    <LI><A href="#web">Was ist der Unterschied zu Applets und
+        Web-Start?</A></LI>
+    <LI><A href="#realtime">Was ist mit Echtzeitfähigkeit?</A></LI>
+    <LI><A href="#sandbox">Können die Roblets® wirklich keine Unfug
+        machen?</A></LI>
+    <LI><A href="#encryption">Was ist mit Verschlüsselung, Authentifizierung
+        etc.?</A></LI>
+    <LI><A href="#notion">Woher kommt der Begriff Roblets®?</A></LI>
+</UL>
+
+
+<A name="OSGi"></A>
+<H2>Was ist der Unterschied zu OSGi bzw. Gemini?</H2>
+
+<P>
+    OSGi steht eher orthogonal zur Roblet®-Technik, d.h. sie können sich gut
+    ergänzen.&nbsp;
+    OSGi erkennt und verwaltet Komponenten (Bundles) in einer JVM
+    und ermöglicht deren Nutzung durch andere Komponenten.&nbsp;
+    Die Roblet®-Technik ist eine Kommunikationstechnik, d.h. ermöglicht
+    Datenaustausch und Verarbeitung über mehrere JVM's hinweg.
+</P>
+
+
+<A name="DOSGi"></A>
+<H2>Was ist der Unterschied zu Distributed OSGi?</H2>
+
+<P>
+    Distributed OSGi bietet die Möglichkeit, daß OSGi-Komponenten (Bundles)
+    Funktionalität anderen fernen Komponenten anbieten
+    und selbst die Funktionalität weiterer ferner Komponenten nutzen
+    können.&nbsp;
+    Dabei können verschiedene Techniken der Netzwerkkommunikation
+    (Remote Services) eingesetzt werden.&nbsp;
+    Die Roblet®-Technik ist eine Kommunikationstechnik, d.h. kann im Grunde
+    mit all ihren Vorteilen im Rahmen von Distributed OSGi eingesetzt werden.
+</P>
+
+
+<A name="other"></A>
+<H2>Was ist der Unterschied zu anderen Kommunikationstechniken?</H2>
+
+<P>
+    Im Gegensatz zu normalen Kommunikationstechniken verschickt die
+    Roblet®-Technik instanziierte Programmteile zu sog. Roblet®-Servern,
+    damit sie dort laufen und deren Ressourcen nutzen können.&nbsp;
+    Damit wird quasi die Parallelität über das Multi-Threading und das
+    Multi-Processoring auf das <I>Multi-Hosting</I> ausgedehnt.&nbsp;
+    Eine Roblet®-Anwendung mit ihren auf anderen Rechnern laufenden Roblets®
+    kann man in der Praxis als eine einzige Anwendung auffassen.
+</P>
+
+<P>
+    Die Roblet®-Technik ist auch eine Client-Server-Technik.&nbsp;
+    Aber im Gegensatz zu normalen Kommunikationstechniken ist die Schnittstelle
+    zwischen Client und Server nicht "in der Wolke", d.h. auf einer gedachten
+    Linie zwischen dem Rechner des Client und dem Rechner des Servers.&nbsp;
+    Stattdessen ist diese Schnittstelle im Server zwischen den Roblets® und
+    den Ressourcen und wird durch normale Java™-API gebildet und auch so
+    dokumentiert.&nbsp;
+    Dadurch ist die Arbeit mit diesen Schnittstellen nicht mehr vom Zustand
+    des Netzwerkes abhängig.
+</P>
+
+
+<A name="RMI"></A>
+<H2>Was ist der Unterschied zu RMI?</H2>
+
+<P>
+    Die Roblet®-Technik kann in der Praxis als Ersatz von RMI dienen.&nbsp;
+    Durch die Roblet®-Technik ist der Code-Upload (in Form von Roblets®)
+    extrem vereinfacht und gleichzeitig sind zentrale Sicherheitsrisiken
+    eliminiert.&nbsp;
+    Die Roblet®-Technik leistet die wesentlichen Dinge von RMI
+    aber mit erheblich weniger Anfangsaufwand und Konfigurationsproblemen.&nbsp;
+    Die beiden Techniken können aber trotzdem gut parallel eingesetzt werden.
+</P>
+
+<P>
+    Im Detail gesehen ist RMI noch etwas mächtiger und war auch in der
+    Anfangszeit der Roblet®-Technik die unterliegende
+    Kommunikationstechnik.&nbsp;
+    Nur Dank RMI konnte sich die Roblet®-Technik so schnell entwickeln.&nbsp;
+    Jedoch haben verschiedene Praxisprobleme dazu geführt, daß heutzutage
+    direkt via UDP und TCP innerhalb der Roblet®-Technik kommuniziert
+    wird.&nbsp;
+    Die Probleme waren u.a.:
+</P>
+
+<UL>
+    <LI>Router sind oftmals ein Problem für RMI wegen NAT
+        (network address translation)</LI>
+    <LI>Firewalls sind ein ähnliches Problem</LI>
+    <LI>Daten und Klassen werden in der Roblet®-Technik durch ihre
+        Spezialisierung erheblich effizienter und sicherer im Netz
+        verschoben.</LI>
+    <LI>RMI bietet zwar standardmäßig eine gute Ausstattung hinsichtlich
+        der Zugriffsmöglichkeiten von Code (Sandbox), aber keine
+        vollständige Ablaufumgebung, die ein kontrolliertes Abbrechen von
+        Code ermöglicht.</LI>
+    <LI>RMI verwaltet gewisse Daten nur einmal per JVM, was die Arbeit und
+        zumindest die Fehlersuche in Systemen mit verschiedenen unabhängigen
+        Komponenten (OSGi, Tomcat, große Anwendungen etc.) deutlich
+        erschwert.</LI>
+    <LI>RMI funktioniert in manchen Umgebungen nicht
+        (oder nicht so einfach), wo Sockets aber gehen (und die Roblet®-Technik
+        daher nun auch) - z.B. in Applets.</LI>
+    <LI>Unter RMI bringt allein ein Hello-World-Beispiel mit Code-Verschicken
+        eine Unmenge an Nebenaufwendungen und Konfigurationen hervor und
+        erfordert im Grunde erhebliches Tiefenverständnis.</LI>
+</UL>
+
+
+<A name="web"></A>
+<H2>Was ist der Unterschied zu Applets und Web-Start?</H2>
+
+<P>
+    Die Roblet®-Technik arbeitet sehr gut in Applets und in
+    Web-Start-Anwendungen, d.h. man kann sie in beiden Fällen sehr gut
+    zur Kommunikation einsetzen.&nbsp;
+    Richtig vergleichen kann man die Roblet®-Technik nicht wirklich mit
+    Applets oder Web-Start.&nbsp;
+    Im folgenden jedoch einige zentrale Unterschiede:
+</P>
+
+<UL>
+    <LI>Bei der Roblet®-Technik findet Code-Push statt im Gegensatz zu
+        Code-Pull.&nbsp;
+        Roblets® werden zum Server gebracht.&nbsp;
+        Applets und Web-Start-Anwendungen kommen vom Server.
+    </LI>
+    <LI>Applets sind im wesentlichen auf eine Umgebung wie Browser
+        eingeschränkt.</LI>
+    <LI>In der Roblet®-Technik werden Klassen und Ressource-Dateien nur
+        auf Anfrage bewegt.</LI>
+    <LI>Roblets® sind grundsätzlich Klassen-Instanzen, die zu einem Server
+        transportiert werden und die dann bei Bedarf den Transport von Klassen
+        zur Folge haben.&nbsp;
+        Web-Start-Anwendungen und Applets sind keine Instanzdaten (bzw. nur
+        eingeschränkt).
+    </LI>
+    <LI>Bei Applets und Web-Start-Anwendungen wird eine HTTP-TCP-Sitzung pro
+        Datei benötigt.&nbsp;
+        Bei der Roblet®-Technik wird normalerweise nur eine TCP-Verbindung
+        verwendet, was die Übertragung oft stark beschleunigt.
+    </LI>
+</UL>
+
+
+<A name="realtime"></A>
+<H2>Was ist mit Echtzeitfähigkeit?</H2>
+
+<P>
+    Echtzeitfähigkeit, wie sie z.B. in der Robotik an manchen Stellen benötigt
+    wird, erreicht man in der Roblet®-Technik über die Module.&nbsp;
+    Genauer:&nbsp;
+    Die Module kümmern sich um diese Fähigkeit.
+</P>
+
+<P>
+    Dabei wurden in der Praxis bisher erfolgreich zwei Methoden eingesetzt:
+
+    <OL>
+        <LI>
+            C++-Bibliotheken mit JNI (Java™ Native Interface) angebunden und
+        </LI>
+        <LI>
+            Separater Prozeß mit Kommunikation per TCP/IP.
+        </LI>
+    </OL>
+</P>
+
+<P>
+    Bei der ersten Variante wird eine echtzeitfähige C++-Bibliothek mit einer
+    (nicht-echtzeitkritischen) JNI-Schnittstelle versehen.&nbsp;
+    Dadurch kann vom Modul, d.h. aus Java™, auf die C++-Bibliothek zugegriffen
+    werden.&nbsp;
+    JNI-Aufrufe werden von der JVM nicht unterbrochen.&nbsp;
+    In der C++-Bibliothek können auch Threads gestartet werden, die dann
+    parallel zu den Threads der JVM laufen und von diesen auch hinsichtlich
+    der Priorität nicht abhängen.&nbsp;
+    Ein wenige dutzend Zeilen umfassendes Beispiel inkl. Make-Dateien ist auf
+    Anfrage erhältlich.
+</P>
+
+<P>
+    An der Universität Hamburg ist man den zweiten Weg gegangen.&nbsp;
+    Dort lag schon eine Roboter-Steuerung (als Linux-Programm) vor, welches
+    eine (nicht-echtzeitkritische) TCP/IP-Schnittstelle besaß.&nbsp;
+    Das Modul brauchte nur noch auf diese Schnittstelle per (Java™-)TCP-Sockets
+    zugreifen.&nbsp;
+    Der Prozeß der Roboter-Steuerung wurde im Betriebssystem passend
+    priorisiert, um nicht durch die JVM gestört zu werden.
+</P>
+
+
+<A name="sandbox"></A>
+<H2>Können die Roblets® wirklich keine Unfug machen?</H2>
+
+<P>
+    Roblets® laufen im Roblet®-Server in je einem eigenen
+    Sicherheitsbereich (security domain).&nbsp;
+    Die Sicherheitsbereiche sind dabei so konfiguriert, daß ein Roblet®
+    <I>keinerlei</I> Rechte hat.&nbsp;
+    Das übertrifft an Schärfe sogar die Einstellungen, die ein Applet in einem
+    Browser hat.&nbsp;
+    Ein Roblet® kann also keine Funktionalität der Java™-Bibliothek (JDK und
+    Erweiterungen) in Anspruch nehmen, die Sicherheitrelevanz haben.&nbsp;
+    Ein Roblet® kann Ressourcen nur über die
+    <A href="technique.abstract.faq.html">Einheiten (Module)</A> in Anspruch
+    nehmen, wobei dabei auch die Rechte geregelt werden.
+</P>
+
+<P>
+    Will man den Grad an Sicherheit weiter treiben, so haben sich in der Praxis
+    folgende Dinge bewährt:
+
+    <UL>
+        <LI>Nur stabile Java™-Versionen mit den neuesten Patches einsetzen</LI>
+        <LI>Nur "vertrauenswürdige" Module einsetzen (stabile Versionen,
+            gute Dokumentation, bekannter Hersteller oder einsehbare Quellen
+            etc.)</LI>
+    </UL>
+</P>
+
+<P>
+    Wenn man immer noch ein ungutes Gefühl hat (Punkte auch kombinierbar):
+
+    <UL>
+        <LI>Eigenen Java™-Sicherheits-Manager aktivieren inkl. Nutzung eigener
+            Sicherheitsrichtlinien</LI>
+        <LI>Firewall einsetzen</LI>
+        <LI>Mit eigenen Betriebssystem-Nutzer mit wenigen Rechte
+            laufenlassen</LI>
+        <LI>Unter Unix-artigen Betriebssystemen:
+            <UL>
+                <LI><TT>chroot</TT> einsetzen</LI>
+                <LI><TT>quota</TT> einsetzen</LI>
+            </UL>
+        </LI>
+    </UL>
+</P>
+
+
+<A name="encryption"></A>
+<H2>Was ist mit Verschlüsselung, Authentifizierung etc.?</H2>
+
+<P>
+    Obwohl diese Punkte noch nicht Teil der Roblet®-Technik sind (Stand Mai
+    2010), gibt es trotzdem schon sehr gute Möglichkeiten für höchste
+    Verschlüsselung und sichere Authentifizierung.&nbsp;
+    In der Praxis sind dabei nach unserem Wissen bisher 2 Techniken erfolgreich
+    genutzt worden:
+
+    <OL>
+        <LI>Tunnelung per SSH</LI>
+        <LI>VPN</LI>
+    </OL>
+</P>
+
+<P>
+    Mit Hilfe von SSH läßt sich die TCP/IP-Kommunikation tunneln.&nbsp;
+    Dabei wird z.B. auf dem lokalen Rechner ein SSH-Programm derart konfiguriert
+    gestartet, daß die auf einem bestimmten lokalen TCP-Port eingehenden
+    Daten an ein Port auf einem anderen Rechner weitergeleitet werden und
+    umgekehrt.&nbsp;
+    Lokal werden die Daten dabei von dem SSH-Client ver-/entschlüsselt und auf
+    dem fernen Rechner macht das der SSH-Server.&nbsp;
+    Das kann man jetzt noch mit einem
+    <A href="technique.abstract.proxies.html">Vertreter</A> kombinieren, um
+    den fernen Server lokal in
+    <A href="technique.abstract.directories.html">Verzeichnissen</A> sichtbar
+    zu machen.
+</P>
+
+<P>
+    Liegt eine VPN-Infrastruktur vor, so übernimmt diese die Sicherung der
+    Daten.&nbsp;
+    Die Roblet®-Technik nimmt dann nicht wahr, daß die Daten verschlüsselt
+    bewegt werden.
+</P>
+
+
+<A name="notion"></A>
+<H2>Woher kommt der Begriff Roblets®?</H2>
+
+<P>
+    Ursprünglich wurde eine Lösung für ein Problem in der mobilen Robotik
+    gesucht.&nbsp;
+    Erst Jahre später wurde klar, daß die geschaffene Lösung allgemeinerer
+    Natur ist.&nbsp;
+    Eine Umbenennung wäre zu dem Zeitpunkt schon mit sehr viel Aufwand verbunden
+    gewesen.&nbsp;
+    Außerdem fehlte die Idee für eine andere Benennung.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2002-2015 roblet®.org, Hagen Stanek</DIV><DIV  id="footer_right"><A  href="contact.html">Kontakt</A></DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 15.05.2015 mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

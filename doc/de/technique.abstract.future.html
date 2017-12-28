@@ -1,0 +1,183 @@
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>roblet®.org - Technik - Übersicht - Zukunft</TITLE>
+</HEAD>
+
+<BODY>
+
+
+<H1>Zukunft</H1>
+
+<P>
+    An dieser Stelle sind einige Dinge zusammengefaßt, die die Zukunft der
+    Roblet®-Technik - in technischer Hinsicht - betreffen.
+</P>
+
+
+<H2>Nutzerkonzept und Verschlüsselung</H2>
+
+<P>
+    Ein Nutzerkonzept ist in Vorbereitung.&nbsp;
+    Die Kommunikation zwischen Anwendung und Server wird dann verschlüsselt
+    und authentisiert verlaufen.&nbsp;
+    Das Nutzerkonzept wird mit öffentlichen und privaten Schlüsseln
+    arbeiten.&nbsp;
+    Der existierende Prototyp ist an das erfolgreiche SSH angelehnt und
+    ermöglicht, daß Anwendungen und Server bis auf absolut notwendiges
+    Minimum ohne Paßworteingabe auskommen.
+</P>
+
+<P>
+    Im Zusammenhang mit dem Nutzerkonzept stehen dann auch neue Funktionen des
+    Roblet®-Servers.&nbsp;
+    Roblet®-Anwendungen werden in der Lage sein, auch Roblets® zu betreuen,
+    die nicht direkt von ihnen kommen, sondern vielmehr ihrem Nutzer
+    angehören.&nbsp;
+    Das schließt die Schaffung eines Generalnutzers (superuser) ein, der alle
+    Roblets® betreuen kann.
+</P>
+
+
+<H2>Listener-Konzept für Verbindungszustand</H2>
+
+<P>
+    Die Klienten-Bibliothek versucht generell alles, um eine Verbindung zu
+    einem gewünschten Server aufzubauen, aufrechtzuerhalten oder
+    wiederherzustellen.&nbsp;
+    Das bedeutet für alle Anwendungen eine grundlegende Erleichterung, da
+    derartige Konzepte nur mit sehr viel Aufwand selbst zuverlässig
+    implementiert werden können.&nbsp;
+    Demgegenüber müssen jedoch Anwendungen, welche mit dem Menschen in direktem
+    Kontakt stehen, diesen darüber aufklären, was im Falle von Verzögerungen
+    gerade geschieht bzw. was die Probleme sind.
+</P>
+
+<P>
+    Die Klienten-Bibliothek wird ein Konzept auf Basis von Listenern
+    (Zuhörer-Instanzen) bereitstellen, welches ermöglicht eine Anwendung
+    synchron darüber zu informieren, was gerade mit einer Netzwerkverbindung
+    geschieht.&nbsp;
+    Diese Informationen können dann beliebig weiterverarbeitet und u.a.
+    auch in Benutzerschnittstellen zur Anzeige verwendet werden.
+</P>
+
+
+<H2>Roblet® sendet Roblet®</H2>
+
+<P>
+    In einigen Projekten schon eingesetzt, jedoch noch nicht dokumentiert, ist
+    die Möglichkeit, daß auch Roblets® selbst Roblets® verschicken können.&nbsp;
+    Jedem Roblet® wird dazu vom jeweiligen Roblet®-Server eine Einheit mit
+    Fähigkeiten à la Klienten-Bibliothek zur Verfügung gestellt.&nbsp;
+    Auf diese Weise entstehen überraschend schnell komplexeste Anwendungen, die
+    jedoch ebenso überraschend einfach handhabbar sind.&nbsp;
+    Das erwartete Chaos wird leicht durch die Einfachheit der Handhabung
+    verhindert.&nbsp;
+    Darüber hinaus erreichten derartige Anwendungen eine erstaunlich gute
+    Les- und Wartbarkeit.
+</P>
+
+
+<H2>Speicherung von Roblets® und automatisches Laden nach Server-Neustart</H2>
+
+<P>
+    Roblets® kommen als Datenstrom beim Server an.&nbsp;
+    Diese Eigenschaft soll genutzt werden, um Roblets® auch persistieren zu
+    können.&nbsp;
+    Damit ist dann auch die Grundlage gegeben, Roblets® z.B. automatisch nach
+    dem Neustart eines Servers (wieder) zu laden.&nbsp;
+</P>
+
+
+<H2>Soft-Module</H2>
+
+<P>
+    Roblets® sollen zukünftig in der Lage sein, dem Roblet®-Server Module
+    übergeben zu können, die der dann bei sich mit einordnet.&nbsp;
+    Dadurch kann die Funktionalität des Roblet®-Server dynamisch zur Laufzeit
+    erweitert werden.&nbsp;
+    Nachfolgende Roblets® können nachfolgend die durch diese Module
+    bereitgestellten Einheiten nutzen.
+</P>
+
+<P>
+    Auf diese Weise kann prinzipiell die Logik in den "echten" Modulen klein
+    gehalten und damit erfahrungsgemäß die Stabilität der Server deutlich erhöht
+    werden.&nbsp;
+    Die Soft-Module bringen in diesem Fall die noch fehlende
+    Logikvergrößerung.&nbsp;
+    Anders als echte Module können Soft-Module jedoch leicht zur Laufzeit
+    ausgetauscht werden, was nicht nur während der Entwicklungsphase Vorteile
+    bringt.
+</P>
+
+
+<H2>Beliebige Verzeichnis-Arten</H2>
+
+<P>
+    Die momentane Implementierung der Verzeichnis-Anwendung und der
+    Klienten-Bibliothek setzen Jini™ ein.&nbsp;
+    Zukünftig sollen beliebige Arten von Verzeichnissen genutzt werden können.
+</P>
+
+
+<H2>NAT-PMP und UPnP</H2>
+
+<P>
+    Der Server soll per NAT-PMP, UPnP und andere Standards
+    in die Lage versetzt werden,
+    - wenn gewünscht und erlaubt -
+    einen Zugang von außen durch Router mit NAT zu ermöglichen.&nbsp;
+    Damit kann z.B. im Heimbereich die Arbeit aus dem offenen Internet heraus
+    beschleunigt und damit zuverlässiger werden.
+</P>
+
+
+<H2>Generics für die zentralen Schnittstellen</H2>
+
+<P>
+    Die Schnittstellen <TT>org.roblet.Roblet</TT> und <TT>org.roblet.Robot</TT>
+    sind momentan hinsichtlich ihrer Rückgabetypen so allgemein gehalten, daß
+    man alles damit machen kann.&nbsp;
+    Allerdings ist in der vorliegenden Fassung der Programmierer gefordert, die
+    richtigen Typenumwandlungen (<I>casts</I>) zu machen.
+</P>
+
+<P>
+    Zukünftig soll durch den Einsatz der ab Java™ 1.5 verfügbaren Generics das
+    explizite Wandeln der Typen unnötig werden.&nbsp;
+    Damit soll eine noch weitergehende Hilfe durch den Compiler möglich werden.
+</P>
+
+
+<H2>Einheitenloser Ressourcen-Zugriff</H2>
+
+<P>
+    In der vorliegenden Implementierung des Servers werden Ressourcen mit Hilfe
+    von Einheiten bereitgestellt.&nbsp;
+    Ein Roblet kann für den Zugriff auf Ressourcen nicht direkt bestimmte
+    Klassen instanziieren oder nutzen.
+</P>
+
+<P>
+    Zukünftig sollen Module in der Lage sein, jedem Roblet über einen
+    Klassenlader-Mechanismus auch direkt Klassen zur Verfügung stellen zu
+    können, die in sich dann schon die notwendigen Umsetzungen machen.&nbsp;
+    Dadurch würde dann die Nutzung des <TT>org.roblet.Robot</TT> entfallen
+    können, was eine weitere Vereinfachung der Technik bedeutet.
+</P>
+
+<P>
+    Die Tragweite einer solchen Möglichkeit ist nicht zu unterschätzen.&nbsp;
+    Prototypen von Modulen, welche sehr komplexe Datenstrukturen und Funktionen
+    bereitstellen müssen, zeigen, daß das Einheitenkonzept hier an eine
+    natürliche Grenze zu stoßen scheint.
+</P>
+
+
+</BODY>
+
+</HTML>

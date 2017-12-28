@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Roblet®-Development-Kit - Einsatz - Roblet®-Server - Entwicklung
+        - Architektur</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.html"  target=_top>Roblet®-Server</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.server.development.html"  target=_top>Entwicklung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.server.development.architecture.html"  target=_top>Architektur</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.server.development.sample.html"  target=_top>Beispiel</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="mod/index.html"  target=_top>Java™-API</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+<H1>Architektur
+</H1><DIV  id="content">
+
+<P>
+    Wie schon im <A href="overview.server.html">Überblick</A> angedeutet, reguliert der
+    Roblet®-Server den Zugriff auf Ressourcen und stellt darüber hinaus eine
+    Laufzeitumgebung für Roblets® bereit.&nbsp;
+    Die Ressourcen werden vom Server jedoch nicht direkt betreut.&nbsp;
+    Diese Aufgabe haben Module.
+</P>
+
+<P>
+    Im Prinzip ist ein <I>Modul</I> eine Java™-Klasse, die die Schnittstelle
+    <A href="mod/genRob/genControl/modules/Module2.html">
+        <TT>genRob.genControl.modules.Module2</TT></A> implementiert.&nbsp;
+    Damit der Server eine Modul-Klasse verwendet, muß ihr Name bei seiner
+    <A href="usage.server.server.execution.modules.html">Ausführung</A> als Argument
+    übergeben werden und die Klasse über den Klassenpfad auffindbar sein.
+</P>
+
+
+<H2>Modul initialisieren</H2>
+
+<P>
+    Der Konstruktor einer Modul-Klasse sollte wenig oder nichts machen, um eine
+    störungsfreie Initialisierungsphase zu ermöglichen und in vielen Fällen
+    dadurch auch die Fehlersuche zu vereinfachen.&nbsp;
+    Die eigentliche Initialisierung eines Moduls erfolgt hingegen in der zu
+    implementierenden Methode
+    <A href="mod/genRob/genControl/modules/Module2.html#moduleInit(genRob.genControl.modules.ModuleContext)">
+        <TT>genRob.genControl.modules.Module2.&#8203;moduleInit(...)</TT></A>.
+</P>
+
+<P>
+    Der Server ruft <TT>moduleInit</TT> nur einmal nach dem Laden der
+    Modul-Klasse auf.&nbsp;
+    An dieser Stelle kann ein Modul z.B. persistente Daten vom letzten Lauf
+    laden oder einmalig notwendige Untersuchungen des unterliegenden Systems
+    vornehmen.&nbsp;
+    Dabei sind zeitlich grundsätzlich keine Grenzen gesetzt.&nbsp;
+    Log-Ausgaben sind möglicherweise bei längeren Arbeiten sinnvoll.&nbsp;
+    Der Server wartet, bis die Initialisierung abgeschlossen ist.
+</P>
+
+<P>
+    Die Methode <TT>moduleInit</TT> wird durch einen Thread aufgerufen, der im
+    offenen Sicherheitsbereich des Servers läuft.&nbsp;
+    Das bedeutet, daß standardmäßig sämtlicher Code eines Moduls inkl. all
+    seiner Klassen unbeschränkten Zugriff auf die Klassen- und
+    Laufzeitbibliothek des Java™-Systems (Java™-Bibliothek) hat.&nbsp;
+    Administratoren, die mit eigenen Sicherheitsrichtlinien arbeiten, müssen
+    gegebenenfalls für die jeweiligen Module "Löcher" ermöglichen.
+</P>
+
+<P>
+    <TT>moduleInit</TT> bekommt als Parameter einen Modul-Kontext.&nbsp;
+    Der <I>Modul-Kontext</I> ist eine Instanz von
+    <A href="mod/genRob/genControl/modules/ModuleContext.html">
+        <TT>genRob.genControl.modules.ModuleContext</TT></A>
+    und dient zum Zugriff auf gewisse Teile des Servers insbesondere den
+    <A href="mod/genRob/genControl/modules/Logger.html">
+        <TT>genRob.genControl.modules.Logger</TT></A>.
+</P>
+
+<P>
+    Läuft ein Modul während der Initialisierung auf einen Fehler, der seine
+    Funktion verhindert, so ist es üblich, eine Ausnahme zu werfen.&nbsp;
+    In diesem Falle wird der Server das betreffende Modul nicht weiter
+    verwenden.
+</P>
+
+
+<H2>Modul aufräumen</H2>
+
+<P>
+    Will der Server enden, so beendet er zunächst alle Roblets® und ruft danach
+    für jedes Modul einmal die Methode
+    <A href="mod/genRob/genControl/modules/Module2.html#moduleDone()">
+        <TT>genRob.genControl.modules.Module2.&#8203;moduleDone(...)</TT></A>
+    auf.&nbsp;
+    Dadurch hat jedes Modul die Möglichkeit, abschließende Aufgaben zu
+    erledigen.&nbsp;
+    Dabei können z.B. Daten für den nächsten Lauf persistent gemacht werden,
+    Datei- und Netzwerk-Verbindungen geschlossen werden u.v.a.m.
+</P>
+
+<P>
+    Im wesentlichen gelten für diese Methode die gleichen Bemerkungen, wie für
+    <TT>moduleInit</TT>.&nbsp;
+    Der zentrale <U>Unterschied</U> ist jedoch, daß keine Ausnahmen geworfen
+    werden dürfen, um sicherzustellen, daß der Server alle Module aufräumen
+    kann.&nbsp;
+    Hier sind dann nur Log-Ausgaben erlaubt.
+</P>
+
+
+<H2>Einheiten bereitstellen</H2>
+
+<P>
+    Ein Modul kann eine beliebige Anzahl von Einheiten umfassen und die
+    Einheiten können beliebig definiert werden.&nbsp;
+    Meist bestimmen entwicklungsrelevante Bedingungen, wie z.B. die
+    Funktionalität einer Hardware, die Grenzen einer Einheit und ihre Anzahl.
+</P>
+
+<P>
+    Die Methode
+    <A href="mod/genRob/genControl/modules/Module2.html#getUnit(java.lang.Class,%20genRob.genControl.modules.RobletHandle)">
+        <TT>genRob.genControl.modules.Module2.&#8203;getUnit(...)</TT></A>
+    ermöglicht dem Server, die Anfrage eines
+    Roblets® auf Herausgabe einer Instanz einer Einheiten-Implementierung einer
+    bestimmten Einheiten-Definition zu beantworten.&nbsp;
+    Dabei ist zu beachten, daß die Laufzeitumgebung des Servers die parallele,
+    gleichzeitige Ausführung von mehreren Roblets® erlaubt, weshalb <I>pro
+    Roblet® eine eigene Einheiten-Instanzen</I> herausgegeben werden muß.&nbsp;
+    Konflikte, die bei der gemeinsamen Nutzung einer Ressource auftreten, müssen
+    durch das Modul aufgelöst werden.&nbsp;
+    Nachfolgend sind weitere Bedingungen für die Implementierung von Einheiten
+    genannt.
+</P>
+
+<P>
+    Die <I>Einheiten-Definition</I> wird der Methode <TT>getUnit4Slot</TT>
+    als Instanz vom Typ <TT>java.lang.Class</TT> übergeben.&nbsp;
+    Es handelt sich um genau die Klasse, die ein Roblet® übergibt.&nbsp;
+    Von einer beliebigen Einheiten-Definition ist die Klasse immer über
+    "Einheiten-Definitions-Name<TT>.class</TT>" erhältlich.&nbsp;
+    Über einen entsprechenden Vergleich (<TT>==</TT>) mit den vom jeweiligen
+    Modul betreuten Einheiten-Definitionen kann der Wunsch eines Roblets®
+    aufgelöst werden.
+</P>
+
+<P>
+    Der zweite übergebene Parameter ist ein <I>Roblet®-Repräsentant</I> vom Typ
+    <A href="mod/genRob/genControl/modules/RobletHandle.html">
+        <TT>genRob.genControl.modules.RobletHandle</TT></A>.&nbsp;
+    Diese Instanz repräsentiert das Roblets® für das Modul
+    und ist pro Roblet® eindeutig.&nbsp;
+    Damit kann das Modul die einzelnen Roblets® unterscheiden und über dabei
+    vorhandene Methoden auch Daten einem Roblet® zuordnen.&nbsp;
+    Der Roblet®-Repräsentant ermöglicht darüberhinaus den Zugriff auf die
+    Laufzeitumgebung des jeweiligen Roblets®.
+</P>
+
+<PRE class="java">
+    <SPAN class="keyword">public</SPAN> Unit  getUnit (Class clazz, RobletHandle handle)
+    {
+        if (clazz == HelloUnit.<SPAN class="keyword">class</SPAN>)
+            <I>// Es wird in diesem Fall bei jedem Aufruf</I>
+            <I>// eine neue Instanz erzeugt.</I>
+            <SPAN class="keyword">return</SPAN> <SPAN class="keyword">new</SPAN> HelloUnitImpl ();
+
+        <I>// Ansonsten:  Einheit nicht hier implementiert.</I>
+        <SPAN class="keyword">return</SPAN> <SPAN class="keyword">null</SPAN>;
+    }
+</PRE>
+
+
+<H2>Weitere Funktionalität</H2>
+
+<P>
+    Die <A href="mod/index.html">API-Dokumentation für Module</A> gibt einen
+    genaueren Einblick und Hinweise.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2010 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 11.09.2010 um 04:41:23.641 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

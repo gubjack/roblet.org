@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="prod/genRob_genSite_3.4_07Jan10/genRob.genSite.jar"/>
+	<classpathentry kind="src" path="doc"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

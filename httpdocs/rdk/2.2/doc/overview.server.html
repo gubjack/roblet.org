@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Roblet®-Development-Kit - Überblick - Roblet®-Server</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="overview.app.html"  target=_top>Anwendungen</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="overview.server.html"  target=_top>Server</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="overview.directory.html"  target=_top>Verzeichnis</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="overview.proxy.html"  target=_top>Vertreter</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Überblick
+</H1><DIV  id="content">
+
+<P>
+    Im Rahmen der Roblet®-Technik wird eine Anwendung benötigt, die eine
+    Laufzeitumgebung für Roblets® bietet, ihnen Ressourcen bereitstellt und
+    zudem den Zugriff auf diese Ressourcen reguliert.&nbsp;
+    Diese Anwendung wird <I>Roblet®-Server</I> genannt.&nbsp;
+    Der wesentliche Teil <B>des vorliegenden Paketes</B> ist genau dieser
+    Roblet®-Server.
+</P>
+
+<P>
+    Auf <A href="http://roblet.org">roblet®.org</A> sind mehr Informationen
+    zum Thema <I>Roblet®-Technik</I> zu finden.&nbsp;
+    Sind Sie neu in diesem Thema, so sollten Sie sich dort zunächst eine
+    Übersicht verschaffen.&nbsp;
+    Die genannte Website dient auch der Zusammenarbeit von Interessierten und
+    bietet weitere Kontakte.
+</P>
+
+
+<H2>Roblet®-Server inkl. Modul-Schnittstelle</H2>
+
+<P>
+    Der <A href="usage.server.server.html">Roblet®-Server</A> in diesem Paket ist ein
+    Java™-Programm ohne grafische Oberfläche.&nbsp;
+    Er kann mit Hilfe von
+    <A href="usage.server.server.execution.modules.html">Modulen</A> parametrisiert
+    werden, um Roblets® spezifische Ressourcen bereitstellen zu können:
+
+    <CENTER>
+        <IMG  src="overview.server.jpg"  border=1>
+    </CENTER>
+</P>
+
+<P>
+    Module müssen der <A href="usage.server.development.html">Modul-Schnittstelle</A>
+    des Servers genügen.&nbsp;
+    Diese Schnittstelle ist einerseits für den Entwickler eine
+    mit <I><A href="mod/index.html">Javadoc</A></I> erstellte Dokumentation
+    und andererseits ein <I>Java™-Archiv</I>, welches der Compiler zum Zeitpunkt
+    der Kompilation eines Moduls benötigt.&nbsp;
+    Dieses Archiv wird zur Laufzeit des Servers auch benutzt.
+</P>
+
+
+<A name="tool"></A>
+<H2>Werkzeug</H2>
+
+<P>
+    Zur Betreuung von Roblet®-Server gibt es das <B>Werkzeug</B>.
+    Es ist ebenso ein Java™-Programm ohne grafische Oberfläche:
+</P>
+
+<CENTER>
+    <IMG  src="overview.server.tool.jpg"  border=1>
+</CENTER>
+
+<P>
+    Betreibt man das Werkzeug zur <I>Fernwartung</I>, so verschickt es zum
+    fraglichen Server ein Roblet® und führt die gewünschten Aktionen aus bzw.
+    holt Daten.&nbsp;
+    Das Werkzeug läßt sich aber auch zur Anzeige von <I>Log-Dateien</I>
+    verwenden, die von Servern erzeugt wurden.&nbsp;
+    Für <A href="overview.directory.html">Verzeichnisse</A> gibt es weitere
+    Funktionen.
+</P>
+
+<P>
+    Die Nutzung des Werkzeuges ist <A href="usage.server.tool.html">hier</A>
+    beschrieben.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2015 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 30.12.2015 um 02:16:58.916 UTC mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+</HTML>

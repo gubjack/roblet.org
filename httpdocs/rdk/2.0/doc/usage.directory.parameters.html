@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+
+<HTML>
+<HEAD>
+	<META http-equiv="Content-Language" content="de">
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Roblet®-Development-Kit - Einsatz - Verzeichnisdienst
+        - Parameter</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.directory.html"  target=_top>Verzeichnis</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.directory.parameters.html"  target=_top>Parameter</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Parameter
+</H1><DIV  id="content">
+
+<P>
+    Ein Verzeichnis läßt sich über verschiedene Parameter in seinem
+    Laufzeitverhalten beeinflußen.&nbsp;
+    Solche Parameter werden in Form von Java™-Eigenschaften als Teil des
+    Kommandos z.B. eingebettet in die Start-Dateien mit angegeben.
+</P>
+
+<P>
+    Java™-Eigenschaften werden auf die folgende Weise der Java™-VM übergeben:
+</P>
+<PRE class="console">
+-D<B>Name=Wert</B>
+</PRE>
+
+<P>
+    Zur Vereinfachung sollte ihre Angabe gleich nach <TT>java</TT> erfolgen,
+    um Komplikationen zu vermeiden.
+</P>
+<PRE class="console">
+java -D<B>Name=Wert</B> -classpath ...
+</PRE>
+<PRE class="console">
+java -D<B>Name=Wert</B> -jar ...
+</PRE>
+
+<P>
+    <TT>Name</TT> und <TT>Wert</TT> dürfen keine Leerzeichen enthalten
+    oder müssen in Shell- bzw. Kommandozeileninterpreter-spezifische
+    Steuerzeichen, wie z.B. Anführungszeichen, eingefaßt werden.
+</P>
+
+<P>
+    Folgende Parameter kennt der Verzeichnisdienst:
+</P>
+<UL>
+    <LI><A href="#port">HTTP-Server-Port</A></LI>
+    <LI><A href="#log">Logbuch</A></LI>
+</UL>
+
+<P>
+    Der Verzeichnisdienst ist technisch gesehen ein Roblet®-Server mit einem
+    Verzeichnisdienst-Modul.&nbsp;
+    Server-bezogene Parameter sind in der Dokumentation des
+    <A href="usage.server.html">Roblet®-Servers</A> zu finden.
+</P>
+
+
+<HR>
+
+<H2><A name="port">HTTP-Server-Port</A></H2>
+
+<P>
+    Für die Arbeit des Verzeichnisdienstes wird intern ein HTTP-Server
+    gestartet.&nbsp;
+    Standardmäßig ist die Port-Nummer <TT>8080</TT> eingestellt.&nbsp;
+    Wird diese Nummer schon von einem anderen Programm auf demselben Rechner
+    verwendet, so kann mit Hilfe der Java™-Eigenschaft
+    <TT>genRob.genMediator.httpd.port</TT> eine andere freie Nummer angegeben
+    werden.
+</P>
+
+<P>
+    Hier ein Beispiel:
+</P>
+<PRE class="console">
+java  -D<B>genRob.genMediator.httpd.port</B>=<I>8888</I> ...
+</PRE>
+
+<P>
+    Der Wert der Eigenschaft muß eine positive ganze Zahl kleiner 65536 sein.
+</P>
+
+
+<HR>
+
+<H2><A name="log">Logbuch</A></H2>
+
+<P>
+    Ein Verzeichnisdienst kann viele Informationen über seine Aktivitäten
+    ins Logbuch des Roblet®-Servers eintragen.&nbsp;
+    Das Eintragen ins Logbuch ist standardmäßig abgeschaltet.
+</P>
+
+<P>
+    Um Informationen ins Logbuch eintragen zu lassen, muß
+    der Wert der Java™-Eigenschaft <TT>org.roblet.directory.log</TT>
+    bestimmte Schlüsselworte enthalten.
+</P>
+
+<P>
+    Folgende Schlüsselworte gibt es:
+</P>
+<UL>
+    <LI><TT>client</TT> - Zugriffsverarbeitung für Klienten</LI>
+    <LI><TT>module</TT> - Generelle Vorgänge</LI>
+    <LI><TT>server</TT> - Zugriffsverarbeitung für Server</LI>
+    <LI><TT>updates</TT> - Eintragsänderungen</LI>
+</UL>
+
+<P>
+    Hier ein Beispiel:
+</P>
+<PRE class="console">
+java  -D<B>org.roblet.directory.log</B>=<I>module,server</I> ...
+</PRE>
+
+<P>
+    Läßt man den Wert der Eigenschaft leer (<TT>org.roblet.directory.log=</TT>),
+    so ist das gleichbedeutend mit dem Weglassen der Eigenschaft.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2011 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 08.01.2011 um 12:28:48.145 CET mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+</HTML>

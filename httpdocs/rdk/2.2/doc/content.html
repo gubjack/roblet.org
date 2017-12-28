@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>Roblet®-Development-Kit - Inhalt</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="index.html"  target=_top>RDK</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="changes.html"  target=_top>Änderungen</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="overview.html"  target=_top>Überblick</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="content.html"  target=_top>Inhalt</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Inhalt
+</H1><DIV  id="content">
+
+<P>
+    Als <B>Inhalt</B> werden die <A href="#files">Dateien und Verzeichnisse</A>
+    bezeichnet, die nach dem Auspacken der ZIP-Dateien <TT>*_bin.zip</TT> und
+    <TT>*_doc.zip</TT> vorzufinden sind.&nbsp;
+    Für die Entwicklung und den Betrieb sind nur die Dateien aus
+    <TT>*_bin.zip</TT> nötig.&nbsp;
+    Die Dateien aus <TT>*_doc.zip</TT> sind auch
+    <A href="http://roblet.org/rdk">online</A> verfügbar und müssen
+    nicht heruntergeladen werden.&nbsp;
+    Hat man sich <TT>*_doc.zip</TT> dennoch heruntergeladen, werden ihre Dateien
+    normalerweise - aber nicht zwingend - in das gleiche Verzeichnis,
+    wie die Dateien von <TT>*_bin.zip</TT> entpackt.
+</P>
+
+<P>
+    Der Inhalt läßt sich grob in mehrere Bereiche einteilen:
+</P>
+
+<UL>
+    <LI><A href="#app">Anwendungsentwicklung</A></LI>
+    <LI><A href="#server">Roblet®-Server</A></LI>
+    <LI><A href="#server_development">Modul-Entwicklung</A></LI>
+    <LI><A href="#server_tool">Server-Werkzeug</A></LI>
+    <LI><A href="#directory">Verzeichnisdienst</A></LI>
+    <LI><A href="#directory_browser">Browser für Verzeichnisdienste</A></LI>
+    <LI><A href="#proxy">Vertreterdienst</A></LI>
+    <LI><A href="#documentation">Dokumentation</A></LI>
+</UL>
+
+<P>
+    Das RDK hängt teilweise von Software-Komponenten
+    anderer Pakete von zum Teil anderen Herstellern ab, deren Dateien
+    teilweise mit Teil von <TT>*_bin.zip</TT> sind:
+</P>
+
+<UL>
+    <LI><A href="#jini">Sun-Jini™-Reggie, -Tools und -Browser</A> 1.2.1_001</LI>
+</UL>
+
+<P>
+    Die Version des RDK läßt sich auf folgende Weise ermitteln:
+</P>
+
+<PRE  class="console">
+java  -jar org.roblet.jar
+</PRE>
+
+
+<HR>
+
+<A name="files"></A>
+<H2>Dateien und Verzeichnisse des RDK</H2>
+
+<P>
+    Die nachfolgende Darstellung der zu den o.g. Bereichen gehörigen Dateien
+    erfolgt mit Mehrfachnennung.&nbsp;
+    Das bedeutet, daß jeweils alle Dateien, die für den
+    <A href="usage.html">Einsatz</A> notwendig sind, beim jeweiligen Bereich
+    mit aufgelistet werden, auch wenn sie teilweise in mehreren Bereichen
+    benötigt werden.
+</P>
+
+<A name="app"></A>
+<P>
+    Die <B>Anwendungsentwicklung</B> benötigt mehrere Java™-Archive:
+</P>
+
+<UL>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(Zentrale Roblet®-Schnittstellen)</SMALL></LI>
+    <LI><TT>genRob.genControl.client.jar</TT>
+        <SMALL>(Roblet®-Klient)</SMALL></LI>
+    <LI><TT>genRob.genControl.unit.jar</TT>
+        <SMALL>(Standard-Einheiten)</SMALL></LI>
+    <LI><TT>org.roblet.client.jar</TT>
+        <SMALL>("Neuer" Roblet®-Klient)</SMALL></LI>
+    <LI><TT>jini-core.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+    <LI><TT>jini-ext.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+</UL>
+
+<A name="server"></A>
+<P>
+    Der <B>Roblet®-Server</B> besteht aus mehreren
+    Java™-Archiven und einigen Beispiel-Start-Scripten:
+</P>
+
+<UL>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(Zentrale Roblet®-Schnittstellen)</SMALL></LI>
+    <LI><TT>genRob.genControl.jar</TT>
+        <SMALL>(der eigentliche Roblet®-Server)</SMALL></LI>
+    <LI><TT>genRob.genControl.modules.jar</TT>
+        <SMALL>(die Schnittstelle für Module-Entwickler)</SMALL></LI>
+    <LI><TT>genRob.genControl.client.jar</TT>
+        <SMALL>(Roblet®-Klient)</SMALL></LI>
+    <LI><TT>genRob.genControl.unit.jar</TT>
+        <SMALL>(Standard-Einheiten)</SMALL></LI>
+    <LI><TT>org.roblet.client.jar</TT>
+        <SMALL>("Neuer" Roblet®-Klient)</SMALL></LI>
+    <LI><TT>jini-core.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+    <LI><TT>jini-ext.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+    <LI><TT>server.bat</TT>
+        <SMALL>(Beispiel-Start-Batch-Datei für Microsoft-Windows™)</SMALL></LI>
+    <LI><TT>server.sh</TT>
+        <SMALL>(Beispiel-Start-Script-Datei für Unix®, Mac OS X™ und
+            Linux)</SMALL></LI>
+</UL>
+
+<A name="server_development"></A>
+<P>
+    Die <B>Modul-Entwicklung</B> benötigt mehrere
+    Java™-Archive (für Tests ist ein Roblet®-Server nötig):
+</P>
+
+<UL>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(Zentrale Roblet®-Schnittstellen)</SMALL></LI>
+    <LI><TT>genRob.genControl.modules.jar</TT>
+        <SMALL>(die Schnittstelle für Module-Entwickler)</SMALL></LI>
+</UL>
+
+<A name="server_tool"></A>
+<P>
+    Das <B>Server-Werkzeug</B> besteht aus mehreren Java™-Archiven:
+</P>
+
+<UL>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(Zentrale Roblet®-Schnittstellen)</SMALL></LI>
+    <LI><TT>genRob.genControl.tool.jar</TT>
+        <SMALL>(das Werkzeug)</SMALL></LI>
+    <LI><TT>genRob.genControl.client.jar</TT>
+        <SMALL>(Roblet®-Klient)</SMALL></LI>
+    <LI><TT>genRob.genControl.unit.jar</TT>
+        <SMALL>(Standard-Einheiten)</SMALL></LI>
+    <LI><TT>org.roblet.client.jar</TT>
+        <SMALL>("Neuer" Roblet®-Klient)</SMALL></LI>
+    <LI><TT>jini-core.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+    <LI><TT>jini-ext.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+</UL>
+
+<A name="directory"></A>
+<P>
+    Der <B>Verzeichnisdienst</B> besteht aus mehreren Java™-Archiven,
+    Sicherheits-Richtlinien-Dateien und Start-Scripten:
+</P>
+
+<UL>
+    <LI><TT>directory.bat</TT>
+        <SMALL>(Start-Batch-Datei für Microsoft-Windows™)</SMALL></LI>
+    <LI><TT>directory.sh</TT>
+        <SMALL>(Start-Script-Datei für Unix®, Mac OS X™ und
+            Linux)</SMALL></LI>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(Zentrale Roblet®-Schnittstellen)</SMALL></LI>
+    <LI><TT>genRob.genMediator.jar</TT>
+        <SMALL>(der Verzeichnisdienst)</SMALL></LI>
+    <LI><TT>reggie.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+    <LI><TT>reggie.policy</TT>
+        <SMALL>(Sicherheits-Richtlinien-Datei für den Sun-Reggie)</SMALL></LI>
+</UL>
+
+<A name="directory_browser"></A>
+<P>
+    Der <B>Browser für Verzeichnisdienste</B> besteht aus mehreren
+    Java™-Archiven, Sicherheits-Richtlinien-Dateien und Start-Scripten:
+</P>
+
+<UL>
+    <LI><TT>browser.bat</TT>
+        <SMALL>(Start-Batch-Datei für Microsoft-Windows™)</SMALL></LI>
+    <LI><TT>browser.sh</TT>
+        <SMALL>(Start-Script-Datei für Unix®, Mac OS X™ und
+            Linux)</SMALL></LI>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(Zentrale Roblet®-Schnittstellen)</SMALL></LI>
+    <LI><TT>jini-examples.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+    <LI><TT>jini-core.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+    <LI><TT>jini-ext.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+    <LI><TT>browser.policy</TT>
+        <SMALL>(Sicherheits-Richtlinien-Datei)</SMALL></LI>
+</UL>
+
+<A name="proxy"></A>
+<P>
+    Der <B>Vertreterdienst</B> besteht aus mehreren Java™-Archiven,
+    Sicherheits-Richtlinien-Dateien und Start-Scripten:
+</P>
+
+<UL>
+    <LI><TT>proxy.bat</TT>
+        <SMALL>(Beispiel-Start-Batch-Datei für Microsoft-Windows™)</SMALL></LI>
+    <LI><TT>proxy.sh</TT>
+        <SMALL>(Beispiel-Start-Script-Datei für Unix®, Mac OS X™ und
+            Linux)</SMALL></LI>
+    <LI><TT>org.roblet.jar</TT>
+        <SMALL>(Zentrale Roblet®-Schnittstellen)</SMALL></LI>
+    <LI><TT>genRob.genGate.jar</TT>
+        <SMALL>(der Vertreterdienst - ein Modul)</SMALL></LI>
+    <LI><TT>genRob.genControl.jar</TT>
+        <SMALL>(der Roblet®-Server)</SMALL></LI>
+    <LI><TT>genRob.genControl.modules.jar</TT>
+        <SMALL>(die Schnittstelle für Module-Entwickler)</SMALL></LI>
+    <LI><TT>genRob.genControl.client.jar</TT>
+        <SMALL>(Roblet®-Klient)</SMALL></LI>
+    <LI><TT>genRob.genControl.unit.jar</TT>
+        <SMALL>(Standard-Einheiten)</SMALL></LI>
+    <LI><TT>org.roblet.client.jar</TT>
+        <SMALL>("Neuer" Roblet®-Klient)</SMALL></LI>
+    <LI><TT>jini-core.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+    <LI><TT>jini-ext.jar</TT>
+        <SMALL>(<A href="#jini">Sun-Jini™</A>)</SMALL></LI>
+</UL>
+
+<A name="documentation"></A>
+<P>
+    Sofern heruntergeladen und entpackt besteht die <B>Dokumentation</B> aus:
+</P>
+
+<UL>
+    <LI>der <I>Einstiegsdatei</I> <TT>index.html</TT> im Hauptverzeichnis
+        und</LI>
+    <LI>allen Dateien im Unterverzeichnis <TT>doc</TT>.</LI>
+</UL>
+
+
+<HR>
+
+<H2>Verwendete externe Software-Pakete</H2>
+
+<H3><A name="jini">Sun-Jini™-Reggie, -Tools und -Browser</A></H3>
+
+<P>
+    Sun-Jini™ wird benutzt, damit Roblet®-Server in einem lokalen
+    Netzwerk ohne vorherige Kenntnis ihres Namens <I>Host:Port</I> gefunden
+    werden können.&nbsp;
+    Es wird von der Firma
+    <A href="http://sun.com">Sun Microsystems</A> angeboten und
+    weiterentwickelt.
+</P>
+
+<P>
+    Für das vorliegende Paket wurden nur einige Java™-Archive verwendet.&nbsp;
+    Die Dokumentation etc. sind nicht mit beigegeben.
+</P>
+
+<P>
+    Das vollständige Paket kann von
+    <A href="http://sun.com/jini">http://sun.com/jini</A>
+    heruntergeladen werden.&nbsp;
+    Beigefügt wurde die Version "1.2.1_001" vom August 2002
+    - u.U. können jedoch auch ältere oder neuere Versionen
+    für den Betrieb benutzt werden.
+</P>
+
+<BLOCKQUOTE>
+    Die mitgelieferten Dateien sind nur zur Referenz und zum Testen
+    einer Installation mitgegeben worden.&nbsp;
+    <I>Für den produktiven Einsatz sind passende Versionen von der o.g.
+        Website des Herstellers zu verwenden.</I>&nbsp;
+    Lesen Sie dort auch die Lizenzbedingungen.
+</BLOCKQUOTE>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2015 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 30.12.2015 um 02:16:58.925 UTC mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

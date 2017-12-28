@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Klienten-Bibliothek - Benutzung - Ausführung</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>Klienten-Bib.</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.html"  target=_top>Benutzung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.prerequisites.html"  target=_top>Voraussetzungen</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.version.html"  target=_top>Version</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.compilation.html"  target=_top>Kompilierung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.execution.html"  target=_top>Ausführung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_5"><A  href="usage.development.html"  target=_top>Entwicklung</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+<H1>Ausführung
+</H1><DIV  id="content">
+
+<P>
+    Um eine Roblet®-Anwendung auszuführen, muß mindestens das Java™-Archiv der
+    Klienten-Bibliothek <TT>org.roblet.client.jar</TT> im Klassenpfad
+    (<TT>classpath</TT>) aufgeführt werden:
+</P>
+
+<P>
+    <B>Windows</B>:&nbsp;
+    (alles in eine Zeile;&nbsp; der Klassenpfad ohne Leerzeichen)
+</P>
+<BLOCKQUOTE><PRE>
+java  -classpath <B>org.roblet.client.jar</B>;...  ...
+</PRE></BLOCKQUOTE>
+
+<P>
+    <B>Unix®, Linux, MacOS™</B>:&nbsp;
+    (alles in eine Zeile;&nbsp; der Klassenpfad ohne Leerzeichen)
+</P>
+<BLOCKQUOTE><PRE>
+java  -classpath <B>org.roblet.client.jar</B>:...  ...
+</PRE></BLOCKQUOTE>
+
+<P>
+    Bei der Ausführung genügt im Gegensatz zur
+    <A href="usage.compilation.html">Kompilierung</A> die Angabe dieses einen
+    Java™-Archivs.&nbsp;
+    Der Grund liegt darin, daß die JVM <TT>java</TT> die in den Java™-Archiven
+    enthaltenen Klassenpfade auswertet.
+</P>
+
+<P>
+    Verschiedene Java™-Eigenschaften ermöglichen, die Arbeitsweise der
+    Klienten-Bibliothek innerhalb einer Anwendung zu variieren:
+</P>
+
+<UL>
+    <LI><A href="#logging">Logging</A></LI>
+    <LI><A href="#RMI">RMI-Protokoll</A></LI>
+    <LI><A href="#download">Klassen-Download</A></LI>
+</UL>
+
+
+<A name="logging"></A>
+<H2>Logging</H2>
+
+<P>
+    Die Klienten-Bibliothek kann Log-Informationen über ihre laufenden
+    Aktivitäten erzeugen.&nbsp;
+    Dazu muß einerseits der
+    <A href=
+"lib/genRob/genControl/client/Client.html#Client(genRob.genControl.client.Log)"
+        >Klient</A> innerhalb einer Anwendung mit einer
+    <A href="lib/genRob/genControl/client/Log.html">Log</A>-Instanz erzeugt
+    worden sein.&nbsp;
+    Andererseits ist noch die Java™-Eigenschaft
+    <TT>genRob.genControl.client.log</TT> mit passenden Schlüsselworten zu
+    setzen.&nbsp;
+    Beispielsweise:
+<P>
+
+<P>
+    <B>Windows</B>:&nbsp;
+    (alles in eine Zeile;&nbsp; der Klassenpfad und die Java™-Eigenschaft ohne
+    Leerzeichen)
+</P>
+<BLOCKQUOTE><PRE>
+java  -DgenRob.genControl.client.log=base,sieve,...
+        -classpath <B>org.roblet.client.jar</B>;...
+        ...
+</PRE></BLOCKQUOTE>
+
+<P>
+    <B>Unix®, Linux, MacOS™</B>:&nbsp;
+    (alles in eine Zeile;&nbsp; der Klassenpfad und die Java™-Eigenschaft ohne
+    Leerzeichen)
+</P>
+<BLOCKQUOTE><PRE>
+java  -DgenRob.genControl.client.log=base,sieve,...
+        -classpath <B>org.roblet.client.jar</B>:...
+        ...
+</PRE></BLOCKQUOTE>
+
+<P>
+    Nähere Auskunft darüber, welche Schlüsselworte verwendet werden können,
+    bietet die Javadoc der
+    <A href="lib/genRob/genControl/client/Log.html">Log</A>-Schnittstelle.&nbsp;
+    Zu beachten ist, daß die möglichen Schlüsselworte von der Version der
+    Klienten-Bibliothek abhängen.
+</P>
+
+
+<H2><A name="RMI">RMI-Protokoll</A></H2>
+
+<P>
+    Ältere Roblet®-Server (genRob®-genControl vor Version 5.0) lassen sich durch
+    die Klienten-Bibliothek nur über ein RMI-basiertes Protokoll
+    ansprechen.&nbsp;
+    Neuere Roblet®-Server und die Klienten-Bibliothek verwenden standardmäßig
+    RMI nicht mehr.&nbsp;
+    Die allerneuesten Roblet®-Server unterstützen das RMI-basierte Protokoll
+    gar nicht mehr.
+</P>
+
+<P>
+    Um das RMI-basierte Protokoll zu ermöglichen, muß die Java™-Eigenschaft
+    <TT>genRob.genControl.client.protocol.RMI</TT> mit dem Wert <TT>true</TT>
+    belegt werden.&nbsp;
+    Unabhängig davon beginnt die Klienten-Bibliothek immer zunächst mit dem
+    nicht RMI-basierten Protokoll und wechselt erst bei Anzeichen von
+    Unverständnis seitens des Servers auf RMI.&nbsp;
+    Beispielsweise:
+</P>
+
+<P>
+    <B>Windows</B>:&nbsp;
+    (alles in eine Zeile;&nbsp; der Klassenpfad und die Java™-Eigenschaft ohne
+    Leerzeichen)
+</P>
+<BLOCKQUOTE><PRE>
+java  -DgenRob.genControl.client.protocol.RMI=true
+        -classpath <B>org.roblet.client.jar</B>;...
+        ...
+</PRE></BLOCKQUOTE>
+
+<P>
+    <B>Unix®, Linux, MacOS™</B>:&nbsp;
+    (alles in eine Zeile;&nbsp; der Klassenpfad und die Java™-Eigenschaft ohne
+    Leerzeichen)
+</P>
+<BLOCKQUOTE><PRE>
+java  -DgenRob.genControl.client.protocol.RMI=true
+        -classpath <B>org.roblet.client.jar</B>:...
+        ...
+</PRE></BLOCKQUOTE>
+
+
+<A name="download"></A>
+<H2>Klassen-Download</H2>
+
+<P>
+    In der Vergangenheit war zur Vereinfachung des Debugging in begrenztem
+    Maße ein Download von Klassen in Richtung Klienten möglich.&nbsp;
+    Diese Funktionalität ist nun standardmäßig abgeschaltet.&nbsp;
+    Sie steht jedoch noch zur Verfügung, wenn man explizit die
+    Java™-Eigenschaft <TT>genRob.genControl.client.download</TT> auf
+    <TT>true</TT> setzt.&nbsp;
+    Dabei muß gegebenenfalls sichergestellt werden, daß die Klienten-Bibliothek
+    das Recht hat, diese Java™-Eigenschaft zu lesen, da ansonsten <TT>false</TT>
+    angenommen wird.
+</P>
+
+<BLOCKQUOTE><PRE>
+java  -D<B>genRob.genControl.client.download</B>=true  ...
+</PRE></BLOCKQUOTE>
+
+<P>
+    Zu beachten ist, daß diese Funktionalität zukünftig gänzlich verschwinden
+    wird.&nbsp;
+    Bei geeigneter Konstruktion von Modulen für den Server ist diese
+    Funktion nicht nötig.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2004-2010 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:46.267 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.2</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+</HTML>

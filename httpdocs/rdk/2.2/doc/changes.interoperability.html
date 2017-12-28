@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+<HTML>
+
+<HEAD>
+    <META  http-equiv="Content-Type"      content="text/html; charset=UTF-8">
+    <META  http-equiv="Content-Language"  content="de">
+    <TITLE>Roblet®-Development-Kit - Änderungen - Interoperabilität</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="changes.html"  target=_top>Änderungen</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="changes.interoperability.html"  target=_top>Interoperabilität</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+
+<H1>Interoperabilität
+</H1><DIV  id="content">
+
+<P>
+    Auf dieser Seite ist aufgelistet, wie die einzelnen Klient- und
+    Server-Versionen zusammenarbeiten.&nbsp;
+    Ein Server meldet bei Kontaktaufnahme durch einen Klienten immer alle
+    ihm möglichen Versionen.&nbsp;
+    Der Klient wählt dann daraus die ihm erlaubte höchste Version aus.
+</P>
+
+<UL>
+    <LI><B>5</B> - Server kennt kein Download zum Klienten mehr</LI>
+    <LI><B>4</B> - RMI-Marshalling eingestellt</LI>
+    <LI><B>3</B> - Ferne Instanzen hinzugefügt</LI>
+    <LI><B>2</B> - Ströme hinzugefügt</LI>
+    <LI><B>1</B> - Verbindungen per TCP</LI>
+    <LI><B>RMI</B> - Implementierung zum Finden einer geeigneten
+        Schnittstelle</LI>
+</UL>
+
+<TABLE border="1" cellpadding="5">
+    <TR>
+        <TH>Protokoll<BR>\<BR>Produkt</TH>
+        <TH>5</TH>
+        <TH>4</TH>
+        <TH>3</TH>
+        <TH>2</TH>
+        <TH>1</TH>
+        <TH>RMI</TH>
+    </TR>
+    <TR>
+        <TD>RDK 2.2</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD></TD>
+    </TR>
+    <TR>
+        <TD>RDK 2.1</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD></TD>
+    </TR>
+    <TR>
+        <TD>RDK 2.0 Klient</TD>
+        <TD></TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD></TD>
+    </TR>
+    <TR>
+        <TD>RDK 1.2 Klient</TD>
+        <TD></TD>
+        <TD>x (ausschaltbar)</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>(einzuschalten, nicht mit 4)</TD>
+    </TR>
+    <TR>
+        <TD>RDK 1.2 Server</TD>
+        <TD></TD>
+        <TD>x (ausschaltbar)</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD></TD>
+    </TR>
+    <TR>
+        <TD>genControl 6.0</TD>
+        <TD></TD>
+        <TD></TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD></TD>
+    </TR>
+    <TR>
+        <TD>genControl 6.0<BR>Klient 2.0</TD>
+        <TD></TD>
+        <TD></TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>(einzuschalten)</TD>
+    </TR>
+    <TR>
+        <TD>Klient 1.0</TD>
+        <TD></TD>
+        <TD></TD>
+        <TD></TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>(einzuschalten)</TD>
+    </TR>
+    <TR>
+        <TD>genControl 5.1<BR>(einschließlich Klient)</TD>
+        <TD></TD>
+        <TD></TD>
+        <TD></TD>
+        <TD>x</TD>
+        <TD>x</TD>
+        <TD>(einzuschalten)</TD>
+    </TR>
+    <TR>
+        <TD>genControl 5.0<BR>(einschließlich Klient)</TD>
+        <TD></TD>
+        <TD></TD>
+        <TD></TD>
+        <TD></TD>
+        <TD>x</TD>
+        <TD>(einzuschalten)</TD>
+    </TR>
+    <TR>
+        <TD>genControl 0.5</TD>
+        <TD></TD>
+        <TD></TD>
+        <TD></TD>
+        <TD></TD>
+        <TD></TD>
+        <TD>x</TD>
+    </TR>
+</TABLE>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2015 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 30.12.2015 um 02:16:58.908 UTC mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>

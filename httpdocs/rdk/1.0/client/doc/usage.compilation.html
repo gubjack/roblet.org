@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Klienten-Bibliothek - Benutzung - Kompilierung</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>Klienten-Bib.</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.html"  target=_top>Benutzung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.prerequisites.html"  target=_top>Voraussetzungen</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.version.html"  target=_top>Version</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.compilation.html"  target=_top>Kompilierung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.execution.html"  target=_top>Ausführung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_5"><A  href="usage.development.html"  target=_top>Entwicklung</A></SPAN></TD></TR></TABLE></DIV><TABLE  id="content_continuous"><TR><TD>
+
+<H1>Kompilierung
+</H1><DIV  id="content">
+
+<P>
+Um eine Anwendung mit Roblets® auszustatten und mit Roblet®-Servern zu
+kommunizieren, müssen bei der Kompilierung mindestens einige Java™-Archive
+der Klienten-Bibliothek im Klassenpfad (<TT>classpath</TT>) aufgeführt
+werden.&nbsp;
+Nimmt man die Java™-Archive <TT>org.roblet.client.jar</TT>,
+<TT>genRob.genControl.client.jar</TT>, <TT>genRob.genControl.unit.jar</TT> und
+<TT>org.roblet.jar</TT> in den Klassenpfad auf, so kann man die volle
+Funktionalität der Klienten-Bibliothek einsetzen.
+</P>
+
+<P>
+<B>Windows</B>:&nbsp;
+(alles in eine Zeile;&nbsp; der Klassenpfad ohne Leerzeichen)
+</P>
+<BLOCKQUOTE><PRE>
+javac  -classpath <B>org.roblet.client.jar;</B>
+            <B>genRob.genControl.client.jar;</B>
+            <B>genRob.genControl.unit.jar;</B>
+            <B>org.roblet.jar</B>;
+            ...
+        ...
+</PRE></BLOCKQUOTE>
+
+<P>
+<B>Unix®, Linux, MacOS™</B>:&nbsp;
+(alles in eine Zeile;&nbsp; der Klassenpfad ohne Leerzeichen)
+</P>
+<BLOCKQUOTE><PRE>
+javac  -classpath <B>org.roblet.client.jar:</B>
+            <B>genRob.genControl.client.jar:</B>
+            <B>genRob.genControl.unit.jar:</B>
+            <B>org.roblet.jar</B>:
+            ...
+        ...
+</PRE></BLOCKQUOTE>
+
+<P>
+Nicht alle Java™-Archive müssen angegeben werden.&nbsp;
+Eine Mehrangabe wird in den allermeisten Fällen aber nicht schaden.&nbsp;
+Eine Angabe der Jini™-Java™-Archive <TT>jini-core.jar</TT> und
+<TT>jini-ext.jar</TT> ist nicht nötig, auf Jini™-Funktionalität im Rahmen der
+Roblet®-Technik nicht direkt zugegriffen werden muß.
+</P>
+
+<P>
+Die Java™-Archve sind alle mit eigenen Klassenpfaden ausgestattet.&nbsp;
+Jedoch verwendet der Compiler <TT>javac</TT> im Gegensatz zur JVM <TT>java</TT>
+diese Abhängigkeiten nicht.
+</P>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2004-2010 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 22.05.2010 um 02:46:46.264 CEST mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.2</SPAN></TD></TR></TABLE></DIV></TD></TR></TABLE></BODY>
+</HTML>

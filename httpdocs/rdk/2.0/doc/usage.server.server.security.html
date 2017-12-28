@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN">
+
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Content-Language" content="de">
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <TITLE>Roblet®-Development-Kit - Einsatz - Roblet®-Server - Server
+        - Sicherheit</TITLE>
+<LINK  rel="stylesheet"  type="text/css"  href="genRob.css"></HEAD>
+
+<BODY><TABLE  id="top_continuous"><TR><TD  class="logo"><A  href="http://roblet.org"  target=_top><IMG  src="home.png"></A></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="index.html"  target=_top>RDK</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.html"  target=_top>Einsatz</A></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.html"  target=_top>Roblet®-Server</A></SPAN></TD></TR></TABLE><DIV id="left"><TABLE><TR><TD><SPAN  class="square"  id="off"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="active"><A  href="usage.server.server.html"  target=_top>Server</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_1"><A  href="usage.server.server.execution.html"  target=_top>Ausführung</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_2"><A  href="usage.server.server.console.html"  target=_top>Befehlszeile</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id="active"></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_3"><A  href="usage.server.server.security.html"  target=_top>Sicherheit</A></SPAN></TD></TR><TR><TD><SPAN  class="square"  id=""></SPAN></TD><TD  class="menu"><SPAN  class="menu_item"  id="blue_4"><A  href="usage.server.server.limitations.html"  target=_top>Randbedingungen</A></SPAN></TD></TR></TABLE></DIV><DIV  id="body_continuous">
+
+<H1>Sicherheit
+</H1><DIV  id="content">
+
+<P>
+    Die <A href="http://roblet.org/de">Roblet®-Technik</A> bezieht einen großen
+    Teil ihrer Leistungsfähigkeit aus der Tatsache, daß Java™-Code zur Laufzeit
+    mit großer Einfachheit zu Roblet®-Servern transportiert und sofort zur
+    Ausführung gebracht werden kann.&nbsp;
+    Genau das könnte aber auch Sicherheitsrisiken mit sich bringen, wenn nicht
+    auf Server-Seite eingebaute <B>Sicherheitsmechanismen</B> vorhanden
+    wären.&nbsp;
+    Dieses Kapitel beschreibt die Mechanismen.
+</P>
+
+
+<H2>Sandbox für Roblets®</H2>
+
+<P>
+    Nicht erst die Roblet®-Technik ist auf Probleme mit transportiertem Code
+    gestoßen.&nbsp;
+    Java™ ist seit der ersten Stunde damit konfrontiert.&nbsp;
+    Beispiele für ähnliche Fälle sind Applets und RMI
+    (remote method invocation).&nbsp;
+    In jedem Fall ist es notwendig, daß der "fremde" Code in der JVM oder gar
+    dem unterliegenden Betriebssystem und seinen Ressourcen, Schaden anrichten
+    kann.&nbsp;
+    Allein schon das Lesen von Daten kann dabei ein Schade sein.
+</P>
+
+<P>
+    Java™ wurde aus diesem Grund in der JVM und in der Java™-Bibliothek mit
+    Mechanismen ausgestattet, die eine völlige Abgrenzung des "fremden" Codes
+    vom "eigenen" Code erzwingen.&nbsp;
+    Für Applets, die in einer Browser laufen, hat sich dafür der Begriff
+    <I>Sandbox</I> eingebürgert.&nbsp;
+    Diese in Browsern millionenfach bewährte Sandbox-Technik wird auch im
+    Roblet®-Server für den Betrieb der Roblets® eingesetzt.
+</P>
+
+<P>
+    Roblets® können daher keinerlei Ressourcen <I>direkt</I> zugreifen.&nbsp;
+    Konkret sind keine direkten Zugriffe auf Java™-Eigenschaften, Dateien,
+    Netzwerk, JNI-Schnittstellen u.v.a.m möglich.&nbsp;
+    Zugriffe auf dieser Art werden über <EM>Einheiten</EM> ermöglicht.&nbsp;
+    Einheiten werden in <EM>Modulen</EM> bereitgestellt.&nbsp;
+    Mehr dazu im
+    Kapitel <A href="usage.server.development.html">Entwicklung</A>
+    und <A href="overview.app.html">Überblick für Anwendungsentwickler</A>.
+</P>
+
+
+<H2>Arbeitsweise des Servers</H2>
+
+<P>
+    Bei der <A href="usage.server.server.execution.html">Ausführung</A>
+    bzw. genauer beim Start des Servers wird zunächst geprüft, ob ein externer
+    Sicherheits-Manager per Java™-Eigenschaft
+    <TT>java.security.manager</TT> gesetzt wurde.&nbsp;
+    Ist dies der Fall, so wird vom Server nichts weiter unternommen, sondern
+    die dadurch gesetzten Sicherheitsmerkmale inkl. Sicherheitsrichtlinien
+    werden akzeptiert und gelten dann für den <I>Server und die
+    Module</I>.&nbsp;
+    Mehr dazu <A href="#secman">weiter unten</A>.
+</P>
+
+<P>
+    Wurde jedoch kein Sicherheits-Manager "von außen" gesetzt, so wird ein
+    eigener gesetzt.&nbsp;
+    Dieser läßt für den <I>Server und die Module</I> alles zu.&nbsp;
+    Im diesem Fall können also der Server und die von ihm geladenen Module
+    auf jegliche Ressourcen direkt ohne Einschränkung zugreifen.
+</P>
+
+<P>
+    Gleichzeitig wird für beide eben genannten Fälle trotzdem für jedes einzelne
+    <I>Roblet®</I> stets ein separater Sicherheitsbereich eingerichtet, der die
+    Zugriffsmöglichkeiten auf eine "Sandbox" einschränkt.&nbsp;
+    Dadurch kann kein Roblet® Ressourcen zugreifen, die nicht über den
+    Server und die Einheiten in den Modulen vermittelt werden.&nbsp;
+    Es sind deshalb trotzdem keine Datei- und Netzwerkzugriffe u.v.a.m. ohne
+    entsprechende Einheit/Modul möglich.
+</P>
+
+
+<A name="secman"></A>
+<H2>Sicherheitsmanager von "außen" für spezielle Sicherheitsrichtlinien</H2>
+
+<P class="important">
+    Die in diesem Kapitel gemachten Angaben sind eine Vereinfachung.&nbsp;
+    Das Sicherheitskonzept für JVM's läßt aber noch deutlich mehr zu, wobei
+    dafür die Dokumentation des jeweiligen Herstellers der JVM zu konsultieren
+    ist.
+</P>
+
+<P>
+    Generell kann man mit einem Sicherheitsmanager von "außen" per
+    <TT>java.security.manager=mypackage.ASpecialManager</TT> sämtliche
+    Möglichkeiten des Schutzes einer JVM ausnutzen.&nbsp;
+    Selten wird jedoch diese ursprüngliche Art der Kontrolle verwendet.
+</P>
+
+<P>
+    Stattdessen setzt man meist einfach <TT>java.security.manager</TT>
+    (ohne Angabe eines Klassennamens) und erreicht dadurch, daß von der
+    JVM der Standard-Sicherheitsmanager gesetzt wird.&nbsp;
+    Dieser läßt zu, daß der Nutzer mit Hilfe von <EM>Sicherheitsrichtlinien</EM>
+    per Java™-Eigenschaft <TT>java.security.policy=pathto/MyPolicy</TT>
+    die Möglichkeiten für den <I>Server und die Module</I> einschränkt.&nbsp;
+    Die Möglichkeiten von <I>Roblets®</I> werden dadurch indirekt auch
+    beeinflußt, da sie Ressourcen über Einheiten in Modulen zugreifen.
+ </P>
+ 
+ <PRE class="console">
+ java ... -Djava.security.manager -Djava.security.policy=pathto/MyPolicy ...
+ </PRE>
+
+<P>
+    In der Einrichtungsphase der Sicherheitsrichtlinien ist oftmals die
+    Java™-Eigenschaft <TT>java.security.debug</TT> mit ihren vielen
+    Möglichkeiten hilfreich.&nbsp;
+    Hier ein einfaches, brauchbares Beispiel:
+ </P>
+ 
+ <PRE class="console">
+ java ... -Djava.security.debug=access,failure -Djava.security.manager -Djava.security.policy=pathto/MyPolicy ...
+ </PRE>
+
+
+<H2>Weitere Schutzmöglichkeiten</H2>
+
+<P>
+    Möchte oder muß man die Zugriffsmöglichkeiten der JVM noch weiter
+    kontrollieren, so bieten sich erfahrungsgemäß verschiedene Mechanismen
+    der unterliegenden Betriebssysteme an.&nbsp;
+    Für Windows-Systeme bieten sich eine Fülle von Betriebssystemsfunktionen
+    und Programmen anderer Hersteller.&nbsp;
+    Unter Unix-Systeme sei hier stellvertretend genannt:
+</P>
+
+<TABLE cellpadding="5">
+    <TR>
+        <TH align="left">Funktion</TH>
+        <TH align="left">Nutzen</TH>
+    </TR>
+    <TR>
+        <TD><TT>quota</TT></TD>
+        <TD>Dateisystemsbeschränkungen</TD>
+    </TR>
+    <TR>
+        <TD>Nutzersystem</TD>
+        <TD>Dateisystemsbeschränkungen, Ausführungsbeschränkungen u.v.a.m.</TD>
+    </TR>
+    <TR>
+        <TD>Firewall</TD>
+        <TD>Netzwerksbeschränkungen</TD>
+    </TR>
+    <TR>
+        <TD><TT>chroot</TT></TD>
+        <TD>Dateisystemsbeschränkungen, Ausführungsbeschränkungen u.v.a.m.</TD>
+    </TR>
+</TABLE>
+
+
+</DIV><DIV  id="footer"><DIV  id="footer_left">© 2001-2011 roblet®.org, Hagen Stanek</DIV></DIV><DIV  id="genSite"><TABLE><TR><TD><IMG  src="genRob-button.png"  alt="powered by genRob&reg;"></TD><TD><SPAN  class="small">erzeugt am 08.01.2011 um 12:28:48.088 CET mit</SPAN><BR><SPAN  class="mid">genRob®-genSite 3.4</SPAN></TD></TR></TABLE></DIV></DIV></BODY>
+
+</HTML>
