@@ -1,3 +1,5 @@
 _site
+.classpath
 .sass-cache
 .jekyll-metadata
+.project
